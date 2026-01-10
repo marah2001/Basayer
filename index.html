@@ -12,6 +12,366 @@
             --elegant-beige: #F5F5DC;
             --gold-accent: #C5A059;
         }
+        body { font-family: 'Tajawal', sans-serif; background-color: #FCFAf5; scroll-behavior: smooth; }
+        
+        h1, h2, .font-amiri { font-family: 'Amiri', serif; }
+
+        .islamic-pattern {
+            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
+            opacity: 0.05;
+            position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none;
+            animation: backgroundMove 20s linear infinite;
+        }
+
+        @keyframes backgroundMove {
+            from { background-position: 0 0; }
+            to { background-position: 100px 100px; }
+        }
+
+        .btn-gold {
+            background-color: var(--gold-accent);
+            color: white;
+            transition: 0.3s;
+            box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
+            animation: pulse-gold 2s infinite;
+        }
+
+        @keyframes pulse-gold {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(93, 64, 55, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <div class="text-3xl font-bold text-[#5D4037] font-amiri tracking-wider">معهد بَصائر</div>
+                <div class="h-8 w-[1px] bg-gray-300 mx-2"></div>
+                <p class="text-[10px] text-gray-500 hidden md:block leading-tight">بالتعاون مع<br>وزارة الأوقاف</p>
+            </div>
+            <ul class="hidden lg:flex space-x-8 space-x-reverse text-[#5D4037] font-medium">
+                <li><a href="#about" class="hover:text-[#C5A059] transition">عن المعهد</a></li>
+                <li><a href="#path" class="hover:text-[#C5A059] transition">المسار العلمي</a></li>
+                <li><a href="#community" class="hover:text-[#C5A059] transition">المجتمع</a></li>
+                <li><a href="#contact" class="hover:text-[#C5A059] transition">تواصل معنا</a></li>
+            </ul>
+            <button onclick="openLogin()" class="btn-gold px-6 py-2 rounded-md font-bold shadow-md text-sm">بوابة الطالب</button>
+        </div>
+    </nav>
+
+    <section class="relative bg-[#F5F5DC] py-24 overflow-hidden border-b-4 border-[#C5A059]">
+        <div class="islamic-pattern"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold text-[#4E342E] mb-6">هدية العلم.. بصيرة للعمل</h1>
+            <p class="text-xl text-[#6D4C41] max-w-2xl mx-auto leading-relaxed mb-10">
+                معهد بصائر يقدم لكم العلوم الشرعية بأصلها الراسخ وطابعها الحديث، مجاناً لوجه الله تعالى.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#path" class="bg-[#5D4037] text-white px-10 py-4 rounded-lg text-lg shadow-xl hover:bg-[#3E2723] transition">ابدأ رحلتك العلمية</a>
+                <a href="#community" class="bg-white text-[#5D4037] border border-[#5D4037] px-10 py-4 rounded-lg text-lg hover:bg-[#F5F5DC] transition">تصفح المجتمع المفتوح</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 relative">
+                <div class="absolute -top-4 -right-4 w-24 h-24 border-t-4 border-r-4 border-[#C5A059]"></div>
+                <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?q=80&w=1000&auto=format&fit=crop" class="rounded-2xl shadow-2xl border-8 border-[#F5F5DC]">
+                <div class="absolute -bottom-4 -left-4 w-24 h-24 border-b-4 border-l-4 border-[#5D4037]"></div>
+            </div>
+            <div class="md:w-1/2 text-right">
+                <h2 class="text-4xl font-bold text-[#5D4037] font-amiri mb-6">رسالة بصائر</h2>
+                <p class="text-gray-700 leading-loose mb-6 text-lg italic">
+                    تأسس معهد بصائر للعلوم الشرعية ليكون جسراً يربط بين تراثنا الإسلامي الأصيل وأدوات العصر الحديث، بإشراف نخبة من المختصين وبالتنسيق مع وزارة الأوقاف.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-[#F5F5DC] rounded-lg border-r-4 border-[#C5A059]">
+                        <h4 class="font-bold text-[#5D4037]">منهجية معتمدة</h4>
+                        <p class="text-xs text-gray-600 italic">دروس شرعية مؤصلة</p>
+                    </div>
+                    <div class="p-4 bg-[#F5F5DC] rounded-lg border-r-4 border-[#5D4037]">
+                        <h4 class="font-bold text-[#5D4037]">بيئة تفاعلية</h4>
+                        <p class="text-xs text-gray-600 italic">تواصل مباشر مع المشايخ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="path" class="py-20 bg-[#FCFAf5] relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-[#5D4037] font-amiri mb-4">خريطة بصائر العلمية</h2>
+            <p class="text-[#C5A059] font-bold mb-10 italic">منهجية شرعية متكاملة</p>
+
+            <div class="inline-flex bg-white p-1 rounded-full mb-16 border border-[#C5A059] shadow-md">
+                <button onclick="showSemester(1)" id="btn-sem1" class="px-8 py-2 rounded-full font-bold transition-all text-[#5D4037]">الفصل الأول</button>
+                <button onclick="showSemester(2)" id="btn-sem2" class="px-8 py-2 rounded-full font-bold transition-all bg-[#5D4037] text-white">الفصل الثاني (الحالي)</button>
+            </div>
+
+            <div id="semester1-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 hidden">
+                <div class="course-card p-6 bg-white border border-[#F5F5DC] rounded-2xl text-center border-t-4 border-[#C5A059] transition-all">
+                    <div class="text-2xl mb-2 italic text-[#C5A059] opacity-30 font-serif">٠١</div>
+                    <h3 class="font-bold text-[#5D4037] font-amiri">العقيدة الإسلامية (1)</h3>
+                    <p class="text-xs text-gray-500 mt-2 italic">تأصيل التوحيد وأصول الإيمان</p>
+                </div>
+                <div class="course-card p-6 bg-white border border-[#F5F5DC] rounded-2xl text-center border-t-4 border-[#5D4037] transition-all">
+                    <div class="text-2xl mb-2 italic text-[#C5A059] opacity-30 font-serif">٠٢</div>
+                    <h3 class="font-bold text-[#5D4037] font-amiri">أصول الفقه</h3>
+                    <p class="text-xs text-gray-500 mt-2 italic">قواعد استنباط الأحكام الشرعية</p>
+                </div>
+                <div class="course-card p-6 bg-white border border-[#F5F5DC] rounded-2xl text-center border-t-4 border-[#C5A059] transition-all">
+                    <div class="text-2xl mb-2 italic text-[#C5A059] opacity-30 font-serif">٠٣</div>
+                    <h3 class="font-bold text-[#5D4037] font-amiri">الفقه الإسلامي</h3>
+                    <p class="text-xs text-gray-500 mt-2 italic">فقه العبادات والمعاملات</p>
+                </div>
+                <div class="course-card p-6 bg-white border border-[#F5F5DC] rounded-2xl text-center border-t-4 border-[#5D4037] transition-all">
+                    <div class="text-2xl mb-2 italic text-[#C5A059] opacity-30 font-serif">٠٤</div>
+                    <h3 class="font-bold text-[#5D4037] font-amiri">اللغة العربية</h3>
+                    <p class="text-xs text-gray-500 mt-2 italic">علوم النحو والصرف والبلاغة</p>
+                </div>
+                <div class="course-card p-6 bg-white border border-[#F5F5DC] rounded-2xl text-center border-t-4 border-[#C5A059] transition-all">
+                    <div class="text-2xl mb-2 italic text-[#C5A059] opacity-30 font-serif">٠٥</div>
+                    <h3 class="font-bold text-[#5D4037] font-amiri">السيرة النبوية</h3>
+                    <p class="text-xs text-gray-500 mt-2 italic">دراسة حياة النبي ﷺ ومنهجه</p>
+                </div>
+                <div class="course-card p-6 bg-white border border-[#F5F5DC] rounded-2xl text-center border-t-4 border-[#5D4037] transition-all">
+                    <div class="text-2xl mb-2 italic text-[#C5A059] opacity-30 font-serif">٠٦</div>
+                    <h3 class="font-bold text-[#5D4037] font-amiri">علوم القرآن</h3>
+                    <p class="text-xs text-gray-500 mt-2 italic">تاريخ تدوين وإعجاز الكتاب</p>
+                </div>
+                <div class="course-card p-6 bg-white border border-[#F5F5DC] rounded-2xl text-center border-t-4 border-[#C5A059] transition-all lg:col-span-2">
+                    <div class="text-2xl mb-2 italic text-[#C5A059] opacity-30 font-serif">٠٧</div>
+                    <h3 class="font-bold text-[#5D4037] font-amiri">الثقافة الإسلامية</h3>
+                    <p class="text-xs text-gray-500 mt-2 italic">تعزيز الهوية وقضايا العصر</p>
+                </div>
+            </div>
+
+            <div id="semester2-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="course-card p-8 bg-white border border-[#F5F5DC] rounded-2xl text-center border-t-4 border-[#C5A059] transition-all shadow-sm">
+                    <div class="text-3xl mb-4 italic text-[#C5A059] opacity-40 font-serif">٠١</div>
+                    <h3 class="text-xl font-bold text-[#5D4037] font-amiri">فقه المعاملات</h3>
+                    <p class="text-sm text-gray-600 mt-2 italic leading-relaxed text-center">دراسة أحكام البيوع والتعاملات المالية المعاصرة.</p>
+                </div>
+                <div class="course-card p-8 bg-white border border-[#F5F5DC] rounded-2xl text-center border-t-4 border-[#5D4037] transition-all shadow-sm">
+                    <div class="text-3xl mb-4 italic text-[#C5A059] opacity-40 font-serif">٠٢</div>
+                    <h3 class="text-xl font-bold text-[#5D4037] font-amiri">العقيدة الإسلامية (2)</h3>
+                    <p class="text-sm text-gray-600 mt-2 italic leading-relaxed text-center">متابعة دراسة المسائل العقدية والرد على الشبهات.</p>
+                </div>
+                <div class="course-card p-8 bg-white border border-[#F5F5DC] rounded-2xl text-center border-t-4 border-[#C5A059] transition-all shadow-sm">
+                    <div class="text-3xl mb-4 italic text-[#C5A059] opacity-40 font-serif">٠٣</div>
+                    <h3 class="text-xl font-bold text-[#5D4037] font-amiri">علم مصطلح الحديث</h3>
+                    <p class="text-sm text-gray-600 mt-2 italic leading-relaxed text-center">تأصيل القواعد لتمييز صحيح الحديث من ضعيفه.</p>
+                </div>
+                <div class="course-card p-8 bg-white border border-[#F5F5DC] rounded-2xl text-center border-t-4 border-[#5D4037] transition-all shadow-sm">
+                    <div class="text-3xl mb-4 italic text-[#C5A059] opacity-40 font-serif">٠٤</div>
+                    <h3 class="text-xl font-bold text-[#5D4037] font-amiri">فقه الأسرة</h3>
+                    <p class="text-sm text-gray-600 mt-2 italic leading-relaxed text-center">أحكام الزواج والطلاق والحقوق الأسرية في الإسلام.</p>
+                </div>
+                <div class="course-card p-8 bg-white border border-[#F5F5DC] rounded-2xl text-center border-t-4 border-[#C5A059] transition-all shadow-sm">
+                    <div class="text-3xl mb-4 italic text-[#C5A059] opacity-40 font-serif">٠٥</div>
+                    <h3 class="text-xl font-bold text-[#5D4037] font-amiri">قضايا معاصرة: فرق ومذاهب</h3>
+                    <p class="text-sm text-gray-600 mt-2 italic leading-relaxed text-center">دراسة المذاهب الفكرية والتيارات المعاصرة.</p>
+                </div>
+                <div class="course-card p-8 bg-white border border-[#F5F5DC] rounded-2xl text-center border-t-4 border-[#5D4037] transition-all shadow-sm">
+                    <div class="text-3xl mb-4 italic text-[#C5A059] opacity-40 font-serif">٠٦</div>
+                    <h3 class="text-xl font-bold text-[#5D4037] font-amiri">فقه الدعوة</h3>
+                    <p class="text-sm text-gray-600 mt-2 italic leading-relaxed text-center">أساليب الدعوة إلى الله بالحكمة والموعظة الحسنة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="community" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-[#5D4037] font-amiri mb-12">مجتمع بصائر التفاعلي</h2>
+            <div class="space-y-6">
+                <div class="bg-[#FCFAf5] border border-gray-100 p-6 rounded-2xl hover:shadow-md transition">
+                    <div class="flex justify-between items-start">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-[#5D4037] rounded-full flex items-center justify-center text-white font-bold italic">أ</div>
+                            <div>
+                                <h4 class="font-bold text-[#5D4037]">أحمد القحطاني</h4>
+                                <p class="text-gray-700 mt-2 italic">"سؤال في مسألة المصالح المرسلة، هل يمكن اعتبار تقنين قوانين المرور منها؟"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[#FCFAf5] border border-gray-100 p-6 rounded-2xl hover:shadow-md transition text-right">
+                    <div class="flex justify-between items-start">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-[#C5A059] rounded-full flex items-center justify-center text-white font-bold italic">م</div>
+                            <div>
+                                <h4 class="font-bold text-[#5D4037]">مريم عبدالله</h4>
+                                <p class="text-gray-700 mt-2 italic">"فائدة اليوم من درس السيرة: كيف كان النبي ﷺ يعامل الوفود بمرونة وحكمة."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mr-16 mt-4 flex gap-6 text-xs text-gray-500">
+                        <button onclick="toggleLike(this)" class="hover:text-red-500 transition flex items-center gap-1">
+                            ❤️ <span class="like-count">24</span> إعجاب
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-[#FDFBF7]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-lg flex flex-col md:flex-row overflow-hidden border border-[#F5F5DC]">
+                <div class="md:w-1/3 bg-[#5D4037] p-10 text-white flex flex-col justify-center">
+                    <h4 class="text-xl font-bold mb-4 font-amiri">تواصل معنا</h4>
+                    <div class="space-y-4 text-xs opacity-90 italic">
+                        <p>📍 المقر الرئيسي: بالتنسيق مع وزارة الأوقاف</p>
+                        <p>🌐 https://moodle.ibnbazgaza.org/</p>
+                        <p>📞 هاتف: 00966XXXXXXXX</p>
+                    </div>
+                </div>
+                <div class="md:w-2/3 p-10">
+                    <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="الاسم" class="p-3 border-b-2 border-[#F5F5DC] focus:border-[#C5A059] outline-none transition">
+                        <input type="email" placeholder="البريد" class="p-3 border-b-2 border-[#F5F5DC] focus:border-[#C5A059] outline-none transition">
+                        <textarea placeholder="رسالتك" class="md:col-span-2 p-3 border-b-2 border-[#F5F5DC] focus:border-[#C5A059] outline-none transition h-24"></textarea>
+                        <button class="md:col-span-2 bg-[#C5A059] text-white py-3 rounded-xl font-bold hover:shadow-lg transition">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#3E2723] text-[#F5F5DC] py-10 border-t-8 border-[#C5A059]">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-amiri text-2xl mb-4 tracking-widest">معهد بصائر للعلوم الشرعية</p>
+            <p class="text-[10px] opacity-60">جميع الحقوق محفوظة - تم التطوير بحب كهدية للمعهد © 2026</p>
+        </div>
+    </footer>
+
+    <div id="announcementModal" class="fixed inset-0 bg-black/60 backdrop-blur-md z-[200] flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl border-t-8 border-[#C5A059] overflow-hidden relative">
+            <button onclick="closeAnnounce()" class="absolute top-4 left-4 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+            <div class="p-8 md:p-12 text-center">
+                <span class="bg-[#F5F5DC] text-[#5D4037] px-4 py-1 rounded-full text-xs font-bold italic">بشرى سارة</span>
+                <h2 class="text-3xl font-bold text-[#5D4037] font-amiri mt-4">إعلان بدء الفصل الدراسي الثاني</h2>
+                <div class="w-16 h-1 bg-[#C5A059] mx-auto my-4"></div>
+                <p class="text-gray-700 leading-relaxed mb-6 font-medium italic text-right">
+                    إلى طلابنا النجباء.. نود إعلامكم بأن موعد انطلاق الفصل الدراسي الثاني سيكون بمشيئة الله يوم السبت 17 يناير (28 رجب).
+                </p>
+                <button onclick="closeAnnounce()" class="bg-[#5D4037] text-white px-10 py-3 rounded-xl font-bold hover:bg-[#3E2723] transition-all">تم الاطلاع</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loginModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[200] hidden items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl border-2 border-[#C5A059] overflow-hidden">
+            <div class="bg-[#5D4037] p-6 text-white text-center">
+                <h3 class="text-2xl font-amiri">بوابة طالب العلم</h3>
+                <p class="text-xs opacity-80 mt-2 italic">أدخل رقم الهوية للتحقق من قبولك</p>
+            </div>
+            <div class="p-8">
+                <input type="text" id="idInput" placeholder="رقم الهوية / السجل المدني" 
+                    class="w-full p-4 rounded-xl border-2 border-[#F5F5DC] focus:border-[#C5A059] outline-none transition text-center text-xl mb-4">
+                <button onclick="checkStudent()" id="checkBtn" class="w-full bg-[#C5A059] text-white font-bold py-4 rounded-xl hover:bg-[#5D4037] transition">تحقق من التسجيل</button>
+                <p id="loginMsg" class="text-center mt-4 text-sm font-bold"></p>
+                <button onclick="closeLogin()" class="w-full mt-4 text-gray-400 text-xs italic">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Semester Switching Logic
+        function showSemester(semNum) {
+            const sem1 = document.getElementById('semester1-content');
+            const sem2 = document.getElementById('semester2-content');
+            const btn1 = document.getElementById('btn-sem1');
+            const btn2 = document.getElementById('btn-sem2');
+
+            if (semNum === 1) {
+                sem1.classList.remove('hidden');
+                sem2.classList.add('hidden');
+                btn1.className = "px-8 py-2 rounded-full font-bold transition-all bg-[#5D4037] text-white shadow-md";
+                btn2.className = "px-8 py-2 rounded-full font-bold transition-all text-[#5D4037]";
+            } else {
+                sem1.classList.add('hidden');
+                sem2.classList.remove('hidden');
+                btn2.className = "px-8 py-2 rounded-full font-bold transition-all bg-[#5D4037] text-white shadow-md";
+                btn1.className = "px-8 py-2 rounded-full font-bold transition-all text-[#5D4037]";
+            }
+        }
+
+        // 2. Student Verification (Place your Google Sheet CSV URL here)
+        const SHEET_URL = "YOUR_GOOGLE_SHEET_CSV_LINK_HERE";
+
+        async function checkStudent() {
+            const id = document.getElementById('idInput').value;
+            const msg = document.getElementById('loginMsg');
+            if(!id) { msg.innerText = "يرجى إدخال الرقم"; return; }
+            
+            msg.innerText = "جاري التحقق من كشوفات الوزارة...";
+            msg.style.color = "brown";
+
+            try {
+                // If you don't have the link yet, this is a mock check
+                if(id === "123456") { // تجربة برقم وهمي
+                    msg.innerText = "تم التحقق! أهلاً بك في بصائر";
+                    msg.style.color = "green";
+                } else {
+                    msg.innerText = "هذا الرقم غير مدرج في كشوفات المقبولين حالياً";
+                    msg.style.color = "red";
+                }
+            } catch(e) { msg.innerText = "خطأ في الاتصال"; }
+        }
+
+        // 3. UI Helpers
+        function closeAnnounce() { document.getElementById('announcementModal').classList.add('hidden'); }
+        function openLogin() { document.getElementById('loginModal').classList.remove('hidden'); document.getElementById('loginModal').classList.add('flex'); }
+        function closeLogin() { document.getElementById('loginModal').classList.add('hidden'); }
+        function toggleLike(btn) {
+            let s = btn.querySelector('.like-count');
+            let c = parseInt(s.innerText);
+            btn.classList.toggle('text-red-500');
+            s.innerText = btn.classList.contains('text-red-500') ? c+1 : c-1;
+        }
+
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                }
+            });
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معهد بصائر للعلوم الشرعية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-brown: #5D4037;
+            --elegant-beige: #F5F5DC;
+            --gold-accent: #C5A059;
+        }
         body { font-family: 'Tajawal', sans-serif; background-color: #FCFAf5; }
         .islamic-pattern {
             background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
@@ -249,7 +609,7 @@ function switchProgram(type) {
                 <p class="text-sm opacity-80 mb-6">نحن هنا للإجابة على استفساراتكم المتعلقة بالدبلومات والمساقات.</p>
                 <div class="space-y-4">
                     <p class="text-xs">📍 المقر الرئيسي: بالتنسيق مع وزارة الأوقاف</p>
-                    <p class="text-xs">📧 البريد: info@basaer.edu</p>
+                    <p class="text-xs">📧 https://moodle.ibnbazgaza.org/</p>
                     <p class="text-xs">📞 هاتف: 00966XXXXXXXX</p>
                 </div>
             </div>
@@ -270,6 +630,31 @@ function switchProgram(type) {
             <p class="text-sm opacity-70">جميع الحقوق محفوظة - تم التطوير بحب كهدية للمعهد © 2026</p>
         </div>
     </footer>
+    <div id="announcementModal" class="fixed inset-0 bg-black/60 backdrop-blur-md z-[200] flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl border-t-8 border-[#C5A059] overflow-hidden relative">
+        <button onclick="closeAnnounce()" class="absolute top-4 left-4 text-gray-400 hover:text-[#5D4037] text-2xl font-bold">&times;</button>
+        
+        <div class="p-8 md:p-12 text-center">
+            <span class="bg-[#F5F5DC] text-[#5D4037] px-4 py-1 rounded-full text-sm font-bold">بشرى سارة</span>
+            <h2 class="text-3xl font-bold text-[#5D4037] font-amiri mt-4">إعلان بدء الفصل الدراسي الثاني</h2>
+            <div class="w-16 h-1 bg-[#C5A059] mx-auto my-4"></div>
+            
+            <p class="text-gray-700 leading-relaxed mb-6 font-medium">
+                بقلوبٍ يملؤها الشوق لتجديد اللقاء بكم في رحاب العلم.. نود إعلامكم بأن موعد انطلاق الفصل الدراسي الثاني سيكون بمشيئة الله يوم <span class="text-[#C5A059] font-bold">السبت 17 يناير</span>.
+            </p>
+
+            <div class="bg-[#FCFAf5] p-4 rounded-2xl border border-[#F5F5DC] mb-6">
+                <p class="text-sm text-[#5D4037] font-bold">الموعد الهجري: 28 رجب</p>
+            </div>
+
+            <button onclick="closeAnnounce()" class="bg-[#5D4037] text-white px-10 py-3 rounded-xl font-bold hover:bg-[#3E2723] transition-all">
+                تم الاطلاع.. وبوركت الجهود
+            </button>
+        </div>
+    </div>
+</div>
+
+
 <script>
     // 1. نظام الإعجاب الوهمي (للزوار)
     function toggleLike(button) {
@@ -329,6 +714,10 @@ async function loadHonors() {
 window.onload = () => {
     loadHonors();
 };
+ function closeAnnounce() {
+        document.getElementById('announcementModal').style.display = 'none';
+    }
 </script>
+
 </body>
-</html>
+</html> -->
