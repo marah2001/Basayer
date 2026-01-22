@@ -624,6 +624,253 @@
         </div>
     </div>
     <script>
+    // 1. قاعدة البيانات (المساقات والشهادات)
+    const coursesData = {
+        'العقيدة الإسلامية (1)': { teacher: 'د. بكر أبو صوصين', phone: '972599793244', desc: 'تأصيل التوحيد وأصول الإيمان على منهج أهل السنة والجماعة، ودراسة متن الطحاوية.', sem: 'الفصل الدراسي الأول' },
+        'علوم القرآن': { teacher: 'د. عامر قاسم', phone: '', desc: 'دراسة نشأة علوم القرآن، تدوينه، إعجازه، وطرق جمع القرآن الكريم.', sem: 'الفصل الدراسي الأول' },
+        'اللغة العربية': { teacher: 'د. عمر الهمص', phone: '972594080047', desc: 'مبادئ النحو العربي وتطبيقات عملية من القرآن الكريم لتذوق البلاغة اللسانية.', sem: 'الفصل الدراسي الأول' },
+        'أصول الفقه': { teacher: 'د. حسام الجزار', phone: '970567331795', desc: 'دراسة قواعد الاستنباط والأدلة المتفق عليها والمختلف فيها عند الأصوليين.', sem: 'الفصل الدراسي الأول' },
+        'الفقه الإسلامي': { teacher: 'د. صهيب الرومي', phone: '972592160004', desc: 'فقه العبادات (الصلاة، الصيام، الزكاة، والحج) مع التركيز على المسائل المعاصرة.', sem: 'الفصل الدراسي الأول' },
+        'الثقافة الإسلامية': { teacher: 'د. ناصر المصري', phone: '972599855043', desc: 'بناء الهوية الإسلامية في ظل العولمة ومناقشة قضايا الفكر المعاصر.', sem: 'الفصل الدراسي الأول' },
+        'السيرة النبوية': { teacher: 'د. بلال عابدين', phone: '970595058020', desc: 'قراءة في سيرة النبي ﷺ من الولادة حتى الوفاة مع استخراج الدروس الدعوية والتربوية.', sem: 'الفصل الدراسي الأول' },
+        'فقه المعاملات': { teacher: 'د. صهيب الرومي', phone: '972592160004', desc: 'أحكام البيوع، المصارف الإسلامية، والعقود المالية الحديثة.', sem: 'الفصل الدراسي الثاني' },
+        'العقيدة الإسلامية (2)': { teacher: 'د. بكر أبو صوصين', phone: '972599793244', desc: 'دراسة الفرق والمذاهب، ومسائل القضاء والقدر، والرد على الملحدين.', sem: 'الفصل الدراسي الثاني' },
+        'علم مصطلح الحديث': { teacher: 'د. عبد المعطي الأخرس', phone: '972598899271', desc: 'قواعد تمييز الحديث من حيث القبول والرد، ودراسة سلسلة الرواة.', sem: 'الفصل الدراسي الثاني' },
+        'فقه الأسرة': { teacher: 'د. أسامة الجزار', phone: '970599478538', desc: 'أحكام النكاح، الطلاق، المواريث، وحقوق الأبناء في الإسلام.', sem: 'الفصل الدراسي الثاني' },
+        'قضايا معاصرة': { teacher: 'د. عماد الداية', phone: '970592722232', desc: 'تتبع المذاهب الفكرية المنحرفة وكيفية تحصين المجتمع منها.', sem: 'الفصل الدراسي الثاني' },
+        'فقه الدعوة': { teacher: 'د. عمر الهمص', phone: '972594080047', desc: 'أحكام الدعوة إلى الله، فقه الموازنات، ومهارات التأثير في الآخرين.', sem: 'الفصل الدراسي الثاني' }
+    };
+
+    const certificateImages = ['cert1.jpg', 'cert2.jpg', 'cert3.jpg'];
+    let currentIdx = 0;
+
+    // 2. دوال التحكم في الواجهة (Modals & Navigation)
+    function toggleModal(id, action = 'open') {
+        const modal = document.getElementById(id);
+        if (!modal) return;
+        if (action === 'open') {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        } else {
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+            if (id === 'courseModal') modal.style.display = 'none'; 
+        }
+    }
+
+    function toggleMobileMenu() {
+        const menu = document.getElementById('navMenu');
+        const icon = document.getElementById('menuIcon');
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+        icon.setAttribute('d', menu.classList.contains('hidden') ? 'M4 6h16M4 12h16M4 18h16' : 'M6 18L18 6M6 6l12 12');
+    }
+
+    // 3. نظام التحقق والدخول
+    async function checkStudent() {
+    const idInput = document.getElementById('idInput').value.trim();
+    const msgArea = document.getElementById('loginMsg');
+
+    if (!idInput) {
+        msgArea.innerHTML = "<div class='error-msg'>يرجى إدخال رقم الهوية</div>";
+        return;
+    }
+
+    try {
+        // جلب البيانات من الملف الموجود على السيرفر
+        const response = await fetch('students.json');
+        
+        if (!response.ok) {
+            throw new Error("لم يتم العثور على ملف البيانات على السيرفر");
+        }
+
+        const students = await response.json();
+        const student = students.find(s => String(s["رقم الهوية"]) === idInput);
+
+        if (student) {
+            const firstName = student["الاسم رباعي "].split(' ')[0];
+            updateUIOnLogin(firstName);
+            msgArea.innerHTML = `<div class='success-msg text-center'>أهلاً بك يا ${firstName}</div>`;
+            setTimeout(() => toggleModal('loginModal', 'close'), 1000);
+        } else {
+            msgArea.innerHTML = "<div class='error-msg'>عذراً، الرقم غير مسجل</div>";
+        }
+    } catch (error) {
+        console.error("Error details:", error);
+        msgArea.innerHTML = "<div class='error-msg text-xs'>مشكلة في الوصول للبيانات. تأكدي من رفع ملف students.json</div>";
+    }
+}
+    // async function checkStudent() {
+    //     const idInput = document.getElementById('idInput').value.trim();
+    //     const msgArea = document.getElementById('loginMsg');
+
+    //     if (!idInput) {
+    //         msgArea.innerHTML = "<div class='error-msg'>يرجى إدخال رقم الهوية</div>";
+    //         return;
+    //     }
+
+    //     msgArea.innerHTML = "<div class='text-gray-400 animate-pulse text-xs'>جاري التحقق من السجلات...</div>";
+
+    //     try {
+    //         // إضافة التوقيت لمنع الكاش (Cache) وضمان قراءة أحدث نسخة من الملف
+    //         const response = await fetch('students.json?t=' + new Date().getTime());
+    //         if (!response.ok) throw new Error("FileAccessError");
+            
+    //         const students = await response.json();
+    //         const student = students.find(s => String(s["رقم الهوية"]) === idInput);
+
+    //         if (student) {
+    //             const fullName = student["الاسم رباعي "] || "طالب بصائر";
+    //             const firstName = fullName.split(' ')[0];
+    //             updateUIOnLogin(firstName);
+    //             msgArea.innerHTML = `<div class='success-msg text-center text-sm'>أهلاً بك يا ${firstName}</div>`;
+    //             setTimeout(() => toggleModal('loginModal', 'close'), 1000);
+    //         } else {
+    //             msgArea.innerHTML = "<div class='error-msg text-xs'>عذراً، الرقم غير مسجل في كشوفات القبول</div>";
+    //         }
+    //     } catch (e) {
+    //         msgArea.innerHTML = "<div class='error-msg text-xs italic'>تنبيه: يجب تشغيل المشروع عبر Live Server لقراءة بيانات الطلاب.</div>";
+    //     }
+    // }
+
+
+
+
+
+
+
+
+    function updateUIOnLogin(name) {
+        ['heroLoginBtn', 'loginBtnNav'].forEach(id => document.getElementById(id)?.classList.add('hidden'));
+        const welcome = document.getElementById('userWelcome');
+        const nameSpan = document.getElementById('studentFirstName');
+        if (welcome) welcome.classList.remove('hidden');
+        if (nameSpan) nameSpan.innerText = name;
+
+        ['scheduleNavItem', 'scheduleSection'].forEach(id => document.getElementById(id)?.classList.remove('hidden'));
+
+        activateCard('card-library', 'lib-status', "فتح المكتبة الرقمية", () => window.open('https://drive.google.com/drive/folders/1rhrsuuQ3omkbiQYk-EINJ81zWb05bwnp', '_blank'));
+        activateCard('card-chat', 'chat-status', "الانضمام للمجتمع", () => window.open('https://www.facebook.com/profile.php?id=61578149949616', '_blank'));
+        activateCard('card-certs', 'cert-status', "استعراض الشهادات", openCertificates);
+    }
+
+    function activateCard(cardId, statusId, text, action) {
+        const card = document.getElementById(cardId);
+        const status = document.getElementById(statusId);
+        if (card && status) {
+            card.classList.replace('opacity-50', 'opacity-100');
+            card.classList.replace('cursor-default', 'cursor-pointer');
+            card.classList.add('hover:bg-white/20', 'hover:scale-105');
+            status.innerText = text;
+            card.onclick = action;
+        }
+    }
+
+    // 4. إدارة المساقات
+    function initCourses() {
+        const s1 = document.getElementById('semester1-content');
+        const s2 = document.getElementById('semester2-content');
+        if (!s1 || !s2) return;
+        s1.innerHTML = ""; s2.innerHTML = "";
+
+        Object.entries(coursesData).forEach(([name, data]) => {
+            const card = `
+                <div onclick="openCourse('${name}')" class="course-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-right cursor-pointer">
+                    <h3 class="font-bold text-[#5D4037] mb-2">${name}</h3>
+                    <p class="text-sm text-[#C5A059] mb-4">${data.teacher}</p>
+                    <div class="text-[10px] text-gray-400">انقر للتفاصيل ...</div>
+                </div>`;
+            if (data.sem === 'الفصل الدراسي الأول') s1.innerHTML += card;
+            else s2.innerHTML += card;
+        });
+        showSemester(1);
+    }
+
+    function openCourse(name) {
+        const d = coursesData[name];
+        const studentName = document.getElementById('studentFirstName').innerText || "طالب بصائر";
+        const modalTeacher = document.getElementById('modalTeacher');
+
+        document.getElementById('modalTitle').innerText = name;
+        document.getElementById('modalDesc').innerText = d.desc;
+        document.getElementById('modalSem').innerText = d.sem;
+
+        if (d.phone) {
+            const msg = encodeURIComponent(`السلام عليكم أنا ${studentName}، لدي استفسار في مساق ${name}`);
+            modalTeacher.innerHTML = `بإشراف: <a href="https://wa.me/${d.phone}?text=${msg}" target="_blank" class="text-[#25D366] font-bold hover:underline">
+                ${d.teacher} <span class="text-[10px] bg-[#25D366] text-white px-2 py-0.5 rounded-full">تواصل 💬</span></a>`;
+        } else {
+            modalTeacher.innerText = `بإشراف: ${d.teacher}`;
+        }
+        toggleModal('courseModal', 'open');
+    }
+
+    function showSemester(n) {
+        document.getElementById('semester1-content').classList.toggle('hidden', n !== 1);
+        document.getElementById('semester2-content').classList.toggle('hidden', n !== 2);
+        
+        const active = "bg-[#5D4037] text-white shadow-lg";
+        const inactive = "text-[#5D4037] hover:bg-gray-50";
+        document.getElementById('btn-sem1').className = `px-8 md:px-10 py-3 rounded-full font-bold transition-all ${n === 1 ? active : inactive}`;
+        document.getElementById('btn-sem2').className = `px-8 md:px-10 py-3 rounded-full font-bold transition-all ${n === 2 ? active : inactive}`;
+    }
+
+    // 5. معرض الشهادات
+    function openCertificates() {
+        const slider = document.getElementById('certSlider');
+        slider.innerHTML = certificateImages.map(img => `
+            <div class="min-w-full flex justify-center p-2">
+                <img src="${img}" onclick="zoomCert('${img}')" class="rounded-xl shadow-2xl border-4 border-[#C5A059]/30 cursor-zoom-in max-h-[70vh] object-contain">
+            </div>`).join('');
+        currentIdx = 0;
+        updateSlider();
+        toggleModal('certModal', 'open');
+    }
+
+    function moveCert(dir) {
+        currentIdx = (currentIdx + dir + certificateImages.length) % certificateImages.length;
+        updateSlider();
+    }
+
+    function updateSlider() {
+        document.getElementById('certSlider').style.transform = `translateX(${currentIdx * 100}%)`;
+    }
+
+    function zoomCert(src) {
+        document.getElementById('fullCertImg').src = src;
+        toggleModal('fullCertView', 'open');
+    }
+
+    // 6. التهيئة والوظائف المساعدة
+    window.onload = () => {
+        initCourses();
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('darkModeBtn').innerText = '☀️';
+        }
+    };
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        document.querySelectorAll('section').forEach(section => {
+            if (pageYOffset >= (section.offsetTop - 120)) current = section.getAttribute('id');
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.toggle('nav-active', link.getAttribute('href').includes(current));
+        });
+    });
+
+    // إغلاق المنيو عند اختيار رابط في الجوال
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => { if(window.innerWidth < 1024) toggleMobileMenu(); });
+    });
+
+    function openLogin() { toggleModal('loginModal', 'open'); }
+    function closeLogin() { toggleModal('loginModal', 'close'); }
+    function closeModal(id) { toggleModal(id, 'close'); }
+    function closeCourseModal() { toggleModal('courseModal', 'close'); }
+</script>
+    <!-- <script>
         // 1. قاعدة البيانات (المساقات والصور)
         const coursesData = {
             'العقيدة الإسلامية (1)': { teacher: 'د. بكر أبو صوصين', phone: '972599793244', desc: 'تأصيل التوحيد وأصول الإيمان على منهج أهل السنة والجماعة، ودراسة متن الطحاوية.', sem: 'الفصل الدراسي الأول' },
@@ -886,7 +1133,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
         
-    </script>
+    </script> -->
    
     <div id="certModal"
         class="fixed inset-0 bg-black/95 z-[999] hidden items-center justify-center p-4 backdrop-blur-sm">
