@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معهد بصائر للعلوم الشرعية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-brown: #5D4037;
+            --gold-accent: #C5A059;
+            --bg-light: #FCFAf5;
+            --dark-bg: #1A120B;
+            --dark-card: #2C1E16;
+        }
+
+        /* الإعدادات العامة */
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-amiri {
+            font-family: 'Amiri', serif;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #0F172A !important;
+            color: #F1E4C3 !important;
+        }
+
+        .dark-mode nav {
+            background-color: rgba(15, 23, 42, 0.95) !important;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .dark-mode section {
+            background-color: #0F172A !important;
+        }
+
+        .dark-mode h1,
+        .dark-mode h2,
+        .dark-mode h3,
+        .dark-mode p,
+        .dark-mode span {
+            color: #F1E4C3 !important;
+        }
+
+        .dark-mode .course-card {
+            background: rgba(30, 41, 59, 0.6) !important;
+            border: 1px solid rgba(197, 160, 89, 0.2) !important;
+        }
+
+        .dark-mode .course-card:hover {
+            background: rgba(30, 41, 59, 0.9) !important;
+            border-right-color: #C5A059 !important;
+        }
+
+        .dark-mode [class*="text-[#C5A059]"],
+        .dark-mode #studentFirstName,
+        .dark-mode .nav-active {
+            color: #D4AF37 !important;
+        }
+
+        .dark-mode .islamic-pattern {
+            opacity: 0.08 !important;
+            filter: invert(0.8) sepia(1) saturate(5) hue-rotate(10deg);
+        }
+
+        .dark-mode select,
+        .dark-mode input {
+            background: #2C1E16;
+            border-color: #C5A05940;
+            color: #F1E4C3;
+        }
+
+        /* الزخارف الإسلامية */
+        .islamic-pattern {
+            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
+            opacity: 0.05;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* الأزرار والكروت */
+        .btn-gold {
+            background-color: var(--gold-accent);
+            color: white;
+            transition: all 0.6s ease;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, 
+                #C5A059 0%, 
+                #D4AF37 50%, 
+                #C5A059 100%);
+            background-size: 200% 200%;
+        }
+
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.3), 
+                transparent);
+            transition: left 0.8s ease;
+        }
+
+        .btn-gold:hover::before {
+            left: 100%;
+        }
+
+        .btn-gold:hover {
+            background-position: right center;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(197, 160, 89, 0.4);
+        }
+
+        .course-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border-right: 4px solid transparent;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                #C5A059, 
+                transparent);
+            transform: scaleX(0);
+            transition: transform 0.6s ease;
+        }
+
+        .course-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(93, 64, 55, 0.15);
+            border-right-color: var(--gold-accent);
+        }
+
+        /* التنقل */
+        .nav-link {
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #C5A059, #D4AF37);
+            transition: width 0.4s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-active::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+
+        .nav-active {
+            color: var(--gold-accent) !important;
+            font-weight: bold;
+        }
+
+        /* عام */
+        .hidden {
+            display: none;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to left, transparent, var(--gold-accent), transparent);
+            margin: 40px auto;
+            width: 50%;
+        }
+
+        /* رسائل الحالة */
+        .success-msg {
+            color: #2e7d32;
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #c8e6c9;
+        }
+
+        .error-msg {
+            color: #c62828;
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #ffcdd2;
+        }
+
+        /* ============ التأثيرات السحرية ============ */
+        
+        /* شريط التقدم */
+        #progressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                #5D4037 0%, 
+                #C5A059 30%, 
+                #D4AF37 50%, 
+                #C5A059 70%, 
+                #5D4037 100%);
+            transform-origin: 0%;
+            z-index: 1000;
+            transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .dark-mode #progressBar {
+            background: linear-gradient(90deg, 
+                #0F172A 0%, 
+                #D4AF37 30%, 
+                #F1E4C3 50%, 
+                #D4AF37 70%, 
+                #0F172A 100%);
+        }
+
+        /* تأثيرات الظهور */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* تأثيرات النصوص */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+
+        /* تأثيرات المودالز */
+        #loginModal,
+        #courseModal,
+        #certModal {
+            animation: modalFadeIn 0.5s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ============ Responsive ============ */
+        @media (max-width: 768px) {
+            .section-divider {
+                width: 80%;
+            }
+            
+            .course-card:hover {
+                transform: translateY(-8px);
+            }
+            
+            .btn-gold:hover {
+                transform: translateY(-2px);
+            }
+            
+            #progressBar {
+                height: 3px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .course-card {
+                margin: 0.5rem;
+                padding: 1rem;
+            }
+            
+            .btn-gold {
+                padding: 0.75rem 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            * {
+                animation-duration: 0.3s !important;
+                transition-duration: 0.2s !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- شريط التقدم -->
+    <div id="progressBar" style="transform: scaleX(0);"></div>
+
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <div class="text-3xl font-bold text-[#5D4037] font-amiri tracking-wider">معهد بَصائر</div>
+                <div class="h-8 w-[1px] bg-gray-300 mx-2"></div>
+                <p class="text-[10px] text-gray-500 hidden md:block leading-tight uppercase font-bold">هدية العلم<br>بصيرة للعمل</p>
+            </div>
+            <ul class="hidden lg:flex space-x-8 space-x-reverse text-[#5D4037] font-medium">
+                <li><a href="#hero" class="hover:text-[#C5A059] transition nav-link">الرئيسية</a></li>
+                <li><a href="#about" class="hover:text-[#C5A059] transition nav-link">عن المعهد</a></li>
+                <li><a href="#guide" class="nav-link">الدليل التعريفي</a></li>
+                <li><a href="#path" class="hover:text-[#C5A059] transition nav-link">المسار العلمي</a></li>
+                <li id="scheduleNavItem" class="hidden">
+                    <a href="javascript:void(0)" onclick="openScheduleModal()" class="hover:text-[#5D4037] transition nav-link">الجدول الدراسي</a>
+                </li>
+                <li><a href="#community" class="hover:text-[#C5A059] transition nav-link">المجتمع</a></li>
+            </ul>
+            <div id="authArea">
+                <button id="loginBtnNav" onclick="openLogin()" class="btn-gold px-6 py-2 rounded-md font-bold text-sm">
+                    بوابة المقبولين
+                </button>
+                <div id="userWelcome" class="hidden text-[#5D4037] font-bold flex items-center gap-2">
+                    <span>أهلاً بك، <span id="studentFirstName" class="text-[#C5A059]"></span></span>
+                    <button onclick="logout()" class="text-xs text-red-500 underline border-none bg-transparent cursor-pointer">خروج</button>
+                </div>
+            </div>
+            <button onclick="toggleDarkMode()" id="darkModeBtn" class="p-2 rounded-full hover:bg-gray-100 transition-all text-xl">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative bg-[#F5F5DC] py-28 overflow-hidden border-b-4 border-[#C5A059]">
+        <div class="islamic-pattern"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="mb-6 inline-block bg-white/50 px-4 py-1 rounded-full text-[#C5A059] font-bold text-sm border border-[#C5A059]/30 fade-in-up">
+                الدورة العلمية السنوية - دفعة 2024
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-[#4E342E] mb-6 fade-in-up">معهد بصائر للعلوم الشرعية</h1>
+            <p class="text-xl text-[#6D4C41] max-w-2xl mx-auto leading-relaxed mb-10 italic fade-in-up">
+                رحلة إيمانية تجمع بين تأصيل التراث وأدوات العصر.. نبني الوعي بالعلم والعمل، لنخرج جيلاً ينطق بالحكمة ويهتدي بالبصيرة.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 fade-in-up">
+                <a href="#path" class="bg-[#5D4037] text-white px-10 py-4 rounded-lg text-lg shadow-xl hover:bg-[#3E2723] transition flex items-center">
+                    تصفح الخطة الدراسية
+                </a>
+                <button id="heroLoginBtn" onclick="openLogin()" class="btn-gold px-10 py-4 rounded-lg text-lg font-bold">
+                    بوابة التحقق من القبول
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- بقية الأقسام... -->
+    <!-- ... (كل الأقسام الأخرى تبقى كما هي بدون تغيير) -->
+
+    <script>
+        // ============ البيانات الأساسية ============
+        const coursesData = {
+            'العقيدة الإسلامية (1)': { teacher: 'د. بكر أبو صوصين', phone: '972599793244', desc: 'تأصيل التوحيد وأصول الإيمان على منهج أهل السنة والجماعة، ودراسة متن الطحاوية.', sem: 'الفصل الدراسي الأول' },
+            'علوم القرآن': { teacher: 'د. عامر قاسم', phone: '', desc: 'دراسة نشأة علوم القرآن، تدوينه، إعجازه، وطرق جمع القرآن الكريم.', sem: 'الفصل الدراسي الأول' },
+            'اللغة العربية': { teacher: 'د. عمر الهمص', phone: '972594080047', desc: 'مبادئ النحو العربي وتطبيقات عملية من القرآن الكريم لتذوق البلاغة اللسانية.', sem: 'الفصل الدراسي الأول' },
+            'أصول الفقه': { teacher: 'د. حسام الجزار', phone: '970567331795', desc: 'دراسة قواعد الاستنباط والأدلة المتفق عليها والمختلف فيها عند الأصوليين.', sem: 'الفصل الدراسي الأول' },
+            'الفقه الإسلامي': { teacher: 'د. صهيب الرومي', phone: '972592160004', desc: 'فقه العبادات (الصلاة، الصيام، الزكاة، والحج) مع التركيز على المسائل المعاصرة.', sem: 'الفصل الدراسي الأول' },
+            'الثقافة الإسلامية': { teacher: 'د. ناصر المصري', phone: '972599855043', desc: 'بناء الهوية الإسلامية في ظل العولمة ومناقشة قضايا الفكر المعاصر.', sem: 'الفصل الدراسي الأول' },
+            'السيرة النبوية': { teacher: 'د. بلال عابدين', phone: '970595058020', desc: 'قراءة في سيرة النبي ﷺ من الولادة حتى الوفاة مع استخراج الدروس الدعوية والتربوية.', sem: 'الفصل الدراسي الأول' },
+            'فقه المعاملات': { teacher: 'د. صهيب الرومي', phone: '972592160004', desc: 'أحكام البيوع، المصارف الإسلامية، والعقود المالية الحديثة.', sem: 'الفصل الدراسي الثاني' },
+            'العقيدة الإسلامية (2)': { teacher: 'د. بكر أبو صوصين', phone: '972599793244', desc: 'دراسة الفرق والمذاهب، ومسائل القضاء والقدر، والرد على الملحدين.', sem: 'الفصل الدراسي الثاني' },
+            'علم مصطلح الحديث': { teacher: 'د. عبد المعطي الأخرس', phone: '972598899271', desc: 'قواعد تمييز الحديث من حيث القبول والرد، ودراسة سلسلة الرواة.', sem: 'الفصل الدراسي الثاني' },
+            'فقه الأسرة': { teacher: 'د. أسامة الجزار', phone: '970599478538', desc: 'أحكام النكاح، الطلاق، المواريث، وحقوق الأبناء في الإسلام.', sem: 'الفصل الدراسي الثاني' },
+            'قضايا معاصرة': { teacher: 'د. عماد الداية', phone: '970592722232', desc: 'تتبع المذاهب الفكرية المنحرفة وكيفية تحصين المجتمع منها.', sem: 'الفصل الدراسي الثاني' },
+            'فقه الدعوة': { teacher: 'د. عمر الهمص', phone: '972594080047', desc: 'أحكام الدعوة إلى الله، فقه الموازنات، ومهارات التأثير في الآخرين.', sem: 'الفصل الدراسي الثاني' }
+        };
+
+        const certificateImages = ['cert1.jpg', 'cert2.jpg', 'cert3.jpg'];
+        let currentIdx = 0;
+
+        // ============ الدوال الأساسية ============
+        function toggleModal(id, action = 'open') {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            modal.classList.toggle('hidden', action !== 'open');
+            modal.classList.toggle('flex', action === 'open');
+        }
+
+        function openLogin() {
+            document.getElementById('idInput').value = "";
+            document.getElementById('loginMsg').innerHTML = "";
+            toggleModal('loginModal', 'open');
+        }
+
+        function closeLogin() { toggleModal('loginModal', 'close'); }
+
+        async function checkStudent() {
+            const idInput = document.getElementById('idInput').value.trim();
+            const msgArea = document.getElementById('loginMsg');
+
+            if (!idInput) {
+                msgArea.innerHTML = "<div class='error-msg'>يرجى إدخال رقم الهوية</div>";
+                return;
+            }
+
+            msgArea.innerHTML = "<div class='text-gray-400 animate-pulse'>جاري البحث في كشوفات القبول...</div>";
+
+            try {
+                const response = await fetch('students.json?v=' + Date.now());
+                if (!response.ok) throw new Error();
+                const students = await response.json();
+                const student = students.find(s => String(s["رقم الهوية"]) === idInput);
+
+                if (student) {
+                    const firstName = (student["الاسم رباعي "] || "").split(' ')[0];
+                    updateUIOnLogin(firstName);
+                    msgArea.innerHTML = `<div class='success-msg text-center'>أهلاً بك يا ${firstName}</div>`;
+                    setTimeout(closeLogin, 1000);
+                } else {
+                    msgArea.innerHTML = "<div class='error-msg'>عذراً، لم يتم العثور على هذا الرقم</div>";
+                }
+            } catch (e) {
+                msgArea.innerHTML = "<div class='error-msg'>حدث خطأ! تأكد من تشغيل الموقع عبر Live Server.</div>";
+            }
+        }
+
+        function updateUIOnLogin(name) {
+            ['heroLoginBtn', 'loginBtnNav'].forEach(id => document.getElementById(id)?.classList.add('hidden'));
+            document.getElementById('userWelcome')?.classList.remove('hidden');
+            document.getElementById('studentFirstName').innerText = name;
+            ['scheduleNavItem', 'scheduleSection'].forEach(id => document.getElementById(id)?.classList.remove('hidden'));
+            
+            activateInteractionCard('card-library', 'lib-status', "انقر لفتح Drive", () => window.open('https://drive.google.com/drive/folders/1rhrsuuQ3omkbiQYk-EINJ81zWb05bwnp', '_blank'));
+            activateInteractionCard('card-chat', 'chat-status', "انقر للانضمام لصفحة الفيسبوك", () => window.open('https://www.facebook.com/profile.php?id=61578149949616', '_blank'));
+            activateInteractionCard('card-certs', 'cert-status', "انقر لاستعراض الشهادات", openCertificates);
+        }
+
+        function activateInteractionCard(cardId, statusId, text, action) {
+            const card = document.getElementById(cardId);
+            if (!card) return;
+            card.classList.replace('opacity-50', 'opacity-100');
+            card.classList.replace('cursor-default', 'cursor-pointer');
+            document.getElementById(statusId).innerText = text;
+            card.onclick = action;
+        }
+
+        function initCourses() {
+            const s1 = document.getElementById('semester1-content');
+            const s2 = document.getElementById('semester2-content');
+            if (!s1 || !s2) return;
+            s1.innerHTML = ""; s2.innerHTML = "";
+
+            Object.entries(coursesData).forEach(([name, data]) => {
+                const card = `<div onclick="openCourse('${name}')" class="course-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-right cursor-pointer">
+                    <h3 class="font-bold text-[#5D4037] mb-2">${name}</h3>
+                    <p class="text-sm text-[#C5A059] mb-4">${data.teacher}</p>
+                    <div class="text-xs text-gray-400">انقر للتفاصيل ...</div>
+                </div>`;
+                
+                if (data.sem === 'الفصل الدراسي الأول') s1.innerHTML += card;
+                else s2.innerHTML += card;
+            });
+            showSemester(1);
+        }
+
+        function openCourse(courseName) {
+            const data = coursesData[courseName];
+            const studentName = document.getElementById('studentFirstName').innerText;
+            const modalTeacher = document.getElementById('modalTeacher');
+
+            document.getElementById('modalTitle').innerText = courseName;
+            document.getElementById('modalDesc').innerText = data.desc;
+            document.getElementById('modalSem').innerText = data.sem;
+
+            if (studentName && data.phone) {
+                const msg = encodeURIComponent(`السلام عليكم أنا ${studentName}، لدي استفسار في مساق ${courseName}`);
+                modalTeacher.innerHTML = `بإشراف: <a href="https://wa.me/${data.phone}?text=${msg}" target="_blank" class="text-[#25D366] font-bold hover:underline">
+                    ${data.teacher} <span class="text-[10px] bg-[#25D366] text-white px-2 py-0.5 rounded-full">تواصل الآن 💬</span>
+                </a>`;
+            } else {
+                modalTeacher.innerText = `بإشراف: ${data.teacher}`;
+            }
+            toggleModal('courseModal', 'open');
+        }
+
+        function showSemester(n) {
+            const s1 = document.getElementById('semester1-content');
+            const s2 = document.getElementById('semester2-content');
+            s1.classList.toggle('hidden', n !== 1);
+            s2.classList.toggle('hidden', n !== 2);
+
+            document.getElementById('btn-sem1').className = `px-10 py-3 rounded-full font-bold transition-all ${n === 1 ? 'bg-[#5D4037] text-white shadow-lg' : 'text-[#5D4037] hover:bg-gray-50'}`;
+            document.getElementById('btn-sem2').className = `px-10 py-3 rounded-full font-bold transition-all ${n === 2 ? 'bg-[#5D4037] text-white shadow-lg' : 'text-[#5D4037] hover:bg-gray-50'}`;
+        }
+
+        function openCertificates() {
+            const slider = document.getElementById('certSlider');
+            slider.innerHTML = certificateImages.map(img => `
+                <div class="min-w-full flex justify-center p-2">
+                    <img src="${img}" onclick="zoomCert('${img}')" class="rounded-xl shadow-2xl border-4 border-[#C5A059]/30 cursor-zoom-in max-h-[70vh] object-contain transition-transform hover:scale-[1.02]">
+                </div>`).join('');
+            currentIdx = 0;
+            updateSlider();
+            toggleModal('certModal', 'open');
+        }
+
+        function moveCert(dir) {
+            currentIdx = (currentIdx + dir + certificateImages.length) % certificateImages.length;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            document.getElementById('certSlider').style.transform = `translateX(${currentIdx * 100}%)`;
+        }
+
+        function zoomCert(src) {
+            document.getElementById('fullCertImg').src = src;
+            toggleModal('fullCertView', 'open');
+        }
+
+        function openScheduleModal() {
+            const modalHtml = `<div id="imgModal" onclick="this.remove()" class="fixed inset-0 bg-black/90 z-[999] flex items-center justify-center p-4 cursor-pointer">
+                <img src="scedule.jpg" class="max-w-full max-h-full rounded-lg shadow-2xl" alt="الجدول الدراسي">
+                <div class="absolute top-5 right-5 text-white text-2xl">× إغلاق</div>
+            </div>`;
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+        }
+
+        function logout() {
+            document.getElementById('userWelcome')?.classList.add('hidden');
+            document.getElementById('loginBtnNav').classList.remove('hidden');
+            ['scheduleNavItem', 'scheduleSection'].forEach(id => document.getElementById(id)?.classList.add('hidden'));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleDarkMode() {
+            const body = document.body;
+            const isDark = body.classList.toggle('dark-mode');
+            document.getElementById('darkModeBtn').innerText = isDark ? '☀️' : '🌙';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // ============ التأثيرات الجديدة ============
+        
+        // شريط التقدم
+        window.addEventListener('scroll', () => {
+            const progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                const scrollTop = document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const progress = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
+                progressBar.style.transform = `scaleX(${progress})`;
+            }
+        });
+
+        // تأثيرات الظهور
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+        }
+
+        // Responsive
+        function detectDeviceType() {
+            const isMobile = window.innerWidth <= 768;
+            const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
+            
+            if (isMobile) document.body.classList.add('mobile-device');
+            else if (isTablet) document.body.classList.add('tablet-device');
+            else document.body.classList.add('desktop-device');
+        }
+
+        // ============ التهيئة النهائية ============
+        window.addEventListener('DOMContentLoaded', () => {
+            initCourses();
+            initScrollAnimations();
+            detectDeviceType();
+            
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('darkModeBtn').innerText = '☀️';
+            }
+            
+            // إضافة شريط التقدم
+            if (!document.getElementById('progressBar')) {
+                const progressBar = document.createElement('div');
+                progressBar.id = 'progressBar';
+                progressBar.style.cssText = 'position:fixed;top:0;left:0;right:0;height:4px;z-index:1000;transform:scaleX(0);';
+                document.body.prepend(progressBar);
+            }
+        });
+
+        window.addEventListener('resize', detectDeviceType);
+    </script>
+</body>
+</html>
