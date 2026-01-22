@@ -1,1727 +1,0 @@
-<!-- <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معهد بصائر للعلوم الشرعية</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;500;700&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --primary-brown: #5D4037;
-            --gold-accent: #C5A059;
-            --bg-light: #FCFAf5;
-            --dark-bg: #1A120B;
-            --dark-card: #2C1E16;
-        }
-
-        /* الإعدادات العامة */
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: var(--bg-light);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
-
-        h1,
-        h2,
-        h3,
-        .font-amiri {
-            font-family: 'Amiri', serif;
-        }
-
-        /* وسم الـ Dark Mode الأندلسي */
-        /* الوضع الليلي الأندلسي الملكي - بدون أخطاء */
-        .dark-mode {
-            background-color: #0F172A !important;
-            color: #F1E4C3 !important;
-        }
-
-        .dark-mode nav {
-            background-color: rgba(15, 23, 42, 0.95) !important;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2) !important;
-            backdrop-filter: blur(10px);
-        }
-
-        .dark-mode section {
-            background-color: #0F172A !important;
-        }
-
-        /* حل مشكلة الأقواس المربعة والاخطاء */
-        .dark-mode h1,
-        .dark-mode h2,
-        .dark-mode h3,
-        .dark-mode p,
-        .dark-mode span {
-            color: #F1E4C3 !important;
-        }
-
-        /* الكروت الزجاجية الفاخرة */
-        .dark-mode .course-card {
-            background: rgba(30, 41, 59, 0.6) !important;
-            border: 1px solid rgba(197, 160, 89, 0.2) !important;
-        }
-
-        .dark-mode .course-card:hover {
-            background: rgba(30, 41, 59, 0.9) !important;
-            border-right-color: #C5A059 !important;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        /* توهج الذهب - بدون كلاسات تايلوند المعقدة */
-        .dark-mode [class*="text-[#C5A059]"],
-        .dark-mode #studentFirstName,
-        .dark-mode .nav-active {
-            color: #D4AF37 !important;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-        }
-
-        /* النمط الإسلامي الساحر */
-        .dark-mode .islamic-pattern {
-            opacity: 0.1 !important;
-            filter: invert(0.8) sepia(1) saturate(3) hue-rotate(15deg);
-        }
-
-        /* الزخرفة الإسلامية */
-        .islamic-pattern {
-            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
-            opacity: 0.05;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* الأزرار واللمسات الجمالية */
-        .btn-gold {
-            background-color: var(--gold-accent);
-            color: white;
-            transition: 0.3s;
-            box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
-            animation: pulse-gold 2s infinite;
-        }
-
-        @keyframes pulse-gold {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4);
-            }
-
-            70% {
-                transform: scale(1.02);
-                box-shadow: 0 0 0 10px rgba(197, 160, 89, 0);
-            }
-
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
-            }
-        }
-
-        .course-card {
-            transition: all 0.4s ease;
-            cursor: pointer;
-            border-right: 4px solid transparent;
-            background: white;
-        }
-
-        .course-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(93, 64, 55, 0.1);
-            border-right-color: var(--gold-accent);
-        }
-
-        .nav-active {
-            border-bottom: 2px solid var(--gold-accent) !important;
-            color: var(--gold-accent) !important;
-            font-weight: bold;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .section-divider {
-            height: 2px;
-            background: linear-gradient(to left, transparent, var(--gold-accent), transparent);
-            margin: 40px auto;
-            width: 50%;
-        }
-
-        #certSlider {
-            display: flex;
-            flex-direction: row-reverse;
-        }
-
-        /* رسائل الحالة */
-        .success-msg {
-            color: #2e7d32;
-            background: #e8f5e9;
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid #c8e6c9;
-        }
-
-        .error-msg {
-            color: #c62828;
-            background: #ffebee;
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid #ffcdd2;
-        }
-
-        /* النصوص الذهبية في الوضع الليلي */
-        .dark-mode .gold-text,
-        .dark-mode #studentFirstName,
-        .dark-mode .nav-active {
-            color: #D4AF37 !important;
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
-        }
-
-        /* العناوين الكبيرة في الوضع الليلي */
-        .dark-mode h1,
-        .dark-mode h2,
-        .dark-mode .main-title {
-            color: #F8F1E1 !important;
-        }
-
-        /* الأنماط الإسلامية */
-        .dark-mode .islamic-pattern {
-            opacity: 0.08 !important;
-            filter: invert(0.8) sepia(1) saturate(5) hue-rotate(10deg);
-        }
-    </style>
-
-</head>
-
-<body>
-
-
-    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-4 space-x-reverse">
-                <div class="text-3xl font-bold text-[#5D4037] font-amiri tracking-wider">معهد بَصائر</div>
-                <div class="h-8 w-[1px] bg-gray-300 mx-2"></div>
-                <p class="text-[10px] text-gray-500 hidden md:block leading-tight uppercase font-bold">هدية
-                    العلم<br>بصيرة للعمل</p>
-            </div>
-            <ul class="hidden lg:flex space-x-8 space-x-reverse text-[#5D4037] font-medium">
-                <li><a href="#hero" class="hover:text-[#C5A059] transition" class="nav-link">الرئيسية</a></li>
-                <li><a href="#about" class="hover:text-[#C5A059] transition" class="nav-link">عن المعهد</a></li>
-                <li><a href="#guide" class="nav-link px-2">الدليل التعريفي</a></li>
-                <li><a href="#path" class="hover:text-[#C5A059] transition" class="nav-link">المسار العلمي</a></li>
-                <li id="scheduleNavItem" class="hidden" class="nav-link">
-                    <a href="javascript:void(0)" onclick="openScheduleModal()"
-                        class=" hover:text-[#5D4037] transition">الجدول
-                        الدراسي</a>
-                </li>
-                <li><a href="#community" class="hover:text-[#C5A059] transition" class="nav-link">المجتمع</a></li>
-            </ul>
-            <div id="authArea">
-                <button id="loginBtnNav" onclick="openLogin()" class="btn-gold px-6 py-2 rounded-md font-bold text-sm">
-                    بوابة المقبولين
-                </button>
-
-                <div id="userWelcome" class="hidden text-[#5D4037] font-bold flex items-center gap-2">
-                    <span>أهلاً بك، <span id="studentFirstName" class="text-[#C5A059]"></span></span>
-                    <button onclick="logout()"
-                        class="text-xs text-red-500 underline border-none bg-transparent cursor-pointer">خروج</button>
-                </div>
-            </div>
-            <button onclick="toggleDarkMode()" id="darkModeBtn"
-                class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-all text-xl">
-                🌙
-            </button>
-
-        </div>
-    </nav>
-
-  
-    <section id="hero" class="relative bg-[#F5F5DC] py-28 overflow-hidden border-b-4 border-[#C5A059]">
-        <div class="islamic-pattern"></div>
-        <div class="container mx-auto px-6 relative z-10 text-center">
-            <div
-                class="mb-6 inline-block bg-white/50 px-4 py-1 rounded-full text-[#C5A059] font-bold text-sm border border-[#C5A059]/30">
-                الدورة العلمية السنوية - دفعة 2024
-            </div>
-            <h1 class="text-5xl md:text-7xl font-bold text-[#4E342E] mb-6 animate-fade-in">معهد بصائر للعلوم الشرعية
-            </h1>
-            <p class="text-xl text-[#6D4C41] max-w-2xl mx-auto leading-relaxed mb-10 italic">
-                رحلة إيمانية تجمع بين تأصيل التراث وأدوات العصر.. نبني الوعي بالعلم والعمل، لنخرج جيلاً ينطق بالحكمة
-                ويهتدي بالبصيرة.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#path"
-                    class="bg-[#5D4037] text-white px-10 py-4 rounded-lg text-lg shadow-xl hover:bg-[#3E2723] transition flex items-center">
-                    تصفح الخطة الدراسية
-                </a>
-                <button id="heroLoginBtn" onclick="openLogin()"
-                    class="btn-gold px-10 py-4 rounded-lg text-lg font-bold">
-                    بوابة التحقق من القبول
-                </button>
-             
-            </div>
-        </div>
-    </section>
-    <section id="guide" class="relative py-16 px-6 bg-[#FCFAf5] overflow-hidden">
-        <div class="islamic-pattern"></div>
-        <div class="container mx-auto max-w-5xl relative z-10">
-
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-[#5D4037] mb-4">الدليل التعريفي ونظام الدراسة</h2>
-                <div class="section-divider"></div>
-            </div>
-
-            <div
-                class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border-r-8 border-[#C5A059] shadow-sm mb-10 leading-loose">
-                <p class="font-amiri text-xl text-[#5D4037] mb-4 text-center">بسم الله الرحمن الرحيم</p>
-                <p class="text-lg text-gray-700 text-center mb-4">
-                    الإخوة والأخوات طلبة العلم الجدد، السلام عليكم ورحمة الله وبركاته..
-                </p>
-                <p class="text-gray-600 text-justify leading-relaxed">
-                    نرحب بكم في <span class="font-bold text-[#C5A059]">مركز ومعهد بصائر للدراسات الشرعية
-                        والأبحاث</span>، سائلين الله أن يرزقنا وإياكم العلم النافع والعمل الصالح. نضع بين أيديكم هذا
-                    الدليل المختصر لتعريفكم ببرنامجنا الدراسي وآلية التعليم المتبعة:
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="course-card p-8 rounded-xl bg-white shadow-md">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl ml-3">📜</span>
-                        <h3 class="text-2xl font-bold text-[#5D4037]">أولاً: التعريف بالدبلوم وأهدافه</h3>
-                    </div>
-                    <p class="text-sm text-gray-500 mb-4 border-b pb-2 italic">دبلوم عام في العلوم الشرعية (عام دراسي
-                        واحد)</p>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start"><span class="text-[#C5A059] ml-2">●</span> تأصيل العلوم الشرعية
-                            بمنهجية علمية رصينة.</li>
-                        <li class="flex items-start"><span class="text-[#C5A059] ml-2">●</span> بناء الحصانة الفكرية
-                            لمواجهة الأفكار المنحرفة.</li>
-                        <li class="flex items-start"><span class="text-[#C5A059] ml-2">●</span> العناية بالأبحاث التي
-                            تعالج قضايا المجتمع.</li>
-                        <li class="flex items-start"><span class="text-[#C5A059] ml-2">●</span> تمتين الشراكات مع
-                            الهيئات العلمية الرائدة.</li>
-                    </ul>
-                </div>
-
-                <div class="course-card p-8 rounded-xl bg-white shadow-md">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl ml-3">🌐</span>
-                        <h3 class="text-2xl font-bold text-[#5D4037]">ثانياً: آلية التدريس (عن بُعد)</h3>
-                    </div>
-                    <div class="space-y-4 text-gray-700">
-                        <div class="bg-[#FCFAf5] p-3 rounded-lg border-right-2 border-[#C5A059]">
-                            <p class="font-bold text-sm text-[#5D4037]">مجتمع الواتساب (WhatsApp):</p>
-                            <p class="text-sm">مجموعات فرعية لكل مادة ومجموعة تفاعلية للنقاش الحر.</p>
-                        </div>
-                        <div class="bg-[#FCFAf5] p-3 rounded-lg border-right-2 border-[#C5A059]">
-                            <p class="font-bold text-sm text-[#5D4037]">طريقة المحاضرات:</p>
-                            <p class="text-sm">شرح صوتي متبوع بمناقشة حية، مع أرشفة المحاضرات على Google Drive.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-8 bg-[#5D4037] text-white p-8 rounded-2xl relative overflow-hidden group">
-                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between">
-                    <div class="mb-6 md:mb-0">
-                        <h3 class="text-2xl font-bold text-[#C5A059] mb-2">ثالثاً: نظام التقييم والاختبارات</h3>
-                        <p class="text-gray-200">
-                            تُعقد الاختبارات النصفية والنهائية حصرياً عبر المنصة الإلكترونية للمعهد:
-                            <a href="https://moodle.ibnbazgaza.org/" target="_blank"
-                                class="font-bold text-[#C5A059] underline hover:text-white transition-colors duration-300">
-                                Moodle
-                            </a>
-                        </p>
-                    </div>
-                    <div class="bg-white/10 p-4 rounded-lg border border-white/20">
-                        <p class="text-sm italic">سيتم تزويدكم ببيانات الدخول وشرح طريقة استخدام المنصة في حينه.</p>
-                    </div>
-                </div>
-                <div
-                    class="absolute -bottom-10 -left-10 w-40 h-40 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition">
-                </div>
-            </div>
-          
-            <div class="text-center mt-12 italic text-gray-600 font-amiri text-2xl">
-                "شمروا عن سواعد الجد، فالعلم رحم بين أهله.."
-                <p class="mt-4 text-sm font-sans not-italic font-bold text-[#C5A059]">إدارة معهد بصائر للدراسات الشرعية
-                </p>
-            </div>
-        </div>
-    </section>
-
- 
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <h2 class="text-4xl font-bold text-[#5D4037] font-amiri mb-6">رؤية المعهد وأهدافه</h2>
-                    <p class="text-gray-600 leading-relaxed mb-6 text-lg">
-                        يسعى معهد بصائر إلى سد الثغرة في الوعي الشرعي المعاصر، من خلال تقديم مادة علمية رصينة بأسلوب
-                        مبسط يصل إلى قلوب وعقول طلبة العلم في مختلف المستويات.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-3 text-[#5D4037] font-medium">
-                            <span
-                                class="w-6 h-6 bg-[#C5A059] rounded-full flex items-center justify-center text-white text-xs">✓</span>
-                            تأصيل العقيدة الصحيحة والرد على الشبهات.
-                        </li>
-                        <li class="flex items-center gap-3 text-[#5D4037] font-medium">
-                            <span
-                                class="w-6 h-6 bg-[#C5A059] rounded-full flex items-center justify-center text-white text-xs">✓</span>
-                            ربط طلبة العلم بنخبة من المشايخ والعلماء.
-                        </li>
-                        <li class="flex items-center gap-3 text-[#5D4037] font-medium">
-                            <span
-                                class="w-6 h-6 bg-[#C5A059] rounded-full flex items-center justify-center text-white text-xs">✓</span>
-                            تطوير المهارات الدعوية والخطابية.
-                        </li>
-                    </ul>
-                </div>
-                <div class="md:w-1/2 bg-[#F5F5DC] p-10 rounded-3xl relative">
-                    <div class="absolute -top-4 -right-4 w-20 h-20 border-t-4 border-r-4 border-[#C5A059]"></div>
-                    <div class="text-[#5D4037] italic text-xl leading-loose font-amiri text-center">
-                        "مَنْ يُرِدِ اللَّهُ بِهِ خَيْرًا يُفَقِّهْهُ فِي الدِّينِ"
-                        <br>
-                        <span class="block mt-4 text-sm font-tajawal">— حديث شريف</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
- 
-    <section id="path" class="py-20 bg-[#FCFAf5] relative">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold text-[#5D4037] font-amiri mb-4">خريطةُ بصائر العِلمية</h2>
-            <p class="text-gray-500 mb-10">منهج متكامل مقسم على فصلين دراسيين لضمان التدرج في العلم</p>
-
-            <div class="inline-flex bg-white p-2 rounded-full mb-16 shadow-inner border border-[#C5A059]/20">
-                <button onclick="showSemester(1)" id="btn-sem1"
-                    class="px-10 py-3 rounded-full font-bold transition-all">الفصل الدراسي الأول</button>
-                <button onclick="showSemester(2)" id="btn-sem2"
-                    class="px-10 py-3 rounded-full font-bold transition-all">الفصل الدراسي الثاني</button>
-            </div>
-
-            <div id="semester1-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 hidden"></div>
-            <div id="semester2-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-        </div>
-    </section>
-    <section id="scheduleSection" class="py-16 bg-white hidden border-t-4 border-[#C5A059]">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold text-[#5D4037] font-amiri mb-8">الجدول الدراسي المعتمد</h2>
-            <div class="max-w-4xl mx-auto shadow-2xl rounded-2xl overflow-hidden border-4 border-[#F5F5DC]">
-                <img src="scedule.jpg" alt="الجدول الدراسي" class="w-full h-auto block">
-            </div>
-        </div>
-    </section>
-   
-    <section id="community" class="py-20 bg-[#5D4037] text-white relative border-t-8 border-[#C5A059]">
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <h2 class="text-3xl font-bold font-amiri mb-10 text-[#C5A059]">مجتمع بصائر التفاعلي</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div id="card-library"
-                    class="bg-white/5 p-8 rounded-2xl border border-white/10 transition-all opacity-50 cursor-default">
-                    <div class="text-4xl mb-4">📚</div>
-                    <h3 class="font-bold text-xl mb-2 text-[#C5A059]">المكتبة الإلكترونية</h3>
-                    <p id="lib-status" class="text-xs text-gray-400">(يجب تسجيل الدخول للوصول للملفات)</p>
-                </div>
-
-                <div id="card-chat"
-                    class="bg-white/5 p-8 rounded-2xl border border-white/10 transition-all opacity-50 cursor-default">
-                    <div class="text-4xl mb-4">💬</div>
-                    <h3 class="font-bold text-xl mb-2 text-[#C5A059]">حلقات النقاش</h3>
-                    <p id="chat-status" class="text-xs text-gray-400">(متاح فقط للمقبولين)</p>
-                </div>
-
-                <div id="card-certs" onclick="openOptionsModal()"
-                    class="bg-white/5 p-8 rounded-2xl border border-white/10 transition-all opacity-50 cursor-not-allowed pointer-events-none flex flex-col items-center text-center">
-                    <div class="text-4xl mb-4">🏆</div>
-                    <h3 class="font-bold text-xl mb-2 text-[#C5A059] gold-text">لوحات الشرف والجداول</h3>
-                    <p id="cert-status" class="text-xs text-orange-300">(متاح فقط للمقبولين)</p>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-white py-12 border-t border-gray-100">
-        <div class="container mx-auto px-6 text-center">
-            <div class="text-2xl font-bold text-[#5D4037] font-amiri mb-4">معهد بَصائر للعلوم الشرعية</div>
-            <p class="text-gray-400 text-sm">جميع الحقوق محفوظة &copy; 2024 - معهد بصائر</p>
-        </div>
-    </footer>
-
-
-    <div id="loginModal"
-        class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[200] hidden items-center justify-center p-4">
-        <div
-            class="bg-white w-full max-w-md rounded-3xl shadow-2xl border-2 border-[#C5A059] overflow-hidden transform transition-all">
-            <div class="bg-[#5D4037] p-6 text-white text-center relative">
-                <h3 class="text-2xl font-amiri">بوابة التحقق للمقبولين</h3>
-                <button onclick="closeLogin()"
-                    class="absolute top-4 left-4 text-white/50 hover:text-white">&times;</button>
-            </div>
-            <div class="p-8">
-                <p class="text-sm text-gray-500 mb-6 text-center italic">تأكد من كتابة رقم الهوية بشكل صحيح (9 أرقام)
-                </p>
-                <input type="text" id="idInput" placeholder="أدخل رقم الهوية هنا"
-                    class="w-full p-4 rounded-xl border-2 border-[#F5F5DC] focus:border-[#C5A059] outline-none text-center mb-4 text-xl tracking-widest font-bold">
-                <button onclick="checkStudent()" id="checkBtn"
-                    class="w-full bg-[#C5A059] text-white font-bold py-4 rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition">تحقق
-                    الآن</button>
-                <div id="loginMsg" class="text-center mt-6 text-sm font-bold min-h-[60px]"></div>
-            </div>
-        </div>
-    </div>
-
-  
-    <div id="courseModal"
-        class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[300] hidden items-center justify-center p-4">
-        <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl border-b-8 border-[#C5A059] overflow-hidden">
-            <div class="p-8 text-right">
-                <div class="flex justify-between items-start mb-4 text-xs font-bold text-gray-400">
-                    <span id="modalSem" class="bg-[#F5F5DC] text-[#C5A059] px-3 py-1 rounded-full"></span>
-                    <button onclick="closeCourseModal()" class="text-3xl hover:text-red-500 transition">&times;</button>
-                </div>
-                <h3 id="modalTitle" class="text-3xl font-bold text-[#5D4037] font-amiri mb-2"></h3>
-                <p id="modalTeacher" class="text-[#C5A059] font-bold mb-6 italic border-b pb-4 border-[#F5F5DC]"></p>
-                <p id="modalDesc" class="text-gray-700 leading-relaxed mb-8 italic text-lg"></p>
-                <button onclick="closeCourseModal()"
-                    class="w-full bg-[#5D4037] text-white py-4 rounded-xl font-bold hover:bg-[#3E2723] transition">حسناً،
-                    فهمت</button>
-            </div>
-        </div>
-    </div>
-    <script>
-        // 1. قاعدة البيانات (المساقات والصور)
-        const coursesData = {
-            'العقيدة الإسلامية (1)': { teacher: 'د. بكر أبو صوصين', phone: '972599793244', desc: 'تأصيل التوحيد وأصول الإيمان على منهج أهل السنة والجماعة، ودراسة متن الطحاوية.', sem: 'الفصل الدراسي الأول' },
-            'علوم القرآن': { teacher: 'د. عامر قاسم', phone: '', desc: 'دراسة نشأة علوم القرآن، تدوينه، إعجازه، وطرق جمع القرآن الكريم.', sem: 'الفصل الدراسي الأول' },
-            'اللغة العربية': { teacher: 'د. عمر الهمص', phone: '972594080047', desc: 'مبادئ النحو العربي وتطبيقات عملية من القرآن الكريم لتذوق البلاغة اللسانية.', sem: 'الفصل الدراسي الأول' },
-            'أصول الفقه': { teacher: 'د. حسام الجزار', phone: '970567331795', desc: 'دراسة قواعد الاستنباط والأدلة المتفق عليها والمختلف فيها عند الأصوليين.', sem: 'الفصل الدراسي الأول' },
-            'الفقه الإسلامي': { teacher: 'د. صهيب الرومي', phone: '972592160004', desc: 'فقه العبادات (الصلاة، الصيام، الزكاة، والحج) مع التركيز على المسائل المعاصرة.', sem: 'الفصل الدراسي الأول' },
-            'الثقافة الإسلامية': { teacher: 'د. ناصر المصري', phone: '972599855043', desc: 'بناء الهوية الإسلامية في ظل العولمة ومناقشة قضايا الفكر المعاصر.', sem: 'الفصل الدراسي الأول' },
-            'السيرة النبوية': { teacher: 'د. بلال عابدين', phone: '970595058020', desc: 'قراءة في سيرة النبي ﷺ من الولادة حتى الوفاة مع استخراج الدروس الدعوية والتربوية.', sem: 'الفصل الدراسي الأول' },
-            'فقه المعاملات': { teacher: 'نخبة من مشايخ بصائر', phone: '', desc: 'أحكام البيوع، المصارف الإسلامية، والعقود المالية الحديثة.', sem: 'الفصل الدراسي الثاني' },
-            'العقيدة الإسلامية (2)': { teacher: 'د. بكر أبو صوصين', phone: '972599793244', desc: 'دراسة الفرق والمذاهب، ومسائل القضاء والقدر، والرد على الملحدين.', sem: 'الفصل الدراسي الثاني' },
-            'علم مصطلح الحديث': { teacher: 'نخبة من مشايخ بصائر', phone: '', desc: 'قواعد تمييز الحديث من حيث القبول والرد، ودراسة سلسلة الرواة.', sem: 'الفصل الدراسي الثاني' },
-            'فقه الأسرة': { teacher: 'نخبة من مشايخ بصائر', phone: '', desc: 'أحكام النكاح، الطلاق، المواريث، وحقوق الأبناء في الإسلام.', sem: 'الفصل الدراسي الثاني' },
-            'فرق ومذاهب': { teacher: 'نخبة من مشايخ بصائر', phone: '', desc: 'تتبع المذاهب الفكرية المنحرفة وكيفية تحصين المجتمع منها.', sem: 'الفصل الدراسي الثاني' },
-            'فقه الدعوة': { teacher: 'نخبة من مشايخ بصائر', phone: '', desc: 'أحكام الدعوة إلى الله، فقه الموازنات، ومهارات التأثير في الآخرين.', sem: 'الفصل الدراسي الثاني' }
-        };
-
-        const certificateImages = ['cert1.jpg', 'cert2.jpg', 'cert3.jpg'];
-        let currentIdx = 0;
-
-        // 2. دوال التحكم العامة (إظهار وإغلاق المودالز)
-        function toggleModal(id, action = 'open') {
-            const modal = document.getElementById(id);
-            if (!modal) return;
-            if (action === 'open') {
-                modal.classList.replace('hidden', 'flex');
-            } else {
-                modal.classList.replace('flex', 'hidden');
-            }
-        }
-
-        // مسميات الدوال كما هي في الـ HTML الخاص بك
-        function openLogin() {
-            document.getElementById('idInput').value = "";
-            document.getElementById('loginMsg').innerHTML = "";
-            toggleModal('loginModal', 'open');
-        }
-        function closeLogin() { toggleModal('loginModal', 'close'); }
-        function closeModal(id) { toggleModal(id, 'close'); }
-
-        // 3. نظام التحقق والدخول
-        async function checkStudent() {
-            const idInput = document.getElementById('idInput').value.trim();
-            const msgArea = document.getElementById('loginMsg');
-
-            if (!idInput) {
-                msgArea.innerHTML = "<div class='error-msg'>يرجى إدخال رقم الهوية</div>";
-                return;
-            }
-
-            msgArea.innerHTML = "<div class='text-gray-400 animate-pulse'>جاري البحث في كشوفات القبول...</div>";
-
-            try {
-                const response = await fetch('students.json?v=' + Date.now());
-                if (!response.ok) throw new Error();
-                const students = await response.json();
-                const student = students.find(s => String(s["رقم الهوية"]) === idInput);
-
-                if (student) {
-                    const firstName = (student["الاسم رباعي "] || "").split(' ')[0];
-
-                    // تحديث حالة الواجهة
-                    updateUIOnLogin(firstName);
-
-                    msgArea.innerHTML = `<div class='success-msg text-center'>أهلاً بك يا ${firstName}</div>`;
-                    setTimeout(closeLogin, 1000);
-                } else {
-                    msgArea.innerHTML = "<div class='error-msg'>عذراً، لم يتم العثور على هذا الرقم</div>";
-                }
-            } catch (e) {
-                msgArea.innerHTML = "<div class='error-msg'>حدث خطأ! تأكد من تشغيل الموقع عبر Live Server.</div>";
-            }
-        }
-
-        function updateUIOnLogin(name) {
-            // إخفاء أزرار الدخول
-            ['heroLoginBtn', 'loginBtnNav'].forEach(id => document.getElementById(id)?.classList.add('hidden'));
-
-            // إظهار الترحيب والاسم
-            document.getElementById('userWelcome')?.classList.remove('hidden');
-            document.getElementById('studentFirstName').innerText = name;
-
-            // إظهار أقسام الطلاب
-            ['scheduleNavItem', 'scheduleSection'].forEach(id => document.getElementById(id)?.classList.remove('hidden'));
-
-            // تفعيل الكروت التفاعلية
-            activateInteractionCard('card-library', 'lib-status', "انقر لفتح Drive", () => window.open('https://drive.google.com/drive/folders/1rhrsuuQ3omkbiQYk-EINJ81zWb05bwnp', '_blank'));
-            activateInteractionCard('card-chat', 'chat-status', "انقر للانضمام لصفحة الفيسبوك", () => window.open('https://www.facebook.com/profile.php?id=61578149949616', '_blank'));
-            activateInteractionCard('card-certs', 'cert-status', "انقر لاستعراض الشهادات", openCertificates);
-        }
-
-        function activateInteractionCard(cardId, statusId, text, action) {
-            const card = document.getElementById(cardId);
-            if (!card) return;
-            card.classList.replace('opacity-50', 'opacity-100');
-            card.classList.replace('cursor-default', 'cursor-pointer');
-            card.classList.add('hover:bg-white/20', 'hover:scale-105');
-            document.getElementById(statusId).innerText = text;
-            card.onclick = action;
-        }
-
-        // 4. المساقات والكورسات
-        function initCourses() {
-            const s1 = document.getElementById('semester1-content');
-            const s2 = document.getElementById('semester2-content');
-            if (!s1 || !s2) return;
-            s1.innerHTML = ""; s2.innerHTML = "";
-
-            for (const [name, data] of Object.entries(coursesData)) {
-                const card = `
-            <div onclick="openCourse('${name}')" class="course-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-right cursor-pointer">
-                <h3 class="font-bold text-[#5D4037] mb-2">${name}</h3>
-                <p class="text-sm text-[#C5A059] mb-4">${data.teacher}</p>
-                <div class="text-xs text-gray-400">انقر للتفاصيل ...</div>
-            </div>`;
-                if (data.sem === 'الفصل الدراسي الأول') s1.innerHTML += card;
-                else s2.innerHTML += card;
-            }
-            showSemester(1);
-        }
-
-        function openCourse(courseName) {
-            const data = coursesData[courseName];
-            const studentName = document.getElementById('studentFirstName').innerText;
-            const modalTeacher = document.getElementById('modalTeacher');
-
-            document.getElementById('modalTitle').innerText = courseName;
-            document.getElementById('modalDesc').innerText = data.desc;
-            document.getElementById('modalSem').innerText = data.sem;
-
-            if (studentName && data.phone) {
-                const msg = encodeURIComponent(`السلام عليكم أنا ${studentName}، لدي استفسار في مساق ${courseName}`);
-                modalTeacher.innerHTML = `بإشراف: <a href="https://wa.me/${data.phone}?text=${msg}" target="_blank" class="text-[#25D366] font-bold hover:underline">
-            ${data.teacher} <span class="text-[10px] bg-[#25D366] text-white px-2 py-0.5 rounded-full">تواصل الآن 💬</span></a>`;
-            } else {
-                modalTeacher.innerText = `بإشراف: ${data.teacher}`;
-            }
-            toggleModal('courseModal', 'open');
-        }
-
-        function showSemester(n) {
-            const s1 = document.getElementById('semester1-content');
-            const s2 = document.getElementById('semester2-content');
-            s1.classList.toggle('hidden', n !== 1);
-            s2.classList.toggle('hidden', n !== 2);
-
-            const active = "bg-[#5D4037] text-white shadow-lg";
-            const inactive = "text-[#5D4037] hover:bg-gray-50";
-            document.getElementById('btn-sem1').className = `px-10 py-3 rounded-full font-bold transition-all ${n === 1 ? active : inactive}`;
-            document.getElementById('btn-sem2').className = `px-10 py-3 rounded-full font-bold transition-all ${n === 2 ? active : inactive}`;
-        }
-
-        // 5. الشهادات والسلايدر
-        function openCertificates() {
-            const slider = document.getElementById('certSlider');
-            slider.innerHTML = certificateImages.map(img => `
-        <div class="min-w-full flex justify-center p-2">
-            <img src="${img}" onclick="zoomCert('${img}')" class="rounded-xl shadow-2xl border-4 border-[#C5A059]/30 cursor-zoom-in max-h-[70vh] object-contain transition-transform hover:scale-[1.02]">
-        </div>`).join('');
-            currentIdx = 0;
-            updateSlider();
-            toggleModal('certModal', 'open');
-        }
-
-        function moveCert(dir) {
-            currentIdx = (currentIdx + dir + certificateImages.length) % certificateImages.length;
-            updateSlider();
-        }
-
-        function updateSlider() {
-            document.getElementById('certSlider').style.transform = `translateX(${currentIdx * 100}%)`;
-        }
-
-        function zoomCert(src) {
-            document.getElementById('fullCertImg').src = src;
-            toggleModal('fullCertView', 'open');
-        }
-
-        // 6. دوال أخرى (الجدول، الوضع الليلي، الخروج)
-        function openScheduleModal() {
-            const modalHtml = `
-        <div id="imgModal" onclick="this.remove()" class="fixed inset-0 bg-black/90 z-[999] flex items-center justify-center p-4 cursor-pointer">
-            <img src="scedule.jpg" class="max-w-full max-h-full rounded-lg shadow-2xl" alt="الجدول الدراسي">
-            <div class="absolute top-5 right-5 text-white text-2xl">× إغلاق</div>
-        </div>`;
-            document.body.insertAdjacentHTML('beforeend', modalHtml);
-        }
-
-        function logout() {
-            document.getElementById('userWelcome')?.classList.add('hidden');
-            document.getElementById('loginBtnNav').classList.remove('hidden');
-            ['scheduleNavItem', 'scheduleSection'].forEach(id => document.getElementById(id)?.classList.add('hidden'));
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleDarkMode() {
-            const body = document.body;
-            const isDark = body.classList.toggle('dark-mode');
-            document.getElementById('darkModeBtn').innerText = isDark ? '☀️' : '🌙';
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        }
-
-        // 7. التهيئة عند التحميل
-        window.onload = () => {
-            initCourses();
-            if (localStorage.getItem('theme') === 'dark') {
-                document.body.classList.add('dark-mode');
-                const btn = document.getElementById('darkModeBtn');
-                if (btn) btn.innerText = '☀️';
-            }
-        };
-
-        // تفعيل روابط التنقل النشطة (Active Nav)
-        window.addEventListener('scroll', () => {
-            let current = '';
-            document.querySelectorAll('section').forEach(section => {
-                if (pageYOffset >= (section.offsetTop - 100)) current = section.getAttribute('id');
-            });
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.toggle('nav-active', link.getAttribute('href').includes(current));
-            });
-        });
-        // دالة إغلاق عامة وقوية
-        function closeModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) {
-                // تجربة كل الطرق الممكنة للإغلاق لضمان التنفيذ
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                modal.style.display = 'none'; // زيادة تأكيد
-            }
-        }
-
-        // دالة مخصصة لمودال المساقات (تأكدي أن الزر يناديها)
-        function closeCourseModal() {
-            closeModal('courseModal');
-        }
-    </script>
-    <script>
-
-// 1. البيانات الأساسية
-const coursesData = {
-    'العقيدة الإسلامية (1)': { teacher: 'د. بكر أبو صوصين', phone: '972599793244', desc: 'تأصيل التوحيد وأصول الإيمان على منهج أهل السنة والجماعة، ودراسة متن الطحاوية.', sem: 'الفصل الدراسي الأول' },
-    'علوم القرآن': { teacher: 'د. عامر قاسم', phone: '', desc: 'دراسة نشأة علوم القرآن، تدوينه، إعجازه، وطرق جمع القرآن الكريم.', sem: 'الفصل الدراسي الأول' },
-    'اللغة العربية': { teacher: 'د. عمر الهمص', phone: '972594080047', desc: 'مبادئ النحو العربي وتطبيقات عملية من القرآن الكريم لتذوق البلاغة اللسانية.', sem: 'الفصل الدراسي الأول' },
-    'أصول الفقه': { teacher: 'د. حسام الجزار', phone: '970567331795', desc: 'دراسة قواعد الاستنباط والأدلة المتفق عليها والمختلف فيها عند الأصوليين.', sem: 'الفصل الدراسي الأول' },
-    'الفقه الإسلامي': { teacher: 'د. صهيب الرومي', phone: '972592160004', desc: 'فقه العبادات (الصلاة، الصيام، الزكاة، والحج) مع التركيز على المسائل المعاصرة.', sem: 'الفصل الدراسي الأول' },
-    'الثقافة الإسلامية': { teacher: 'د. ناصر المصري', phone: '972599855043', desc: 'بناء الهوية الإسلامية في ظل العولمة ومناقشة قضايا الفكر المعاصر.', sem: 'الفصل الدراسي الأول' },
-    'السيرة النبوية': { teacher: 'د. بلال عابدين', phone: '970595058020', desc: 'قراءة في سيرة النبي ﷺ من الولادة حتى الوفاة مع استخراج الدروس الدعوية والتربوية.', sem: 'الفصل الدراسي الأول' },
-    'فقه المعاملات': { teacher: 'نخبة من مشايخ بصائر', phone: '', desc: 'أحكام البيوع، المصارف الإسلامية، والعقود المالية الحديثة.', sem: 'الفصل الدراسي الثاني' },
-    'العقيدة الإسلامية (2)': { teacher: 'د. بكر أبو صوصين', phone: '972599793244', desc: 'دراسة الفرق والمذاهب، ومسائل القضاء والقدر، والرد على الملحدين.', sem: 'الفصل الدراسي الثاني' },
-    'علم مصطلح الحديث': { teacher: 'نخبة من مشايخ بصائر', phone: '', desc: 'قواعد تمييز الحديث من حيث القبول والرد، ودراسة سلسلة الرواة.', sem: 'الفصل الدراسي الثاني' },
-    'فقه الأسرة': { teacher: 'نخبة من مشايخ بصائر', phone: '', desc: 'أحكام النكاح، الطلاق، المواريث، وحقوق الأبناء في الإسلام.', sem: 'الفصل الدراسي الثاني' },
-    'فرق ومذاهب': { teacher: 'نخبة من مشايخ بصائر', phone: '', desc: 'تتبع المذاهب الفكرية المنحرفة وكيفية تحصين المجتمع منها.', sem: 'الفصل الدراسي الثاني' },
-    'فقه الدعوة': { teacher: 'نخبة من مشايخ بصائر', phone: '', desc: 'أحكام الدعوة إلى الله، فقه الموازنات، ومهارات التأثير في الآخرين.', sem: 'الفصل الدراسي الثاني' }
-};
-
-const certificateImages = ['cert1.jpg', 'cert2.jpg', 'cert3.jpg'];
-let currentIdx = 0;
-
-// 2. دوال التحكم العامة (العرض والإغلاق)
-function toggleModal(id, show = true) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (show) {
-        el.classList.remove('hidden');
-        el.classList.add('flex');
-    } else {
-        el.classList.add('hidden');
-        el.classList.remove('flex');
-    }
-}
-
-// دالة الإغلاق العامة المستخدمة في كل مكان
-function closeModal(id) { toggleModal(id, false); }
-function openLogin() { 
-    document.getElementById('idInput').value = "";
-    document.getElementById('loginMsg').innerHTML = "";
-    toggleModal('loginModal', true); 
-}
-
-// 3. منطق التحقق من الطالب والدخول
-async function checkStudent() {
-    const idInput = document.getElementById('idInput').value.trim();
-    const msgArea = document.getElementById('loginMsg');
-
-    if (!idInput) {
-        msgArea.innerHTML = "<div class='error-msg'>يرجى إدخال رقم الهوية</div>";
-        return;
-    }
-
-    msgArea.innerHTML = "<div class='text-gray-400 animate-pulse'>جاري البحث في كشوفات القبول...</div>";
-
-    try {
-        const response = await fetch('students.json');
-        if (!response.ok) throw new Error('فشل جلب البيانات');
-        const students = await response.json();
-        const student = students.find(s => String(s["رقم الهوية"]) === idInput);
-
-        if (student) {
-            const firstName = student["الاسم رباعي "].split(' ')[0];
-            
-            // تحديث الواجهة (تفعيل الكروت)
-            setupStudentView(firstName);
-            
-            msgArea.innerHTML = `<div class='success-msg text-center'>أهلاً بك يا ${firstName}</div>`;
-            setTimeout(() => closeModal('loginModal'), 1000);
-        } else {
-            msgArea.innerHTML = "<div class='error-msg'>عذراً، لم يتم العثور على هذا الرقم</div>";
-        }
-    } catch (error) {
-        msgArea.innerHTML = "<div class='error-msg'>حدث خطأ في الاتصال بالخادم</div>";
-    }
-}
-
-function setupStudentView(name) {
-    // إخفاء أزرار الدخول وإظهار الترحيب
-    ['heroLoginBtn', 'loginBtnNav'].forEach(id => document.getElementById(id)?.classList.add('hidden'));
-    document.getElementById('userWelcome').classList.remove('hidden');
-    document.getElementById('studentFirstName').innerText = name;
-
-    // إظهار أقسام الجدول
-    ['scheduleNavItem', 'scheduleSection'].forEach(id => document.getElementById(id)?.classList.remove('hidden'));
-
-    // تفعيل الكروت التفاعلية
-    activateCard('card-library', 'انقر لفتح Drive', () => window.open('https://drive.google.com/...', '_blank'));
-    activateCard('card-chat', 'انقر للانضمام للفيسبوك', () => window.open('https://facebook.com/...', '_blank'));
-    activateCard('card-certs', 'انقر لاستعراض الشهادات', openCertificates);
-}
-
-function activateCard(id, text, action) {
-    const card = document.getElementById(id);
-    const status = document.getElementById(id.replace('card-', '') + '-status');
-    card.classList.replace('opacity-50', 'opacity-100');
-    card.classList.replace('cursor-default', 'cursor-pointer');
-    card.classList.add('hover:bg-white/20', 'hover:scale-105');
-    status.innerText = text;
-    card.onclick = action;
-}
-
-// 4. منطق المواد الدراسية
-function initCourses() {
-    const s1 = document.getElementById('semester1-content');
-    const s2 = document.getElementById('semester2-content');
-    s1.innerHTML = ""; s2.innerHTML = "";
-
-    for (const [name, data] of Object.entries(coursesData)) {
-        const card = `
-            <div onclick="openCourse('${name}')" class="course-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-right cursor-pointer">
-                <h3 class="font-bold text-[#5D4037] mb-2">${name}</h3>
-                <p class="text-sm text-[#C5A059] mb-4">${data.teacher}</p>
-                <div class="text-xs text-gray-400">انقر للتفاصيل ...</div>
-            </div>`;
-        (data.sem === 'الفصل الدراسي الأول' ? s1 : s2).innerHTML += card;
-    }
-    showSemester(1);
-}
-
-function openCourse(name) {
-    const d = coursesData[name];
-    const studentName = document.getElementById('studentFirstName').innerText;
-    const modalTeacher = document.getElementById('modalTeacher');
-
-    document.getElementById('modalTitle').innerText = name;
-    document.getElementById('modalDesc').innerText = d.desc;
-    document.getElementById('modalSem').innerText = d.sem;
-
-    if (studentName && d.phone) {
-        const msg = encodeURIComponent(`السلام عليكم أنا ${studentName}، لدي استفسار في مساق ${name}`);
-        modalTeacher.innerHTML = `بإشراف: <a href="https://wa.me/${d.phone}?text=${msg}" target="_blank" class="text-[#25D366] font-bold hover:underline">
-            ${d.teacher} <span class="text-[10px] bg-[#25D366] text-white px-2 py-0.5 rounded-full">تواصل الآن 💬</span></a>`;
-    } else {
-        modalTeacher.innerText = `بإشراف: ${d.teacher}`;
-        modalTeacher.className = "text-[#C5A059] font-bold mb-6 italic";
-    }
-    toggleModal('courseModal', true);
-}
-
-// 5. الشهادات والسلايدر
-function openCertificates() {
-    const slider = document.getElementById('certSlider');
-    slider.innerHTML = certificateImages.map(img => `
-        <div class="min-w-full flex justify-center p-2">
-            <img src="${img}" onclick="zoomCert('${img}')" class="rounded-xl shadow-2xl border-4 border-[#C5A059]/30 cursor-zoom-in max-h-[70vh] object-contain">
-        </div>`).join('');
-    currentIdx = 0;
-    updateSlider();
-    toggleModal('certModal', true);
-}
-
-function moveCert(direction) {
-    currentIdx = (currentIdx + direction + certificateImages.length) % certificateImages.length;
-    updateSlider();
-}
-
-function updateSlider() {
-    document.getElementById('certSlider').style.transform = `translateX(${currentIdx * 100}%)`;
-}
-
-function zoomCert(src) {
-    document.getElementById('fullCertImg').src = src;
-    toggleModal('fullCertView', true);
-}
-
-// 6. وظائف إضافية (الجدول، الوضع الليلي، التمرير)
-function openScheduleModal() {
-    const modalHtml = `<div id="imgModal" onclick="this.remove()" class="fixed inset-0 bg-black/90 z-[999] flex items-center justify-center p-4 cursor-pointer">
-        <img src="scedule.jpg" class="max-w-full max-h-full rounded-lg shadow-2xl">
-        <div class="absolute top-5 right-5 text-white text-2xl">× إغلاق</div></div>`;
-    document.body.insertAdjacentHTML('beforeend', modalHtml);
-}
-
-function showSemester(n) {
-    const isSem1 = n === 1;
-    document.getElementById('semester1-content').classList.toggle('hidden', !isSem1);
-    document.getElementById('semester2-content').classList.toggle('hidden', isSem1);
-    
-    const active = "bg-[#5D4037] text-white shadow-md scale-105";
-    const inactive = "text-[#5D4037] hover:bg-gray-50";
-    
-    document.getElementById('btn-sem1').className = `px-10 py-3 rounded-full font-bold transition-all ${isSem1 ? active : inactive}`;
-    document.getElementById('btn-sem2').className = `px-10 py-3 rounded-full font-bold transition-all ${!isSem1 ? active : inactive}`;
-}
-
-function toggleDarkMode() {
-    const isDark = document.body.classList.toggle('dark-mode');
-    document.getElementById('darkModeBtn').innerText = isDark ? '☀️' : '🌙';
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
-
-// 7. الأحداث عند التحميل
-window.onload = () => {
-    initCourses();
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-        document.getElementById('darkModeBtn').innerText = '☀️';
-    }
-};
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    document.querySelectorAll('section').forEach(section => {
-        if (pageYOffset >= (section.offsetTop - 100)) current = section.getAttribute('id');
-    });
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.toggle('nav-active', link.getAttribute('href').includes(current));
-    });
-});
-    //     const coursesData = {
-    //         'العقيدة الإسلامية (1)': {
-    //             teacher: 'د. بكر أبو صوصين',
-    //             phone: '972599793244',
-    //             desc: 'تأصيل التوحيد وأصول الإيمان على منهج أهل السنة والجماعة، ودراسة متن الطحاوية.',
-    //             sem: 'الفصل الدراسي الأول'
-    //         },
-    //         'علوم القرآن': {
-    //             teacher: 'د. عامر قاسم',
-    //             phone: '',
-    //             desc: 'دراسة نشأة علوم القرآن، تدوينه، إعجازه، وطرق جمع القرآن الكريم.',
-    //             sem: 'الفصل الدراسي الأول'
-    //         },
-    //         'اللغة العربية': {
-    //             teacher: 'د. عمر الهمص',
-    //             phone: '972594080047',
-    //             desc: 'مبادئ النحو العربي وتطبيقات عملية من القرآن الكريم لتذوق البلاغة اللسانية.',
-    //             sem: 'الفصل الدراسي الأول'
-    //         },
-    //         'أصول الفقه': {
-    //             teacher: 'د. حسام الجزار',
-    //             phone: '970567331795',
-    //             desc: 'دراسة قواعد الاستنباط والأدلة المتفق عليها والمختلف فيها عند الأصوليين.',
-    //             sem: 'الفصل الدراسي الأول'
-    //         },
-    //         'الفقه الإسلامي': {
-    //             teacher: 'د. صهيب الرومي',
-    //             phone: '972592160004',
-    //             desc: 'فقه العبادات (الصلاة، الصيام، الزكاة، والحج) مع التركيز على المسائل المعاصرة.',
-    //             sem: 'الفصل الدراسي الأول'
-    //         },
-    //         'الثقافة الإسلامية': {
-    //             teacher: 'د. ناصر المصري',
-    //             phone: '972599855043',
-    //             desc: 'بناء الهوية الإسلامية في ظل العولمة ومناقشة قضايا الفكر المعاصر.',
-    //             sem: 'الفصل الدراسي الأول'
-    //         },
-    //         'السيرة النبوية': {
-    //             teacher: 'د. بلال عابدين',
-    //             phone: '970595058020',
-    //             desc: 'قراءة في سيرة النبي ﷺ من الولادة حتى الوفاة مع استخراج الدروس الدعوية والتربوية.',
-    //             sem: 'الفصل الدراسي الأول'
-    //         },
-    //         'فقه المعاملات': {
-    //             teacher: 'نخبة من مشايخ بصائر',
-    //             phone: '',
-    //             desc: 'أحكام البيوع، المصارف الإسلامية، والعقود المالية الحديثة.',
-    //             sem: 'الفصل الدراسي الثاني'
-    //         },
-    //         'العقيدة الإسلامية (2)': {
-    //             teacher: 'د. بكر أبو صوصين',
-    //             phone: '972599793244',
-    //             desc: 'دراسة الفرق والمذاهب، ومسائل القضاء والقدر، والرد على الملحدين.',
-    //             sem: 'الفصل الدراسي الثاني'
-    //         },
-    //         'علم مصطلح الحديث': {
-    //             teacher: 'نخبة من مشايخ بصائر',
-    //             phone: '',
-    //             desc: 'قواعد تمييز الحديث من حيث القبول والرد، ودراسة سلسلة الرواة.',
-    //             sem: 'الفصل الدراسي الثاني'
-    //         },
-    //         'فقه الأسرة': {
-    //             teacher: 'نخبة من مشايخ بصائر',
-    //             phone: '',
-    //             desc: 'أحكام النكاح، الطلاق، المواريث، وحقوق الأبناء في الإسلام.',
-    //             sem: 'الفصل الدراسي الثاني'
-    //         },
-    //         'فرق ومذاهب': {
-    //             teacher: 'نخبة من مشايخ بصائر',
-    //             phone: '',
-    //             desc: 'تتبع المذاهب الفكرية المنحرفة وكيفية تحصين المجتمع منها.',
-    //             sem: 'الفصل الدراسي الثاني'
-    //         },
-    //         'فقه الدعوة': {
-    //             teacher: 'نخبة من مشايخ بصائر',
-    //             phone: '',
-    //             desc: 'أحكام الدعوة إلى الله، فقه الموازنات، ومهارات التأثير في الآخرين.',
-    //             sem: 'الفصل الدراسي الثاني'
-    //         }
-    //     };
-    //     // الوظيفة الأساسية: جلب بيانات الطلاب من ملف JSON والتحقق
-    //     async function checkStudent() {
-    //         const idInput = document.getElementById('idInput').value.trim();
-    //         const msgArea = document.getElementById('loginMsg');
-
-    //         if (!idInput) {
-    //             msgArea.innerHTML = "<div class='error-msg'>يرجى إدخال رقم الهوية</div>";
-    //             return;
-    //         }
-
-    //         msgArea.innerHTML = "<div class='text-gray-400 animate-pulse'>جاري البحث في كشوفات القبول...</div>";
-
-    //         try {
-    //             // الربط مع ملف JSON المرفق
-    //             const response = await fetch('students.json');
-    //             if (!response.ok) throw new Error('فشل جلب ملف البيانات');
-
-    //             const students = await response.json();
-
-    //             // البحث في البيانات
-    //             const student = students.find(s => String(s["رقم الهوية"]) === idInput);
-
-    //             if (student) {
-    //                 // 1. استخراج الاسم الأول فقط للترحيب
-    //                 const fullName = student["الاسم رباعي "];
-    //                 const firstName = fullName.split(' ')[0];
-    //                 const heroBtn = document.getElementById('heroLoginBtn');
-    //                 if (heroBtn) {
-    //                     heroBtn.classList.add('hidden');
-    //                 }
-    //                 // تفعيل المكتبة
-    //                 const libCard = document.getElementById('card-library');
-    //                 libCard.classList.replace('opacity-50', 'opacity-100');
-    //                 libCard.classList.replace('cursor-default', 'cursor-pointer');
-    //                 libCard.classList.add('hover:bg-white/20', 'hover:scale-105');
-    //                 document.getElementById('lib-status').innerText = "انقر لفتح Drive";
-    //                 libCard.onclick = () => window.open('https://drive.google.com/drive/folders/1rhrsuuQ3omkbiQYk-EINJ81zWb05bwnp', '_blank');
-
-    //                 // تفعيل حلقات النقاش
-    //                 const chatCard = document.getElementById('card-chat');
-    //                 chatCard.classList.replace('opacity-50', 'opacity-100');
-    //                 chatCard.classList.replace('cursor-default', 'cursor-pointer');
-    //                 chatCard.classList.add('hover:bg-white/20', 'hover:scale-105');
-    //                 document.getElementById('chat-status').innerText = "انقر للانضمام لصفحة الفيسبوك";
-    //                 chatCard.onclick = () => window.open('https://www.facebook.com/profile.php?id=61578149949616&rdid=ELsglTDyfMZnMmXp&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1HBGw8jeTn%2F#', '_blank');
-
-    //                 // تفعيل الشهادات
-    //                 const certCard = document.getElementById('card-certs');
-    //                 certCard.classList.replace('opacity-50', 'opacity-100');
-    //                 certCard.classList.replace('cursor-default', 'cursor-pointer');
-    //                 certCard.classList.add('hover:bg-white/20', 'hover:scale-105');
-    //                 document.getElementById('cert-status').innerText = "انقر لاستعراض الشهادات";
-    //                 certCard.onclick = () => openCertificates(); // الدالة التي تفتح الكاروسيل
-    //                 // 2. إخفاء زر الدخول وإظهار الترحيب
-    //                 document.getElementById('loginBtnNav').classList.add('hidden');
-    //                 document.getElementById('userWelcome').classList.remove('hidden');
-    //                 document.getElementById('studentFirstName').innerText = firstName;
-
-    //                 // 3. إظهار الأقسام المخفية (الجدول والنافبار)
-    //                 if (document.getElementById('scheduleNavItem')) document.getElementById('scheduleNavItem').classList.remove('hidden');
-    //                 if (document.getElementById('scheduleSection')) document.getElementById('scheduleSection').classList.remove('hidden');
-
-    //                 // 4. رسالة البوب أب وإغلاقها
-    //                 msgArea.innerHTML = `<div class='success-msg text-center'>أهلاً بك يا ${firstName}</div>`;
-
-    //                 setTimeout(() => {
-    //                     // تأكدي أن اسم الدالة هنا يطابق الدالة التي تغلق المودال عندك (مثلاً closeLogin أو closeModal)
-    //                     if (typeof closeLogin === "function") closeLogin();
-    //                     else if (typeof closeModal === "function") closeModal('loginModal');
-    //                 }, 1000);
-    //                 certCard.onclick = () => openCertificates();
-    //             }
-    //             else {
-    //                 // رسالة الخطأ تبقى كما هي
-    //                 msgArea.innerHTML = "<div class='error-msg'>عذراً، لم يتم العثور على هذا الرقم</div>";
-    //             }
-
-    //         } catch (error) {
-    //             console.error("Error fetching students:", error);
-    //             msgArea.innerHTML = "<div class='error-msg'>حدث خطأ في جلب البيانات من ملف JSON. تأكد من وجود ملف students.json في نفس المجلد.</div>";
-    //         }
-    //     }
-    //     function openScheduleModal() {
-    //         // يمكنك استخدام بوب أب بسيط لعرض الصورة
-    //         const modalHtml = `
-    //     <div id="imgModal" onclick="this.remove()" class="fixed inset-0 bg-black/90 z-[999] flex items-center justify-center p-4 cursor-pointer">
-    //         <img src="scedule.jpg" class="max-w-full max-h-full rounded-lg shadow-2xl" alt="الجدول الدراسي">
-    //         <div class="absolute top-5 right-5 text-white text-2xl">× إغلاق</div>
-    //     </div>
-    // `;
-    //         document.body.insertAdjacentHTML('beforeend', modalHtml);
-    //     }
-    //     function logout() {
-    //         // إخفاء الترحيب وإظهار زر الدخول
-    //         document.getElementById('userGreeting').classList.add('hidden');
-    //         document.getElementById('loginBtnNav').classList.remove('hidden');
-
-    //         // إخفاء أقسام الطلاب
-    //         document.getElementById('scheduleNavItem').classList.add('hidden');
-    //         document.getElementById('scheduleSection').classList.add('hidden');
-
-    //         // اختياري: العودة لأعلى الصفحة
-    //         window.scrollTo({ top: 0, behavior: 'smooth' });
-    //     }
-    //     // تبديل الفصول الدراسية
-    //     function showSemester(n) {
-    //         document.getElementById('semester1-content').classList.toggle('hidden', n !== 1);
-    //         document.getElementById('semester2-content').classList.toggle('hidden', n !== 2);
-
-    //         const activeClass = "bg-[#5D4037] text-white shadow-md scale-105";
-    //         const inactiveClass = "text-[#5D4037] hover:bg-gray-50";
-
-    //         document.getElementById('btn-sem1').className = n === 1 ? `px-10 py-3 rounded-full font-bold transition-all ${activeClass}` : `px-10 py-3 rounded-full font-bold transition-all ${inactiveClass}`;
-    //         document.getElementById('btn-sem2').className = n === 2 ? `px-10 py-3 rounded-full font-bold transition-all ${activeClass}` : `px-10 py-3 rounded-full font-bold transition-all ${inactiveClass}`;
-    //     }
-
-    //     // بناء كروت المواد
-    //     function initCourses() {
-    //         const sem1 = document.getElementById('semester1-content');
-    //         const sem2 = document.getElementById('semester2-content');
-    //         sem1.innerHTML = ""; sem2.innerHTML = "";
-
-    //         for (const [name, data] of Object.entries(coursesData)) {
-    //             const card = `
-    //                 <div onclick="showCourseDetails('${name}')" class="course-card p-6 bg-[#FCFAf5] border border-gray-100 rounded-2xl shadow-sm">
-    //                     <h3 class="font-bold text-[#5D4037] font-amiri text-xl mb-2">${name}</h3>
-    //                     <div class="w-10 h-1 bg-[#C5A059] mb-4"></div>
-    //                     <p class="text-xs text-[#C5A059] font-bold italic">بإشراف: ${data.teacher}</p>
-    //                 </div>`;
-    //             (data.sem === 'الفصل الدراسي الأول' ? sem1 : sem2).innerHTML += card;
-    //         }
-    //         showSemester(1);
-    //     }
-
-    //     // فتح تفاصيل المادة
-    //     function showCourseDetails(name) {
-    //         const d = coursesData[name];
-    //         document.getElementById('modalTitle').innerText = name;
-    //         document.getElementById('modalTeacher').innerText = "المحاضر: " + d.teacher;
-    //         document.getElementById('modalDesc').innerText = d.desc;
-    //         document.getElementById('modalSem').innerText = d.sem;
-    //         document.getElementById('courseModal').classList.replace('hidden', 'flex');
-    //     }
-
-    //     // وظائف الإغلاق والفتح
-    //     function closeCourseModal() { document.getElementById('courseModal').classList.replace('flex', 'hidden'); }
-    //     function openLogin() {
-    //         document.getElementById('loginModal').classList.replace('hidden', 'flex');
-    //         document.getElementById('idInput').value = "";
-    //         document.getElementById('loginMsg').innerHTML = "";
-    //     }
-    //     function closeLogin() { document.getElementById('loginModal').classList.replace('flex', 'hidden'); }
-
-    //     window.onload = initCourses;
-
-
-
-    //     window.addEventListener('scroll', () => {
-    //         let current = '';
-    //         const sections = document.querySelectorAll('section'); // تأكدي أن كل أجزاء الموقع داخل وسوم section
-    //         const navLinks = document.querySelectorAll('.nav-link');
-
-    //         sections.forEach(section => {
-    //             const sectionTop = section.offsetTop;
-    //             const sectionHeight = section.clientHeight;
-    //             // إذا كان التمرير الحالي داخل نطاق السكشن (مع طرح 100 بكسل للهيدر)
-    //             if (pageYOffset >= (sectionTop - 100)) {
-    //                 current = section.getAttribute('id');
-    //             }
-    //         });
-
-    //         navLinks.forEach(link => {
-    //             link.classList.remove('nav-active');
-    //             if (link.getAttribute('href').includes(current)) {
-    //                 link.classList.add('nav-active');
-    //             }
-    //         });
-    //     });
-    //     // مصفوفة صور الشهادات - أضيفي روابط صورك هنا
-
-
-    //     function openCertificates() {
-    //         const container = document.getElementById('certContainer');
-    //         // تعبئة الصور في الكاروسيل
-    //         container.innerHTML = certImages.map(img => `
-    //     <img src="${img}" onclick="viewFullImage('${img}')" onerror="this.src='https://via.placeholder.com/800x600?text=Certificate'">
-    // `).join('');
-
-    //         openModal('certModal');
-    //         updateCertPosition();
-    //     }
-
-    //     function moveCert(step) {
-    //         currentCertIndex += step;
-    //         if (currentCertIndex >= certImages.length) currentCertIndex = 0;
-    //         if (currentCertIndex < 0) currentCertIndex = certImages.length - 1;
-    //         updateCertPosition();
-    //     }
-
-    //     function updateCertPosition() {
-    //         const container = document.getElementById('certContainer');
-    //         container.style.transform = `translateX(${currentCertIndex * 100}%)`; // التحريك لليسار واليمين
-    //     }
-
-    //     function viewFullImage(src) {
-    //         document.getElementById('fullImgSrc').src = src;
-    //         openModal('fullImgView');
-    //     }
-
-    //     const certificateImages = ['cert1.jpg', 'cert2.jpg', 'cert3.jpg'];
-    //     let currentIdx = 0;
-
-    //     // 2. دالة فتح معرض الشهادات
-    //     function openCertificates() {
-    //         const slider = document.getElementById('certSlider');
-    //         // بناء محتوى السلايدر
-    //         slider.innerHTML = certificateImages.map(img => `
-    //     <div class="min-w-full flex justify-center p-2">
-    //         <img src="${img}" onclick="zoomCert('${img}')" class="rounded-xl shadow-2xl border-4 border-[#C5A059]/30 cursor-zoom-in max-h-[70vh] object-contain transition-transform hover:scale-[1.02]" onerror="this.src='https://via.placeholder.com/800x600?text=Certificate+Image'">
-    //     </div>
-    // `).join('');
-
-    //         currentIdx = 0;
-    //         updateSlider();
-
-    //         // إظهار المودال
-    //         const modal = document.getElementById('certModal');
-    //         modal.classList.remove('hidden');
-    //         modal.classList.add('flex');
-    //     }
-
-    //     // 3. دالة تحريك الكاروسيل يمين ويسار
-    //     function moveCert(direction) {
-    //         currentIdx += direction;
-    //         if (currentIdx < 0) currentIdx = certificateImages.length - 1;
-    //         if (currentIdx >= certificateImages.length) currentIdx = 0;
-    //         updateSlider();
-    //     }
-
-    //     function updateSlider() {
-    //         const slider = document.getElementById('certSlider');
-    //         slider.style.transform = `translateX(${currentIdx * 100}%)`;
-    //     }
-
-    //     // 4. دالة تكبير الشهادة عند النقر عليها
-    //     function zoomCert(src) {
-    //         const fullView = document.getElementById('fullCertView');
-    //         const fullImg = document.getElementById('fullCertImg');
-    //         fullImg.src = src;
-    //         fullView.classList.remove('hidden');
-    //         fullView.classList.add('flex');
-    //     }
-
-    //     // 5. دالة الإغلاق العامة
-    //     function closeModal(id) {
-    //         const element = document.getElementById(id);
-    //         element.classList.add('hidden');
-    //         element.classList.remove('flex');
-    //     }
-    //     // دالة فتح تفاصيل المساق وتفعيل واتساب المشايخ
-    //     function openCourse(courseName) {
-    //         const data = coursesData[courseName];
-    //         const modalTeacher = document.getElementById('modalTeacher');
-    //         const studentName = document.getElementById('studentFirstName').innerText; // جلب اسم الطالب المسجل من النافبار
-
-    //         document.getElementById('modalTitle').innerText = courseName;
-    //         document.getElementById('modalDesc').innerText = data.desc;
-    //         document.getElementById('modalSem').innerText = data.sem;
-
-    //         // التحقق: هل المستخدم مسجل (اسمه موجود في النافبار)؟ وهل يوجد رقم هاتف للشيخ؟
-    //         if (studentName && data.phone !== "") {
-    //             const message = `السلام عليكم أنا ${studentName}، لدي استفسار في مساق ${courseName}`;
-    //             const whatsappUrl = `https://wa.me/${data.phone}?text=${encodeURIComponent(message)}`;
-
-    //             modalTeacher.innerHTML = `
-    //         بإشراف: <a href="${whatsappUrl}" target="_blank" class="text-[#25D366] font-bold hover:underline inline-flex items-center gap-1">
-    //             ${data.teacher} 
-    //             <span class="text-[10px] bg-[#25D366] text-white px-2 py-0.5 rounded-full">تواصل الآن 💬</span>
-    //         </a>`;
-    //         } else {
-    //             // يظهر كاسم عادي إذا لم يسجل الطالب أو لم يتوفر رقم الشيخ
-    //             modalTeacher.innerText = `بإشراف: ${data.teacher}`;
-    //             modalTeacher.className = "text-[#C5A059] font-bold mb-6 italic border-b pb-4 border-[#F5F5DC]";
-    //         }
-
-    //         // إظهار المودال
-    //         document.getElementById('courseModal').classList.remove('hidden');
-    //         document.getElementById('courseModal').classList.add('flex');
-    //     }
-
-    //     // دالة إغلاق مودال المساق
-    //     function closeCourseModal() {
-    //         document.getElementById('courseModal').classList.add('hidden');
-    //         document.getElementById('courseModal').classList.remove('flex');
-    //     }
-
-    //     // دالة التنقل بين الفصول (تأكدي من وجودها ليعمل التصنيف)
-    //     function showSemester(semNum) {
-    //         const s1 = document.getElementById('semester1-content');
-    //         const s2 = document.getElementById('semester2-content');
-    //         const b1 = document.getElementById('btn-sem1');
-    //         const b2 = document.getElementById('btn-sem2');
-
-    //         if (semNum === 1) {
-    //             s1.classList.remove('hidden');
-    //             s2.classList.add('hidden');
-    //             b1.className = "px-10 py-3 rounded-full font-bold bg-[#5D4037] text-white shadow-lg";
-    //             b2.className = "px-10 py-3 rounded-full font-bold text-[#5D4037] hover:bg-gray-50";
-    //         } else {
-    //             s1.classList.add('hidden');
-    //             s2.classList.remove('hidden');
-    //             b2.className = "px-10 py-3 rounded-full font-bold bg-[#5D4037] text-white shadow-lg";
-    //             b1.className = "px-10 py-3 rounded-full font-bold text-[#5D4037] hover:bg-gray-50";
-    //         }
-    //     }
-
-    //     // توليد بطاقات المواد عند تحميل الصفحة
-    //     window.onload = () => {
-    //         const s1Container = document.getElementById('semester1-content');
-    //         const s2Container = document.getElementById('semester2-content');
-
-    //         for (let course in coursesData) {
-    //             const card = `
-    //         <div onclick="openCourse('${course}')" class="course-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-right">
-    //             <h3 class="font-bold text-[#5D4037] mb-2">${course}</h3>
-    //             <p class="text-sm text-[#C5A059] mb-4">${coursesData[course].teacher}</p>
-    //             <div class="text-xs text-gray-400">انقر للتفاصيل ...</div>
-    //         </div>
-    //     `;
-    //             if (coursesData[course].sem === 'الفصل الدراسي الأول') s1Container.innerHTML += card;
-    //             else s2Container.innerHTML += card;
-    //         }
-    //         showSemester(1); // عرض الفصل الأول افتراضياً
-    //     };
-    //     function toggleDarkMode() {
-    //         const body = document.body;
-    //         const btn = document.getElementById('darkModeBtn');
-
-    //         body.classList.toggle('dark-mode');
-
-    //         if (body.classList.contains('dark-mode')) {
-    //             btn.innerText = '☀️'; // أيقونة الشمس للعودة للوضع الفاتح
-    //             localStorage.setItem('theme', 'dark');
-    //         } else {
-    //             btn.innerText = '🌙'; // أيقونة القمر للوضع الليلي
-    //             localStorage.setItem('theme', 'light');
-    //         }
-    //     }
-
-    //     // كود للحفاظ على الوضع المختار حتى بعد تحديث الصفحة
-    //     window.addEventListener('DOMContentLoaded', () => {
-    //         if (localStorage.getItem('theme') === 'dark') {
-    //             document.body.classList.add('dark-mode');
-    //             document.getElementById('darkModeBtn').innerText = '☀️';
-    //         }
-    //     });
-
-        // function unlockCerts() {
-        //     const card = document.getElementById('card-certs');
-        //     const status = document.getElementById('cert-status');
-
-        //     // إزالة قيود الإغلاق
-        //     card.classList.remove('opacity-50', 'pointer-events-none', 'cursor-not-allowed');
-        //     card.classList.add('cursor-pointer', 'hover:bg-white/10', 'hover:border-[#C5A059]/50');
-
-        //     // تغيير النص
-        //     status.innerText = "✅ تم التفعيل - انقر للمشاهدة";
-        //     status.classList.replace('text-orange-300', 'text-green-400');
-        // }
-
-    </script> 
-    <div id="certModal"
-        class="fixed inset-0 bg-black/95 z-[999] hidden items-center justify-center p-4 backdrop-blur-sm">
-        <button onclick="closeModal('certModal')"
-            class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center bg-[#C5A059] text-white rounded-full text-3xl font-bold hover:scale-110 transition-transform animate-bounce z-[1001] shadow-lg">×</button>
-
-        <div class="relative w-full max-w-5xl flex items-center justify-center overflow-hidden group">
-            <button onclick="moveCert(-1)"
-                class="absolute left-4 z-[1000] bg-white/10 p-4 rounded-full text-white hover:bg-[#C5A059] transition-all text-2xl shadow-xl">❮</button>
-
-            <div class="overflow-hidden w-[80%] md:w-[60%]">
-                <div id="certSlider" class="flex transition-transform duration-500 ease-in-out">
-                </div>
-            </div>
-
-            <button onclick="moveCert(1)"
-                class="absolute right-4 z-[1000] bg-white/10 p-4 rounded-full text-white hover:bg-[#C5A059] transition-all text-2xl shadow-xl">❯</button>
-        </div>
-    </div>
-
-    <div id="fullCertView" class="fixed inset-0 bg-black/90 z-[2000] hidden items-center justify-center p-4">
-        <button onclick="closeModal('fullCertView')"
-            class="absolute top-8 right-8 text-white text-5xl font-light hover:text-[#C5A059] transition-colors">×</button>
-        <img id="fullCertImg" src="" class="max-w-full max-h-full rounded-lg shadow-2xl border-2 border-white/20">
-    </div>
-</body>
-
-</html> -->
-
-<!-- <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معهد بصائر للعلوم الشرعية</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-brown: #5D4037;
-            --gold-accent: #C5A059;
-            --bg-light: #FCFAf5;
-            --dark-bg: #1A120B;
-            --dark-card: #2C1E16;
-        }
-
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: var(--bg-light);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
-
-        h1, h2, h3, .font-amiri { font-family: 'Amiri', serif; }
-
-        .dark-mode { background-color: #0F172A !important; color: #F1E4C3 !important; }
-        .dark-mode nav { background-color: rgba(15, 23, 42, 0.95) !important; border-bottom: 1px solid rgba(197, 160, 89, 0.2) !important; backdrop-filter: blur(10px); }
-        .dark-mode section { background-color: #0F172A !important; }
-        .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode p, .dark-mode span { color: #F1E4C3 !important; }
-        .dark-mode .course-card { background: rgba(30, 41, 59, 0.6) !important; border: 1px solid rgba(197, 160, 89, 0.2) !important; }
-        .dark-mode .course-card:hover { background: rgba(30, 41, 59, 0.9) !important; border-right-color: #C5A059 !important; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); }
-
-        .islamic-pattern {
-            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
-            opacity: 0.05; position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: 0;
-        }
-
-        .btn-gold {
-            background-color: var(--gold-accent); color: white; transition: 0.3s;
-            box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); animation: pulse-gold 2s infinite;
-        }
-
-        @keyframes pulse-gold {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4); }
-            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
-        }
-
-        .course-card { transition: all 0.4s ease; cursor: pointer; border-right: 4px solid transparent; background: white; }
-        .course-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(93, 64, 55, 0.1); border-right-color: var(--gold-accent); }
-
-        .section-divider {
-            height: 2px; background: linear-gradient(to left, transparent, var(--gold-accent), transparent);
-            margin: 40px auto; width: 50%;
-        }
-
-        .hidden { display: none; }
-        
-        #certSlider { display: flex; flex-direction: row-reverse; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    </style>
-</head>
-
-<body>
-
-    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <div class="text-2xl md:text-3xl font-bold text-[#5D4037] font-amiri tracking-wider">معهد بَصائر</div>
-                <div class="h-8 w-[1px] bg-gray-300 mx-3"></div>
-                <p class="text-[9px] md:text-[10px] text-gray-500 leading-tight uppercase font-bold">هدية العلم<br>بصيرة للعمل</p>
-            </div>
-
-            <ul class="hidden lg:flex space-x-8 space-x-reverse text-[#5D4037] font-medium">
-                <li><a href="#hero" class="hover:text-[#C5A059] transition">الرئيسية</a></li>
-                <li><a href="#about" class="hover:text-[#C5A059] transition">عن المعهد</a></li>
-                <li><a href="#guide" class="hover:text-[#C5A059] transition">الدليل</a></li>
-                <li><a href="#path" class="hover:text-[#C5A059] transition">المسار العلمي</a></li>
-                <li><a href="#community" class="hover:text-[#C5A059] transition">المجتمع</a></li>
-            </ul>
-
-            <div class="flex items-center gap-2 md:gap-4">
-                <div id="authArea" class="hidden sm:block">
-                    <button id="loginBtnNav" onclick="openLogin()" class="btn-gold px-4 md:px-6 py-2 rounded-md font-bold text-sm">بوابة المقبولين</button>
-                    <div id="userWelcome" class="hidden text-[#5D4037] font-bold flex items-center gap-2">
-                        <span class="text-sm">أهلاً، <span id="studentFirstName" class="text-[#C5A059]"></span></span>
-                        <button onclick="logout()" class="text-xs text-red-500 underline bg-transparent">خروج</button>
-                    </div>
-                </div>
-
-                <button onclick="toggleDarkMode()" id="darkModeBtn" class="p-2 rounded-full hover:bg-gray-100 text-xl">🌙</button>
-                
-                <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="lg:hidden p-2 text-[#5D4037]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t p-4 space-y-4 shadow-inner text-center font-bold">
-            <a href="#hero" class="block py-2 text-[#5D4037]" onclick="document.getElementById('mobileMenu').classList.add('hidden')">الرئيسية</a>
-            <a href="#about" class="block py-2 text-[#5D4037]" onclick="document.getElementById('mobileMenu').classList.add('hidden')">عن المعهد</a>
-            <a href="#path" class="block py-2 text-[#5D4037]" onclick="document.getElementById('mobileMenu').classList.add('hidden')">المسار العلمي</a>
-            <button onclick="openLogin(); document.getElementById('mobileMenu').classList.add('hidden')" class="w-full btn-gold py-3 rounded-lg">بوابة المقبولين</button>
-        </div>
-    </nav>
-
-    <section id="hero" class="relative bg-[#F5F5DC] py-16 md:py-28 overflow-hidden border-b-4 border-[#C5A059]">
-        <div class="islamic-pattern"></div>
-        <div class="container mx-auto px-6 relative z-10 text-center">
-            <div class="mb-6 inline-block bg-white/50 px-4 py-1 rounded-full text-[#C5A059] font-bold text-xs md:text-sm border border-[#C5A059]/30">
-                الدورة العلمية السنوية - دفعة 2024
-            </div>
-            <h1 class="text-3xl md:text-5xl lg:text-7xl font-bold text-[#4E342E] mb-6 px-2">معهد بصائر للعلوم الشرعية</h1>
-            <p class="text-lg md:text-xl text-[#6D4C41] max-w-2xl mx-auto leading-relaxed mb-10 italic px-4">
-                رحلة إيمانية تجمع بين تأصيل التراث وأدوات العصر.. نبني الوعي بالعلم والعمل.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 px-6">
-                <a href="#path" class="bg-[#5D4037] text-white px-8 py-4 rounded-lg text-lg shadow-xl hover:bg-[#3E2723] transition text-center">تصفح الخطة</a>
-                <button id="heroLoginBtn" onclick="openLogin()" class="btn-gold px-8 py-4 rounded-lg text-lg font-bold">بوابة التحقق</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="guide" class="relative py-12 md:py-16 px-4 bg-[#FCFAf5] overflow-hidden">
-        <div class="islamic-pattern"></div>
-        <div class="container mx-auto max-w-5xl relative z-10">
-            <div class="text-center mb-8 md:mb-12">
-                <h2 class="text-2xl md:text-4xl font-bold text-[#5D4037] mb-2">الدليل التعريفي ونظام الدراسة</h2>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border-r-8 border-[#C5A059] shadow-sm mb-10">
-                <p class="font-amiri text-xl text-[#5D4037] mb-4 text-center font-bold">بسم الله الرحمن الرحيم</p>
-                <p class="text-base md:text-lg text-gray-700 text-center mb-4">نرحب بكم في <span class="font-bold text-[#C5A059]">مركز ومعهد بصائر للدراسات الشرعية</span></p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                <div class="course-card p-6 md:p-8 rounded-xl">
-                    <h3 class="text-xl md:text-2xl font-bold text-[#5D4037] mb-4">📜 التعريف بالدبلوم</h3>
-                    <ul class="space-y-3 text-gray-700 text-sm md:text-base">
-                        <li>● تأصيل العلوم الشرعية بمنهجية رصينة.</li>
-                        <li>● بناء الحصانة الفكرية لمواجهة الانحراف.</li>
-                    </ul>
-                </div>
-                <div class="course-card p-6 md:p-8 rounded-xl">
-                    <h3 class="text-xl md:text-2xl font-bold text-[#5D4037] mb-4">🌐 آلية التدريس</h3>
-                    <div class="space-y-3 text-sm md:text-base">
-                        <div class="bg-[#FCFAf5] p-3 rounded-lg border-r-4 border-[#C5A059]">شرح صوتي عبر مجتمع الواتساب وأرشفة المحاضرات.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="path" class="py-16 bg-[#FCFAf5] relative">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-[#5D4037] font-amiri mb-4">خريطةُ بصائر العِلمية</h2>
-            
-            <div class="flex flex-col sm:flex-row bg-white p-2 rounded-xl sm:rounded-full mb-12 shadow-inner border border-[#C5A059]/20 inline-flex">
-                <button onclick="showSemester(1)" id="btn-sem1" class="px-6 md:px-10 py-3 rounded-xl sm:rounded-full font-bold transition-all text-sm md:text-base">الفصل الأول</button>
-                <button onclick="showSemester(2)" id="btn-sem2" class="px-6 md:px-10 py-3 rounded-xl sm:rounded-full font-bold transition-all text-sm md:text-base mt-2 sm:mt-0">الفصل الثاني</button>
-            </div>
-
-            <div id="semester1-content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-2"></div>
-            <div id="semester2-content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-2"></div>
-        </div>
-    </section>
-
-    <section id="community" class="py-16 bg-[#5D4037] text-white border-t-8 border-[#C5A059]">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-2xl md:text-3xl font-bold font-amiri mb-10 text-[#C5A059]">مجتمع بصائر التفاعلي</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div id="card-library" class="bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10 opacity-50">
-                    <div class="text-4xl mb-4">📚</div>
-                    <h3 class="font-bold text-xl text-[#C5A059]">المكتبة الإلكترونية</h3>
-                </div>
-                <div id="card-chat" class="bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10 opacity-50">
-                    <div class="text-4xl mb-4">💬</div>
-                    <h3 class="font-bold text-xl text-[#C5A059]">حلقات النقاش</h3>
-                </div>
-                <div id="card-certs" class="bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10 opacity-50">
-                    <div class="text-4xl mb-4">🏆</div>
-                    <h3 class="font-bold text-xl text-[#C5A059]">لوحات الشرف</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div id="loginModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[200] hidden items-center justify-center p-4">
-        <div class="bg-white w-full max-w-sm md:max-w-md rounded-3xl shadow-2xl border-2 border-[#C5A059] overflow-hidden">
-            <div class="bg-[#5D4037] p-6 text-white text-center relative">
-                <h3 class="text-xl md:text-2xl font-amiri">بوابة التحقق</h3>
-                <button onclick="closeLogin()" class="absolute top-4 left-4 text-white/50 hover:text-white text-2xl">&times;</button>
-            </div>
-            <div class="p-6 md:p-8">
-                <input type="text" id="idInput" placeholder="أدخل رقم الهوية" class="w-full p-4 rounded-xl border-2 border-[#F5F5DC] focus:border-[#C5A059] outline-none text-center mb-4 text-lg font-bold">
-                <button onclick="checkStudent()" class="w-full bg-[#C5A059] text-white font-bold py-4 rounded-xl shadow-lg active:scale-95 transition">تحقق الآن</button>
-                <div id="loginMsg" class="text-center mt-4 text-sm font-bold min-h-[40px]"></div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const coursesData = {
-            'العقيدة الإسلامية (1)': { teacher: 'د. بكر أبو صوصين', desc: 'تأصيل التوحيد ودراسة متن الطحاوية.', sem: 'الفصل الدراسي الأول' },
-            'علوم القرآن': { teacher: 'د. عامر قاسم', desc: 'دراسة نشأة علوم القرآن وتدوينه.', sem: 'الفصل الدراسي الأول' },
-            'اللغة العربية': { teacher: 'د. عمر الهمص', desc: 'مبادئ النحو وتطبيقات من القرآن.', sem: 'الفصل الدراسي الأول' },
-            'أصول الفقه': { teacher: 'د. حسام الجزار', desc: 'دراسة قواعد الاستنباط والأدلة.', sem: 'الفصل الدراسي الأول' },
-            'الفقه الإسلامي': { teacher: 'د. صهيب الرومي', desc: 'فقه العبادات والتركيز على المسائل المعاصرة.', sem: 'الفصل الدراسي الأول' },
-            'الثقافة الإسلامية': { teacher: 'د. ناصر المصري', desc: 'بناء الهوية في ظل العولمة.', sem: 'الفصل الدراسي الأول' },
-            'السيرة النبوية': { teacher: 'د. بلال عابدين', desc: 'قراءة في سيرة النبي ﷺ.', sem: 'الفصل الدراسي الأول' },
-            'فقه المعاملات': { teacher: 'نخبة من المشايخ', desc: 'أحكام البيوع والمصارف الإسلامية.', sem: 'الفصل الدراسي الثاني' }
-        };
-
-        function showSemester(num) {
-            const container1 = document.getElementById('semester1-content');
-            const container2 = document.getElementById('semester2-content');
-            const b1 = document.getElementById('btn-sem1');
-            const b2 = document.getElementById('btn-sem2');
-
-            if (num === 1) {
-                container1.classList.remove('hidden'); container2.classList.add('hidden');
-                b1.classList.add('bg-[#5D4037]', 'text-white'); b2.classList.remove('bg-[#5D4037]', 'text-white');
-                renderCourses(container1, 1);
-            } else {
-                container1.classList.add('hidden'); container2.classList.remove('hidden');
-                b2.classList.add('bg-[#5D4037]', 'text-white'); b1.classList.remove('bg-[#5D4037]', 'text-white');
-                renderCourses(container2, 2);
-            }
-        }
-
-        function renderCourses(container, semNum) {
-            container.innerHTML = "";
-            const filter = semNum === 1 ? 'الفصل الدراسي الأول' : 'الفصل الدراسي الثاني';
-            Object.keys(coursesData).forEach(title => {
-                const item = coursesData[title];
-                if (item.sem === filter) {
-                    container.innerHTML += `
-                        <div class="course-card p-6 rounded-xl shadow-sm text-right">
-                            <h4 class="font-bold text-[#5D4037] mb-2">${title}</h4>
-                            <p class="text-xs text-[#C5A059] mb-3 font-bold">${item.teacher}</p>
-                            <p class="text-sm text-gray-600 leading-relaxed">${item.desc}</p>
-                        </div>
-                    `;
-                }
-            });
-        }
-
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            const btn = document.getElementById('darkModeBtn');
-            btn.innerText = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-        }
-
-        function openLogin() { document.getElementById('loginModal').classList.replace('hidden', 'flex'); }
-        function closeLogin() { document.getElementById('loginModal').classList.replace('flex', 'hidden'); }
-
-        async function checkStudent() {
-            const idInput = document.getElementById('idInput').value.trim();
-            const msgArea = document.getElementById('loginMsg');
-            if (!idInput) { msgArea.innerHTML = "<span class='text-red-500'>يرجى إدخال الرقم</span>"; return; }
-            msgArea.innerHTML = "جاري التحقق...";
-            
-            try {
-                const response = await fetch('students.json');
-                const students = await response.json();
-                const student = students.find(s => String(s["رقم الهوية"]) === idInput);
-                if (student) {
-                    msgArea.innerHTML = "<span class='text-green-600'>تم القبول بنجاح</span>";
-                    document.getElementById('studentFirstName').innerText = student["الاسم رباعي "].split(' ')[0];
-                    document.getElementById('userWelcome').classList.remove('hidden');
-                    document.getElementById('loginBtnNav').classList.add('hidden');
-                    document.querySelectorAll('.opacity-50').forEach(el => el.classList.remove('opacity-50'));
-                    setTimeout(closeLogin, 1500);
-                } else {
-                    msgArea.innerHTML = "<span class='text-red-500'>عذراً، الرقم غير مسجل</span>";
-                }
-            } catch (e) {
-                msgArea.innerHTML = "خطأ في الاتصال بالخادم";
-            }
-        }
-
-        // Initialize
-        showSemester(1);
-    </script>
-</body>
-</html> -->
-
