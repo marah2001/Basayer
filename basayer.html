@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -6,19 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>معهد بصائر للعلوم الشرعية</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        :root {
+         :root {
             --primary-brown: #5D4037;
             --gold-accent: #C5A059;
             --bg-light: #FCFAf5;
             --dark-bg: #1A120B;
             --dark-card: #2C1E16;
         }
-
         /* الإعدادات العامة */
+        
         body {
             font-family: 'Tajawal', sans-serif;
             background-color: var(--bg-light);
@@ -26,61 +24,72 @@
             overflow-x: hidden;
             transition: background-color 0.5s ease, color 0.5s ease;
         }
+        
         @media (max-width: 640px) {
-    .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    .btn-gold {
-        width: 100%; /* الأزرار تصير بعرض الشاشة في الجوال أسهل للضغط */
-        text-align: center;
-    }
-}
-@media (max-width: 1023px) {
-    #navMenu {
-        transition: all 0.3s ease-in-out;
-        transform-origin: top;
-    }
-    #navMenu:not(.hidden) {
-        animation: slideDown 0.3s ease-out forwards;
-    }
-}
-
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-        .dark-mode select, .dark-mode input {
-    background: #2C1E16;
-    border-color: #C5A05940;
-    color: #F1E4C3;
-}
-
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .btn-gold {
+                width: 100%;
+                /* الأزرار تصير بعرض الشاشة في الجوال أسهل للضغط */
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 1023px) {
+            #navMenu {
+                transition: all 0.3s ease-in-out;
+                transform-origin: top;
+            }
+            #navMenu:not(.hidden) {
+                animation: slideDown 0.3s ease-out forwards;
+            }
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .dark-mode select,
+        .dark-mode input {
+            background: #2C1E16;
+            border-color: #C5A05940;
+            color: #F1E4C3;
+        }
+        
         h1,
         h2,
         h3,
         .font-amiri {
             font-family: 'Amiri', serif;
         }
-
         /* وسم الـ Dark Mode الأندلسي */
         /* الوضع الليلي الأندلسي الملكي - بدون أخطاء */
+        
         .dark-mode {
             background-color: #0F172A !important;
             color: #F1E4C3 !important;
         }
-
+        
         .dark-mode nav {
             background-color: rgba(15, 23, 42, 0.95) !important;
             border-bottom: 1px solid rgba(197, 160, 89, 0.2) !important;
             backdrop-filter: blur(10px);
         }
-
+        
         .dark-mode section {
             background-color: #0F172A !important;
         }
-
         /* حل مشكلة الأقواس المربعة والاخطاء */
+        
         .dark-mode h1,
         .dark-mode h2,
         .dark-mode h3,
@@ -88,34 +97,34 @@
         .dark-mode span {
             color: #F1E4C3 !important;
         }
-
         /* الكروت الزجاجية الفاخرة */
+        
         .dark-mode .course-card {
             background: rgba(30, 41, 59, 0.6) !important;
             border: 1px solid rgba(197, 160, 89, 0.2) !important;
         }
-
+        
         .dark-mode .course-card:hover {
             background: rgba(30, 41, 59, 0.9) !important;
             border-right-color: #C5A059 !important;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
-
         /* توهج الذهب - بدون كلاسات تايلوند المعقدة */
+        
         .dark-mode [class*="text-[#C5A059]"],
         .dark-mode #studentFirstName,
         .dark-mode .nav-active {
             color: #D4AF37 !important;
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
         }
-
         /* النمط الإسلامي الساحر */
+        
         .dark-mode .islamic-pattern {
             opacity: 0.1 !important;
             filter: invert(0.8) sepia(1) saturate(3) hue-rotate(15deg);
         }
-
         /* الزخرفة الإسلامية */
+        
         .islamic-pattern {
             background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
             opacity: 0.05;
@@ -127,8 +136,8 @@
             pointer-events: none;
             z-index: 0;
         }
-
         /* الأزرار واللمسات الجمالية */
+        
         .btn-gold {
             background-color: var(--gold-accent);
             color: white;
@@ -136,60 +145,58 @@
             box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
             animation: pulse-gold 2s infinite;
         }
-
+        
         @keyframes pulse-gold {
             0% {
                 transform: scale(1);
                 box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4);
             }
-
             70% {
                 transform: scale(1.02);
                 box-shadow: 0 0 0 10px rgba(197, 160, 89, 0);
             }
-
             100% {
                 transform: scale(1);
                 box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
             }
         }
-
+        
         .course-card {
             transition: all 0.4s ease;
             cursor: pointer;
             border-right: 4px solid transparent;
             background: white;
         }
-
+        
         .course-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(93, 64, 55, 0.1);
             border-right-color: var(--gold-accent);
         }
-
+        
         .nav-active {
             border-bottom: 2px solid var(--gold-accent) !important;
             color: var(--gold-accent) !important;
             font-weight: bold;
         }
-
+        
         .hidden {
             display: none;
         }
-
+        
         .section-divider {
             height: 2px;
             background: linear-gradient(to left, transparent, var(--gold-accent), transparent);
             margin: 40px auto;
             width: 50%;
         }
-
+        
         #certSlider {
             display: flex;
             flex-direction: row-reverse;
         }
-
         /* رسائل الحالة */
+        
         .success-msg {
             color: #2e7d32;
             background: #e8f5e9;
@@ -197,7 +204,7 @@
             border-radius: 12px;
             border: 1px solid #c8e6c9;
         }
-
+        
         .error-msg {
             color: #c62828;
             background: #ffebee;
@@ -205,23 +212,23 @@
             border-radius: 12px;
             border: 1px solid #ffcdd2;
         }
-
         /* النصوص الذهبية في الوضع الليلي */
+        
         .dark-mode .gold-text,
         .dark-mode #studentFirstName,
         .dark-mode .nav-active {
             color: #D4AF37 !important;
             text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
         }
-
         /* العناوين الكبيرة في الوضع الليلي */
+        
         .dark-mode h1,
         .dark-mode h2,
         .dark-mode .main-title {
             color: #F8F1E1 !important;
         }
-
         /* الأنماط الإسلامية */
+        
         .dark-mode .islamic-pattern {
             opacity: 0.08 !important;
             filter: invert(0.8) sepia(1) saturate(5) hue-rotate(10deg);
@@ -232,14 +239,14 @@
 
 <body>
 
-   
-    <!-- <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-4 space-x-reverse">
                 <div class="text-3xl font-bold text-[#5D4037] font-amiri tracking-wider">معهد بَصائر</div>
                 <div class="h-8 w-[1px] bg-gray-300 mx-2"></div>
-                <p class="text-[10px] text-gray-500 hidden md:block leading-tight uppercase font-bold">هدية
-                    العلم<br>بصيرة للعمل</p>
+                <p class="text-[10px] text-gray-500 hidden md:block leading-tight uppercase font-bold">هدية العلم
+                    <br>بصيرة للعمل</p>
             </div>
             <ul class="hidden lg:flex space-x-8 space-x-reverse text-[#5D4037] font-medium">
                 <li><a href="#hero" class="hover:text-[#C5A059] transition" class="nav-link">الرئيسية</a></li>
@@ -247,8 +254,7 @@
                 <li><a href="#guide" class="nav-link px-2">الدليل التعريفي</a></li>
                 <li><a href="#path" class="hover:text-[#C5A059] transition" class="nav-link">المسار العلمي</a></li>
                 <li id="scheduleNavItem" class="hidden" class="nav-link">
-                    <a href="javascript:void(0)" onclick="openScheduleModal()"
-                        class=" hover:text-[#5D4037] transition">الجدول
+                    <a href="javascript:void(0)" onclick="openScheduleModal()" class=" hover:text-[#5D4037] transition">الجدول
                         الدراسي</a>
                 </li>
                 <li><a href="#community" class="hover:text-[#C5A059] transition" class="nav-link">المجتمع</a></li>
@@ -260,114 +266,108 @@
 
                 <div id="userWelcome" class="hidden text-[#5D4037] font-bold flex items-center gap-2">
                     <span>أهلاً بك، <span id="studentFirstName" class="text-[#C5A059]"></span></span>
-                    <button onclick="logout()"
-                        class="text-xs text-red-500 underline border-none bg-transparent cursor-pointer">خروج</button>
+                    <button onclick="logout()" class="text-xs text-red-500 underline border-none bg-transparent cursor-pointer">خروج</button>
                 </div>
             </div>
-            <button onclick="toggleDarkMode()" id="darkModeBtn"
-                class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-all text-xl">
+            <button onclick="toggleDarkMode()" id="darkModeBtn" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-all text-xl">
                 🌙
             </button>
             <button class="lg:hidden text-[#5D4037] text-2xl" onclick="toggleMenu()">☰</button>
 
-<ul id="navMenu" class="hidden lg:flex flex-col lg:flex-row absolute lg:relative top-full left-0 w-full lg:w-auto bg-white lg:bg-transparent shadow-lg lg:shadow-none p-6 lg:p-0 space-y-4 lg:space-y-0 lg:space-x-8 lg:space-x-reverse">
-    <li><a href="#hero" class="nav-link">الرئيسية</a></li>
-    </ul>
+            <ul id="navMenu" class="hidden lg:flex flex-col lg:flex-row absolute lg:relative top-full left-0 w-full lg:w-auto bg-white lg:bg-transparent shadow-lg lg:shadow-none p-6 lg:p-0 space-y-4 lg:space-y-0 lg:space-x-8 lg:space-x-reverse">
+                <li><a href="#hero" class="nav-link">الرئيسية</a></li>
+            </ul>
 
         </div>
-    </nav> -->
-<!-- <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="flex items-center space-x-4 space-x-reverse">
-            <div class="text-3xl font-bold text-[#5D4037] font-amiri tracking-wider">معهد بَصائر</div>
-            <div class="h-8 w-[1px] bg-gray-300 mx-2"></div>
-            <p class="text-[10px] text-gray-500 hidden md:block leading-tight uppercase font-bold">هدية العلم<br>بصيرة للعمل</p>
-        </div>
+    </nav>
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <div class="text-3xl font-bold text-[#5D4037] font-amiri tracking-wider">معهد بَصائر</div>
+                <div class="h-8 w-[1px] bg-gray-300 mx-2"></div>
+                <p class="text-[10px] text-gray-500 hidden md:block leading-tight uppercase font-bold">هدية العلم<br>بصيرة للعمل</p>
+            </div>
 
-        <button onclick="toggleMobileMenu()" class="lg:hidden text-[#5D4037] focus:outline-none" id="menuBtn">
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-[#5D4037] focus:outline-none" id="menuBtn">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
         </button>
 
-        <ul id="navMenu" class="hidden lg:flex flex-col lg:flex-row absolute lg:relative top-full left-0 w-full lg:w-auto bg-white lg:bg-transparent shadow-lg lg:shadow-none p-6 lg:p-0 space-y-4 lg:space-y-0 lg:space-x-8 lg:space-x-reverse text-[#5D4037] font-medium transition-all duration-300 ease-in-out">
-            <li><a href="#hero" class="nav-link block hover:text-[#C5A059]">الرئيسية</a></li>
-            <li><a href="#about" class="nav-link block hover:text-[#C5A059]">عن المعهد</a></li>
-            <li><a href="#guide" class="nav-link block hover:text-[#C5A059]">الدليل التعريفي</a></li>
-            <li><a href="#path" class="nav-link block hover:text-[#C5A059]">المسار العلمي</a></li>
-            <li id="scheduleNavItem" class="hidden"><a href="javascript:void(0)" onclick="openScheduleModal()" class="nav-link block hover:text-[#C5A059]">الجدول الدراسي</a></li>
-            <li><a href="#community" class="nav-link block hover:text-[#C5A059]">المجتمع</a></li>
-            
-            <li class="lg:hidden border-t pt-4">
-                <div id="mobileAuthArea">
+            <ul id="navMenu" class="hidden lg:flex flex-col lg:flex-row absolute lg:relative top-full left-0 w-full lg:w-auto bg-white lg:bg-transparent shadow-lg lg:shadow-none p-6 lg:p-0 space-y-4 lg:space-y-0 lg:space-x-8 lg:space-x-reverse text-[#5D4037] font-medium transition-all duration-300 ease-in-out">
+                <li><a href="#hero" class="nav-link block hover:text-[#C5A059]">الرئيسية</a></li>
+                <li><a href="#about" class="nav-link block hover:text-[#C5A059]">عن المعهد</a></li>
+                <li><a href="#guide" class="nav-link block hover:text-[#C5A059]">الدليل التعريفي</a></li>
+                <li><a href="#path" class="nav-link block hover:text-[#C5A059]">المسار العلمي</a></li>
+                <li id="scheduleNavItem" class="hidden"><a href="javascript:void(0)" onclick="openScheduleModal()" class="nav-link block hover:text-[#C5A059]">الجدول الدراسي</a></li>
+                <li><a href="#community" class="nav-link block hover:text-[#C5A059]">المجتمع</a></li>
+
+                <li class="lg:hidden border-t pt-4">
+                    <div id="mobileAuthArea">
                     </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
 
-        <div class="hidden lg:flex items-center gap-4">
-            <div id="authArea">
-                <button id="loginBtnNav" onclick="openLogin()" class="btn-gold px-6 py-2 rounded-md font-bold text-sm">بوابة المقبولين</button>
+            <div class="hidden lg:flex items-center gap-4">
+                <div id="authArea">
+                    <button id="loginBtnNav" onclick="openLogin()" class="btn-gold px-6 py-2 rounded-md font-bold text-sm">بوابة المقبولين</button>
+                </div>
+                <button onclick="toggleDarkMode()" id="darkModeBtn" class="p-2 rounded-full hover:bg-gray-100 transition-all text-xl">🌙</button>
             </div>
-            <button onclick="toggleDarkMode()" id="darkModeBtn" class="p-2 rounded-full hover:bg-gray-100 transition-all text-xl">🌙</button>
         </div>
-    </div>
-</nav> -->
+    </nav>
     <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="flex items-center space-x-4 space-x-reverse">
-            <div class="text-3xl font-bold text-[#5D4037] font-amiri tracking-wider">معهد بَصائر</div>
-            <div class="h-8 w-[1px] bg-gray-300 mx-2 hidden md:block"></div>
-            <p class="text-[10px] text-gray-500 hidden md:block leading-tight uppercase font-bold">هدية العلم<br>بصيرة للعمل</p>
-        </div>
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <div class="text-3xl font-bold text-[#5D4037] font-amiri tracking-wider">معهد بَصائر</div>
+                <div class="h-8 w-[1px] bg-gray-300 mx-2 hidden md:block"></div>
+                <p class="text-[10px] text-gray-500 hidden md:block leading-tight uppercase font-bold">هدية العلم<br>بصيرة للعمل</p>
+            </div>
 
-        <div class="flex items-center gap-4 lg:hidden">
-            <button onclick="toggleDarkMode()" class="text-xl">🌙</button>
-            <button onclick="toggleMobileMenu()" class="text-[#5D4037]" id="menuBtn">
+            <div class="flex items-center gap-4 lg:hidden">
+                <button onclick="toggleDarkMode()" class="text-xl">🌙</button>
+                <button type="button" onclick="toggleMobileMenu()" class="text-[#5D4037]" id="menuBtn" aria-label="فتح قائمة التنقل">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
-        </div>
-
-        <ul id="navMenu" class="hidden lg:flex flex-col lg:flex-row absolute lg:relative top-full left-0 w-full lg:w-auto bg-white lg:bg-transparent shadow-lg lg:shadow-none p-6 lg:p-0 space-y-4 lg:space-y-0 lg:space-x-8 lg:space-x-reverse text-[#5D4037] font-medium transition-all duration-300 ease-in-out">
-            <li><a href="#hero" class="nav-link block">الرئيسية</a></li>
-            <li><a href="#about" class="nav-link block">عن المعهد</a></li>
-            <li><a href="#guide" class="nav-link block">الدليل التعريفي</a></li>
-            <li><a href="#path" class="nav-link block">المسار العلمي</a></li>
-            <li><a href="#community" class="nav-link block">المجتمع</a></li>
-        </ul>
-
-        <div class="hidden lg:flex items-center gap-4">
-            <div id="authArea">
-                <button onclick="openLogin()" class="btn-gold px-6 py-2 rounded-md font-bold text-sm">بوابة المقبولين</button>
             </div>
-            <button onclick="toggleDarkMode()" id="darkModeBtn" class="p-2 rounded-full hover:bg-gray-100 transition-all text-xl">🌙</button>
+
+            <ul id="navMenu" class="hidden lg:flex flex-col lg:flex-row absolute lg:relative top-full left-0 w-full lg:w-auto bg-white lg:bg-transparent shadow-lg lg:shadow-none p-6 lg:p-0 space-y-4 lg:space-y-0 lg:space-x-8 lg:space-x-reverse text-[#5D4037] font-medium transition-all duration-300 ease-in-out">
+                <li><a href="#hero" class="nav-link block">الرئيسية</a></li>
+                <li><a href="#about" class="nav-link block">عن المعهد</a></li>
+                <li><a href="#guide" class="nav-link block">الدليل التعريفي</a></li>
+                <li><a href="#path" class="nav-link block">المسار العلمي</a></li>
+                <li><a href="#community" class="nav-link block">المجتمع</a></li>
+            </ul>
+
+            <div class="hidden lg:flex items-center gap-4">
+                <div id="authArea">
+                    <button onclick="openLogin()" class="btn-gold px-6 py-2 rounded-md font-bold text-sm">بوابة المقبولين</button>
+                </div>
+                <button onclick="toggleDarkMode()" id="darkModeBtn" class="p-2 rounded-full hover:bg-gray-100 transition-all text-xl">🌙</button>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <section id="hero" class="relative bg-[#F5F5DC] py-28 overflow-hidden border-b-4 border-[#C5A059]">
         <div class="islamic-pattern"></div>
         <div class="container mx-auto px-6 relative z-10 text-center">
-            <div
-                class="mb-6 inline-block bg-white/50 px-4 py-1 rounded-full text-[#C5A059] font-bold text-sm border border-[#C5A059]/30">
+            <div class="mb-6 inline-block bg-white/50 px-4 py-1 rounded-full text-[#C5A059] font-bold text-sm border border-[#C5A059]/30">
                 الدورة العلمية السنوية - دفعة 2024
             </div>
             <h1 class="text-3xl md:text-5xl lg:text-7xl font-bold text-[#4E342E] mb-6">معهد بصائر للعلوم الشرعية
             </h1>
             <p class="text-xl text-[#6D4C41] max-w-2xl mx-auto leading-relaxed mb-10 italic">
-                رحلة إيمانية تجمع بين تأصيل التراث وأدوات العصر.. نبني الوعي بالعلم والعمل، لنخرج جيلاً ينطق بالحكمة
-                ويهتدي بالبصيرة.
+                رحلة إيمانية تجمع بين تأصيل التراث وأدوات العصر.. نبني الوعي بالعلم والعمل، لنخرج جيلاً ينطق بالحكمة ويهتدي بالبصيرة.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#path"
-                    class="bg-[#5D4037] text-white px-10 py-4 rounded-lg text-lg shadow-xl hover:bg-[#3E2723] transition flex items-center">
+                <a href="#path" class="bg-[#5D4037] text-white px-10 py-4 rounded-lg text-lg shadow-xl hover:bg-[#3E2723] transition flex items-center">
                     تصفح الخطة الدراسية
                 </a>
-                <button id="heroLoginBtn" onclick="openLogin()"
-                    class="btn-gold px-10 py-4 rounded-lg text-lg font-bold">
+                <button id="heroLoginBtn" onclick="openLogin()" class="btn-gold px-10 py-4 rounded-lg text-lg font-bold">
                     بوابة التحقق من القبول
                 </button>
-               
+
             </div>
         </div>
     </section>
@@ -380,16 +380,14 @@
                 <div class="section-divider"></div>
             </div>
 
-            <div
-                class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border-r-8 border-[#C5A059] shadow-sm mb-10 leading-loose">
+            <div class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border-r-8 border-[#C5A059] shadow-sm mb-10 leading-loose">
                 <p class="font-amiri text-xl text-[#5D4037] mb-4 text-center">بسم الله الرحمن الرحيم</p>
                 <p class="text-lg text-gray-700 text-center mb-4">
                     الإخوة والأخوات طلبة العلم الجدد، السلام عليكم ورحمة الله وبركاته..
                 </p>
                 <p class="text-gray-600 text-justify leading-relaxed">
                     نرحب بكم في <span class="font-bold text-[#C5A059]">مركز ومعهد بصائر للدراسات الشرعية
-                        والأبحاث</span>، سائلين الله أن يرزقنا وإياكم العلم النافع والعمل الصالح. نضع بين أيديكم هذا
-                    الدليل المختصر لتعريفكم ببرنامجنا الدراسي وآلية التعليم المتبعة:
+                        والأبحاث</span>، سائلين الله أن يرزقنا وإياكم العلم النافع والعمل الصالح. نضع بين أيديكم هذا الدليل المختصر لتعريفكم ببرنامجنا الدراسي وآلية التعليم المتبعة:
                 </p>
             </div>
 
@@ -399,17 +397,13 @@
                         <span class="text-2xl ml-3">📜</span>
                         <h3 class="text-2xl font-bold text-[#5D4037]">أولاً: التعريف بالدبلوم وأهدافه</h3>
                     </div>
-                    <p class="text-sm text-gray-500 mb-4 border-b pb-2 italic">دبلوم عام في العلوم الشرعية (عام دراسي
-                        واحد)</p>
+                    <p class="text-sm text-gray-500 mb-4 border-b pb-2 italic">دبلوم عام في العلوم الشرعية (عام دراسي واحد)
+                    </p>
                     <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start"><span class="text-[#C5A059] ml-2">●</span> تأصيل العلوم الشرعية
-                            بمنهجية علمية رصينة.</li>
-                        <li class="flex items-start"><span class="text-[#C5A059] ml-2">●</span> بناء الحصانة الفكرية
-                            لمواجهة الأفكار المنحرفة.</li>
-                        <li class="flex items-start"><span class="text-[#C5A059] ml-2">●</span> العناية بالأبحاث التي
-                            تعالج قضايا المجتمع.</li>
-                        <li class="flex items-start"><span class="text-[#C5A059] ml-2">●</span> تمتين الشراكات مع
-                            الهيئات العلمية الرائدة.</li>
+                        <li class="flex items-start"><span class="text-[#C5A059] ml-2">●</span> تأصيل العلوم الشرعية بمنهجية علمية رصينة.</li>
+                        <li class="flex items-start"><span class="text-[#C5A059] ml-2">●</span> بناء الحصانة الفكرية لمواجهة الأفكار المنحرفة.</li>
+                        <li class="flex items-start"><span class="text-[#C5A059] ml-2">●</span> العناية بالأبحاث التي تعالج قضايا المجتمع.</li>
+                        <li class="flex items-start"><span class="text-[#C5A059] ml-2">●</span> تمتين الشراكات مع الهيئات العلمية الرائدة.</li>
                     </ul>
                 </div>
 
@@ -436,8 +430,7 @@
                         <h3 class="text-2xl font-bold text-[#C5A059] mb-2">ثالثاً: نظام التقييم والاختبارات</h3>
                         <p class="text-gray-200">
                             تُعقد الاختبارات النصفية والنهائية حصرياً عبر المنصة الإلكترونية للمعهد:
-                            <a href="https://moodle.ibnbazgaza.org/" target="_blank"
-                                class="font-bold text-[#C5A059] underline hover:text-white transition-colors duration-300">
+                            <a href="https://moodle.ibnbazgaza.org/" target="_blank" rel="noopener noreferrer" class="font-bold text-[#C5A059] underline hover:text-white transition-colors duration-300">
                                 Moodle
                             </a>
                         </p>
@@ -446,11 +439,10 @@
                         <p class="text-sm italic">سيتم تزويدكم ببيانات الدخول وشرح طريقة استخدام المنصة في حينه.</p>
                     </div>
                 </div>
-                <div
-                    class="absolute -bottom-10 -left-10 w-40 h-40 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition">
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition">
                 </div>
             </div>
-         
+
 
             <div class="text-center mt-12 italic text-gray-600 font-amiri text-2xl">
                 "شمروا عن سواعد الجد، فالعلم رحم بين أهله.."
@@ -460,31 +452,23 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
                     <h2 class="text-4xl font-bold text-[#5D4037] font-amiri mb-6">رؤية المعهد وأهدافه</h2>
                     <p class="text-gray-600 leading-relaxed mb-6 text-lg">
-                        يسعى معهد بصائر إلى سد الثغرة في الوعي الشرعي المعاصر، من خلال تقديم مادة علمية رصينة بأسلوب
-                        مبسط يصل إلى قلوب وعقول طلبة العلم في مختلف المستويات.
+                        يسعى معهد بصائر إلى سد الثغرة في الوعي الشرعي المعاصر، من خلال تقديم مادة علمية رصينة بأسلوب مبسط يصل إلى قلوب وعقول طلبة العلم في مختلف المستويات.
                     </p>
                     <ul class="space-y-4">
                         <li class="flex items-center gap-3 text-[#5D4037] font-medium">
-                            <span
-                                class="w-6 h-6 bg-[#C5A059] rounded-full flex items-center justify-center text-white text-xs">✓</span>
-                            تأصيل العقيدة الصحيحة والرد على الشبهات.
+                            <span class="w-6 h-6 bg-[#C5A059] rounded-full flex items-center justify-center text-white text-xs">✓</span> تأصيل العقيدة الصحيحة والرد على الشبهات.
                         </li>
                         <li class="flex items-center gap-3 text-[#5D4037] font-medium">
-                            <span
-                                class="w-6 h-6 bg-[#C5A059] rounded-full flex items-center justify-center text-white text-xs">✓</span>
-                            ربط طلبة العلم بنخبة من المشايخ والعلماء.
+                            <span class="w-6 h-6 bg-[#C5A059] rounded-full flex items-center justify-center text-white text-xs">✓</span> ربط طلبة العلم بنخبة من المشايخ والعلماء.
                         </li>
                         <li class="flex items-center gap-3 text-[#5D4037] font-medium">
-                            <span
-                                class="w-6 h-6 bg-[#C5A059] rounded-full flex items-center justify-center text-white text-xs">✓</span>
-                            تطوير المهارات الدعوية والخطابية.
+                            <span class="w-6 h-6 bg-[#C5A059] rounded-full flex items-center justify-center text-white text-xs">✓</span> تطوير المهارات الدعوية والخطابية.
                         </li>
                     </ul>
                 </div>
@@ -502,37 +486,35 @@
 
     <div class="section-divider"></div>
 
-    <!-- Map Section -->
-    <!-- <section id="path" class="py-20 bg-[#FCFAf5] relative">
+
+    <section id="path" class="py-20 bg-[#FCFAf5] relative">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-4xl font-bold text-[#5D4037] font-amiri mb-4">خريطةُ بصائر العِلمية</h2>
             <p class="text-gray-500 mb-10">منهج متكامل مقسم على فصلين دراسيين لضمان التدرج في العلم</p>
 
             <div class="inline-flex bg-white p-2 rounded-full mb-16 shadow-inner border border-[#C5A059]/20">
-                <button onclick="showSemester(1)" id="btn-sem1"
-                    class="px-10 py-3 rounded-full font-bold transition-all">الفصل الدراسي الأول</button>
-                <button onclick="showSemester(2)" id="btn-sem2"
-                    class="px-10 py-3 rounded-full font-bold transition-all">الفصل الدراسي الثاني</button>
+                <button onclick="showSemester(1)" id="btn-sem1" class="px-10 py-3 rounded-full font-bold transition-all">الفصل الدراسي الأول</button>
+                <button onclick="showSemester(2)" id="btn-sem2" class="px-10 py-3 rounded-full font-bold transition-all">الفصل الدراسي الثاني</button>
             </div>
 
             <div id="semester1-content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 hidden"></div>
             <div id="semester1-content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
         </div>
-    </section> -->
-  <section id="path" class="py-20 bg-[#FCFAf5] relative">
-    <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#5D4037] font-amiri mb-4">خريطةُ بصائر العِلمية</h2>
-        <p class="text-gray-500 mb-10 text-sm md:text-base">منهج متكامل مقسم على فصلين دراسيين لضمان التدرج في العلم</p>
+    </section>
+    <section id="path" class="py-20 bg-[#FCFAf5] relative">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#5D4037] font-amiri mb-4">خريطةُ بصائر العِلمية</h2>
+            <p class="text-gray-500 mb-10 text-sm md:text-base">منهج متكامل مقسم على فصلين دراسيين لضمان التدرج في العلم</p>
 
-        <div class="inline-flex flex-wrap justify-center bg-white p-2 rounded-2xl md:rounded-full mb-16 shadow-inner border border-[#C5A059]/20">
-            <button onclick="showSemester(1)" id="btn-sem1" class="px-6 md:px-10 py-3 rounded-full font-bold transition-all text-sm md:text-base">الفصل الأول</button>
-            <button onclick="showSemester(2)" id="btn-sem2" class="px-6 md:px-10 py-3 rounded-full font-bold transition-all text-sm md:text-base">الفصل الثاني</button>
+            <div class="inline-flex flex-wrap justify-center bg-white p-2 rounded-2xl md:rounded-full mb-16 shadow-inner border border-[#C5A059]/20">
+                <button onclick="showSemester(1)" id="btn-sem1" class="px-6 md:px-10 py-3 rounded-full font-bold transition-all text-sm md:text-base">الفصل الأول</button>
+                <button onclick="showSemester(2)" id="btn-sem2" class="px-6 md:px-10 py-3 rounded-full font-bold transition-all text-sm md:text-base">الفصل الثاني</button>
+            </div>
+
+            <div id="semester1-content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 hidden"></div>
+            <div id="semester2-content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 hidden"></div>
         </div>
-
-        <div id="semester1-content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 hidden"></div>
-        <div id="semester2-content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 hidden"></div>
-    </div>
-</section>
+    </section>
     <section id="scheduleSection" class="py-16 bg-white hidden border-t-4 border-[#C5A059]">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-4xl font-bold text-[#5D4037] font-amiri mb-8">الجدول الدراسي المعتمد</h2>
@@ -541,35 +523,32 @@
             </div>
         </div>
     </section>
-    <!-- Community Section -->
+
     <section id="community" class="py-20 bg-[#5D4037] text-white relative border-t-8 border-[#C5A059]">
         <div class="container mx-auto px-6 text-center relative z-10">
             <h2 class="text-3xl font-bold font-amiri mb-10 text-[#C5A059]">مجتمع بصائر التفاعلي</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div id="card-library"
-                    class="bg-white/5 p-8 rounded-2xl border border-white/10 transition-all opacity-50 cursor-default">
+                <div id="card-library" class="bg-white/5 p-8 rounded-2xl border border-white/10 transition-all opacity-50 cursor-default">
                     <div class="text-4xl mb-4">📚</div>
                     <h3 class="font-bold text-xl mb-2 text-[#C5A059]">المكتبة الإلكترونية</h3>
                     <p id="lib-status" class="text-xs text-gray-400">(يجب تسجيل الدخول للوصول للملفات)</p>
                 </div>
 
-                <div id="card-chat"
-                    class="bg-white/5 p-8 rounded-2xl border border-white/10 transition-all opacity-50 cursor-default">
+                <div id="card-chat" class="bg-white/5 p-8 rounded-2xl border border-white/10 transition-all opacity-50 cursor-default">
                     <div class="text-4xl mb-4">💬</div>
                     <h3 class="font-bold text-xl mb-2 text-[#C5A059]">حلقات النقاش</h3>
                     <p id="chat-status" class="text-xs text-gray-400">(متاح فقط للمقبولين)</p>
                 </div>
 
-                <div id="card-certs" onclick="openOptionsModal()"
-                    class="bg-white/5 p-8 rounded-2xl border border-white/10 transition-all opacity-50 cursor-not-allowed pointer-events-none flex flex-col items-center text-center">
+                <div id="card-certs" onclick="openOptionsModal()" class="bg-white/5 p-8 rounded-2xl border border-white/10 transition-all opacity-50 cursor-not-allowed pointer-events-none flex flex-col items-center text-center">
                     <div class="text-4xl mb-4">🏆</div>
                     <h3 class="font-bold text-xl mb-2 text-[#C5A059] gold-text">لوحات الشرف والجداول</h3>
                     <p id="cert-status" class="text-xs text-orange-300">(متاح فقط للمقبولين)</p>
                 </div>
 
 
-            
+
             </div>
         </div>
     </section>
@@ -581,33 +560,26 @@
         </div>
     </footer>
 
-    <!-- Modals -->
-    <!-- Verification Modal -->
-    <div id="loginModal"
-        class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[200] hidden items-center justify-center p-4">
-        <div
-            class="bg-white w-full max-w-md rounded-3xl shadow-2xl border-2 border-[#C5A059] overflow-hidden transform transition-all">
+
+    <div id="loginModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[200] hidden items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl border-2 border-[#C5A059] overflow-hidden transform transition-all">
             <div class="bg-[#5D4037] p-6 text-white text-center relative">
                 <h3 class="text-2xl font-amiri">بوابة التحقق للمقبولين</h3>
-                <button onclick="closeLogin()"
-                    class="absolute top-4 left-4 text-white/50 hover:text-white">&times;</button>
+                <button onclick="closeLogin()" class="absolute top-4 left-4 text-white/50 hover:text-white">&times;</button>
             </div>
             <div class="p-8">
                 <p class="text-sm text-gray-500 mb-6 text-center italic">تأكد من كتابة رقم الهوية بشكل صحيح (9 أرقام)
                 </p>
-                <input type="text" id="idInput" placeholder="أدخل رقم الهوية هنا"
-                    class="w-full p-4 rounded-xl border-2 border-[#F5F5DC] focus:border-[#C5A059] outline-none text-center mb-4 text-xl tracking-widest font-bold">
-                <button onclick="checkStudent()" id="checkBtn"
-                    class="w-full bg-[#C5A059] text-white font-bold py-4 rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition">تحقق
+                <input type="text" id="idInput" placeholder="أدخل رقم الهوية هنا" class="w-full p-4 rounded-xl border-2 border-[#F5F5DC] focus:border-[#C5A059] outline-none text-center mb-4 text-xl tracking-widest font-bold">
+                <button onclick="checkStudent()" id="checkBtn" class="w-full bg-[#C5A059] text-white font-bold py-4 rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition">تحقق
                     الآن</button>
                 <div id="loginMsg" class="text-center mt-6 text-sm font-bold min-h-[60px]"></div>
             </div>
         </div>
     </div>
 
-    <!-- Course Details Modal -->
-    <div id="courseModal"
-        class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[300] hidden items-center justify-center p-4">
+
+    <div id="courseModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[300] hidden items-center justify-center p-4">
         <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl border-b-8 border-[#C5A059] overflow-hidden">
             <div class="p-8 text-right">
                 <div class="flex justify-between items-start mb-4 text-xs font-bold text-gray-400">
@@ -617,8 +589,7 @@
                 <h3 id="modalTitle" class="text-3xl font-bold text-[#5D4037] font-amiri mb-2"></h3>
                 <p id="modalTeacher" class="text-[#C5A059] font-bold mb-6 italic border-b pb-4 border-[#F5F5DC]"></p>
                 <p id="modalDesc" class="text-gray-700 leading-relaxed mb-8 italic text-lg"></p>
-                <button onclick="closeCourseModal()"
-                    class="w-full bg-[#5D4037] text-white py-4 rounded-xl font-bold hover:bg-[#3E2723] transition">حسناً،
+                <button onclick="closeCourseModal()" class="w-full bg-[#5D4037] text-white py-4 rounded-xl font-bold hover:bg-[#3E2723] transition">حسناً،
                     فهمت</button>
             </div>
         </div>
@@ -626,19 +597,84 @@
     <script>
         // 1. قاعدة البيانات (المساقات والصور)
         const coursesData = {
-            'العقيدة الإسلامية (1)': { teacher: 'د. بكر أبو صوصين', phone: '972599793244', desc: 'تأصيل التوحيد وأصول الإيمان على منهج أهل السنة والجماعة، ودراسة متن الطحاوية.', sem: 'الفصل الدراسي الأول' },
-            'علوم القرآن': { teacher: 'د. عامر قاسم', phone: '', desc: 'دراسة نشأة علوم القرآن، تدوينه، إعجازه، وطرق جمع القرآن الكريم.', sem: 'الفصل الدراسي الأول' },
-            'اللغة العربية': { teacher: 'د. عمر الهمص', phone: '972594080047', desc: 'مبادئ النحو العربي وتطبيقات عملية من القرآن الكريم لتذوق البلاغة اللسانية.', sem: 'الفصل الدراسي الأول' },
-            'أصول الفقه': { teacher: 'د. حسام الجزار', phone: '970567331795', desc: 'دراسة قواعد الاستنباط والأدلة المتفق عليها والمختلف فيها عند الأصوليين.', sem: 'الفصل الدراسي الأول' },
-            'الفقه الإسلامي': { teacher: 'د. صهيب الرومي', phone: '972592160004', desc: 'فقه العبادات (الصلاة، الصيام، الزكاة، والحج) مع التركيز على المسائل المعاصرة.', sem: 'الفصل الدراسي الأول' },
-            'الثقافة الإسلامية': { teacher: 'د. ناصر المصري', phone: '972599855043', desc: 'بناء الهوية الإسلامية في ظل العولمة ومناقشة قضايا الفكر المعاصر.', sem: 'الفصل الدراسي الأول' },
-            'السيرة النبوية': { teacher: 'د. بلال عابدين', phone: '970595058020', desc: 'قراءة في سيرة النبي ﷺ من الولادة حتى الوفاة مع استخراج الدروس الدعوية والتربوية.', sem: 'الفصل الدراسي الأول' },
-            'فقه المعاملات': { teacher: 'د. صهيب الرومي', phone: '972592160004', desc: 'أحكام البيوع، المصارف الإسلامية، والعقود المالية الحديثة.', sem: 'الفصل الدراسي الثاني' },
-            'العقيدة الإسلامية (2)': { teacher: 'د. بكر أبو صوصين', phone: '972599793244', desc: 'دراسة الفرق والمذاهب، ومسائل القضاء والقدر، والرد على الملحدين.', sem: 'الفصل الدراسي الثاني' },
-            'علم مصطلح الحديث': { teacher: 'د. عبد المعطي الأخرس', phone: '972598899271', desc: 'قواعد تمييز الحديث من حيث القبول والرد، ودراسة سلسلة الرواة.', sem: 'الفصل الدراسي الثاني' },
-            'فقه الأسرة': { teacher: 'د. أسامة الجزار', phone: '970599478538', desc: 'أحكام النكاح، الطلاق، المواريث، وحقوق الأبناء في الإسلام.', sem: 'الفصل الدراسي الثاني' },
-            'قضايا معاصرة': { teacher: 'د. عماد الداية', phone: '970592722232', desc: 'تتبع المذاهب الفكرية المنحرفة وكيفية تحصين المجتمع منها.', sem: 'الفصل الدراسي الثاني' },
-            'فقه الدعوة': { teacher: 'د. عمر الهمص', phone: '972594080047', desc: 'أحكام الدعوة إلى الله، فقه الموازنات، ومهارات التأثير في الآخرين.', sem: 'الفصل الدراسي الثاني' }
+            'العقيدة الإسلامية (1)': {
+                teacher: 'د. بكر أبو صوصين',
+                phone: '972599793244',
+                desc: 'تأصيل التوحيد وأصول الإيمان على منهج أهل السنة والجماعة، ودراسة متن الطحاوية.',
+                sem: 'الفصل الدراسي الأول'
+            },
+            'علوم القرآن': {
+                teacher: 'د. عامر قاسم',
+                phone: '',
+                desc: 'دراسة نشأة علوم القرآن، تدوينه، إعجازه، وطرق جمع القرآن الكريم.',
+                sem: 'الفصل الدراسي الأول'
+            },
+            'اللغة العربية': {
+                teacher: 'د. عمر الهمص',
+                phone: '972594080047',
+                desc: 'مبادئ النحو العربي وتطبيقات عملية من القرآن الكريم لتذوق البلاغة اللسانية.',
+                sem: 'الفصل الدراسي الأول'
+            },
+            'أصول الفقه': {
+                teacher: 'د. حسام الجزار',
+                phone: '970567331795',
+                desc: 'دراسة قواعد الاستنباط والأدلة المتفق عليها والمختلف فيها عند الأصوليين.',
+                sem: 'الفصل الدراسي الأول'
+            },
+            'الفقه الإسلامي': {
+                teacher: 'د. صهيب الرومي',
+                phone: '972592160004',
+                desc: 'فقه العبادات (الصلاة، الصيام، الزكاة، والحج) مع التركيز على المسائل المعاصرة.',
+                sem: 'الفصل الدراسي الأول'
+            },
+            'الثقافة الإسلامية': {
+                teacher: 'د. ناصر المصري',
+                phone: '972599855043',
+                desc: 'بناء الهوية الإسلامية في ظل العولمة ومناقشة قضايا الفكر المعاصر.',
+                sem: 'الفصل الدراسي الأول'
+            },
+            'السيرة النبوية': {
+                teacher: 'د. بلال عابدين',
+                phone: '970595058020',
+                desc: 'قراءة في سيرة النبي ﷺ من الولادة حتى الوفاة مع استخراج الدروس الدعوية والتربوية.',
+                sem: 'الفصل الدراسي الأول'
+            },
+            'فقه المعاملات': {
+                teacher: 'د. صهيب الرومي',
+                phone: '972592160004',
+                desc: 'أحكام البيوع، المصارف الإسلامية، والعقود المالية الحديثة.',
+                sem: 'الفصل الدراسي الثاني'
+            },
+            'العقيدة الإسلامية (2)': {
+                teacher: 'د. بكر أبو صوصين',
+                phone: '972599793244',
+                desc: 'دراسة الفرق والمذاهب، ومسائل القضاء والقدر، والرد على الملحدين.',
+                sem: 'الفصل الدراسي الثاني'
+            },
+            'علم مصطلح الحديث': {
+                teacher: 'د. عبد المعطي الأخرس',
+                phone: '972598899271',
+                desc: 'قواعد تمييز الحديث من حيث القبول والرد، ودراسة سلسلة الرواة.',
+                sem: 'الفصل الدراسي الثاني'
+            },
+            'فقه الأسرة': {
+                teacher: 'د. أسامة الجزار',
+                phone: '970599478538',
+                desc: 'أحكام النكاح، الطلاق، المواريث، وحقوق الأبناء في الإسلام.',
+                sem: 'الفصل الدراسي الثاني'
+            },
+            'قضايا معاصرة': {
+                teacher: 'د. عماد الداية',
+                phone: '970592722232',
+                desc: 'تتبع المذاهب الفكرية المنحرفة وكيفية تحصين المجتمع منها.',
+                sem: 'الفصل الدراسي الثاني'
+            },
+            'فقه الدعوة': {
+                teacher: 'د. عمر الهمص',
+                phone: '972594080047',
+                desc: 'أحكام الدعوة إلى الله، فقه الموازنات، ومهارات التأثير في الآخرين.',
+                sem: 'الفصل الدراسي الثاني'
+            }
         };
 
         const certificateImages = ['cert1.jpg', 'cert2.jpg', 'cert3.jpg'];
@@ -661,8 +697,14 @@
             document.getElementById('loginMsg').innerHTML = "";
             toggleModal('loginModal', 'open');
         }
-        function closeLogin() { toggleModal('loginModal', 'close'); }
-        function closeModal(id) { toggleModal(id, 'close'); }
+
+        function closeLogin() {
+            toggleModal('loginModal', 'close');
+        }
+
+        function closeModal(id) {
+            toggleModal(id, 'close');
+        }
 
         // 3. نظام التحقق والدخول
         async function checkStudent() {
@@ -680,13 +722,16 @@
                 const response = await fetch('students.json?v=' + Date.now());
                 if (!response.ok) throw new Error();
                 const students = await response.json();
+
+                // البحث عن الطالب
                 const student = students.find(s => String(s["رقم الهوية"]) === idInput);
 
                 if (student) {
                     const firstName = (student["الاسم رباعي "] || "").split(' ')[0];
+                    const gender = student["الجنس"]; // سحب الجنس من ملف الـ JSON
 
-                    // تحديث حالة الواجهة
-                    updateUIOnLogin(firstName);
+                    // التعديل هنا: تمرير الاسم والجنس للدالة القادمة
+                    updateUIOnLogin(firstName, gender);
 
                     msgArea.innerHTML = `<div class='success-msg text-center'>أهلاً بك يا ${firstName}</div>`;
                     setTimeout(closeLogin, 1000);
@@ -694,26 +739,84 @@
                     msgArea.innerHTML = "<div class='error-msg'>عذراً، لم يتم العثور على هذا الرقم</div>";
                 }
             } catch (e) {
-                msgArea.innerHTML = "<div class='error-msg'>حدث خطأ! تأكد من تشغيل الموقع عبر Live Server.</div>";
+                msgArea.innerHTML = "<div class='error-msg'>حدث خطأ في الاتصال! تأكد من وجود ملف البيانات.</div>";
             }
         }
+        // async function checkStudent() {
+        //     const idInput = document.getElementById('idInput').value.trim();
+        //     const msgArea = document.getElementById('loginMsg');
 
-        function updateUIOnLogin(name) {
-            // إخفاء أزرار الدخول
-            ['heroLoginBtn', 'loginBtnNav'].forEach(id => document.getElementById(id)?.classList.add('hidden'));
+        //     if (!idInput) {
+        //         msgArea.innerHTML = "<div class='error-msg'>يرجى إدخال رقم الهوية</div>";
+        //         return;
+        //     }
 
-            // إظهار الترحيب والاسم
-            document.getElementById('userWelcome')?.classList.remove('hidden');
+        //     msgArea.innerHTML = "<div class='text-gray-400 animate-pulse'>جاري البحث في كشوفات القبول...</div>";
+
+        //     try {
+        //         const response = await fetch('students.json?v=' + Date.now());
+        //         if (!response.ok) throw new Error();
+        //         const students = await response.json();
+        //         const student = students.find(s => String(s["رقم الهوية"]) === idInput);
+
+        //         if (student) {
+        //             const firstName = (student["الاسم رباعي "] || "").split(' ')[0];
+
+        //             // تحديث حالة الواجهة
+        //             updateUIOnLogin(firstName);
+
+        //             msgArea.innerHTML = `<div class='success-msg text-center'>أهلاً بك يا ${firstName}</div>`;
+        //             setTimeout(closeLogin, 1000);
+        //         } else {
+        //             msgArea.innerHTML = "<div class='error-msg'>عذراً، لم يتم العثور على هذا الرقم</div>";
+        //         }
+        //     } catch (e) {
+        //         msgArea.innerHTML = "<div class='error-msg'>حدث خطأ! تأكد من تشغيل الموقع عبر Live Server.</div>";
+        //     }
+        // }
+        function updateUIOnLogin(name, gender) {
+            // 1. إخفاء أزرار الدخول
+            ['heroLoginBtn', 'loginBtnNav'].forEach(id => document.getElementById(id) ? .classList.add('hidden'));
+
+            // 2. إظهار الترحيب والاسم
+            document.getElementById('userWelcome') ? .classList.remove('hidden');
             document.getElementById('studentFirstName').innerText = name;
 
-            // إظهار أقسام الطلاب
-            ['scheduleNavItem', 'scheduleSection'].forEach(id => document.getElementById(id)?.classList.remove('hidden'));
+            // 3. إظهار أقسام الطلاب
+            ['scheduleNavItem', 'scheduleSection'].forEach(id => document.getElementById(id) ? .classList.remove('hidden'));
 
-            // تفعيل الكروت التفاعلية
+            // 4. تحديد رابط حلقات النقاش بناءً على الجنس
+            let discussionLink = "";
+            if (gender === "أنثى") {
+                discussionLink = "https://facebook.com/groups/girls_group_link"; // ضعي رابط البنات هنا
+            } else {
+                discussionLink = "https://facebook.com/groups/boys_group_link"; // ضعي رابط الشباب هنا
+            }
+
+            // 5. تفعيل الكروت التفاعلية
             activateInteractionCard('card-library', 'lib-status', "انقر لفتح Drive", () => window.open('https://drive.google.com/drive/folders/1rhrsuuQ3omkbiQYk-EINJ81zWb05bwnp', '_blank'));
-            activateInteractionCard('card-chat', 'chat-status', "انقر للانضمام لصفحة الفيسبوك", () => window.open('https://www.facebook.com/profile.php?id=61578149949616', '_blank'));
+
+            // هنا التعديل: تفعيل كرت حلقات النقاش بالرابط المتغير
+            activateInteractionCard('card-chat', 'chat-status', "انقر للانضمام لحلقة النقاش", () => window.open(discussionLink, '_blank'));
+
             activateInteractionCard('card-certs', 'cert-status', "انقر لاستعراض الشهادات", openCertificates);
         }
+        // function updateUIOnLogin(name) {
+        //     // إخفاء أزرار الدخول
+        //     ['heroLoginBtn', 'loginBtnNav'].forEach(id => document.getElementById(id)?.classList.add('hidden'));
+
+        //     // إظهار الترحيب والاسم
+        //     document.getElementById('userWelcome')?.classList.remove('hidden');
+        //     document.getElementById('studentFirstName').innerText = name;
+
+        //     // إظهار أقسام الطلاب
+        //     ['scheduleNavItem', 'scheduleSection'].forEach(id => document.getElementById(id)?.classList.remove('hidden'));
+
+        //     // تفعيل الكروت التفاعلية
+        //     activateInteractionCard('card-library', 'lib-status', "انقر لفتح Drive", () => window.open('https://drive.google.com/drive/folders/1rhrsuuQ3omkbiQYk-EINJ81zWb05bwnp', '_blank'));
+        //     activateInteractionCard('card-chat', 'chat-status', "انقر للانضمام لصفحة الفيسبوك", () => window.open('https://www.facebook.com/profile.php?id=61578149949616', '_blank'));
+        //     activateInteractionCard('card-certs', 'cert-status', "انقر لاستعراض الشهادات", openCertificates);
+        // }
 
         function activateInteractionCard(cardId, statusId, text, action) {
             const card = document.getElementById(cardId);
@@ -730,7 +833,8 @@
             const s1 = document.getElementById('semester1-content');
             const s2 = document.getElementById('semester2-content');
             if (!s1 || !s2) return;
-            s1.innerHTML = ""; s2.innerHTML = "";
+            s1.innerHTML = "";
+            s2.innerHTML = "";
 
             for (const [name, data] of Object.entries(coursesData)) {
                 const card = `
@@ -813,10 +917,13 @@
         }
 
         function logout() {
-            document.getElementById('userWelcome')?.classList.add('hidden');
+            document.getElementById('userWelcome') ? .classList.add('hidden');
             document.getElementById('loginBtnNav').classList.remove('hidden');
-            ['scheduleNavItem', 'scheduleSection'].forEach(id => document.getElementById(id)?.classList.add('hidden'));
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            ['scheduleNavItem', 'scheduleSection'].forEach(id => document.getElementById(id) ? .classList.add('hidden'));
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
 
         function toggleDarkMode() {
@@ -861,57 +968,534 @@
         function closeCourseModal() {
             closeModal('courseModal');
         }
-        function toggleMobileMenu() {
-    const menu = document.getElementById('navMenu');
-    const icon = document.getElementById('menuIcon');
-    
-    // تبديل ظهور القائمة
-    menu.classList.toggle('hidden');
-    menu.classList.toggle('flex');
-    
-    // تغيير شكل الأيقونة بين (همبرغر) و (X)
-    if (menu.classList.contains('hidden')) {
-        icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // شكل ☰
-    } else {
-        icon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // شكل X
-    }
-}
 
-// إغلاق المنيو تلقائياً عند النقر على أي رابط (مهم للجوال)
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth < 1024) { // فقط في شاشات الجوال
-            toggleMobileMenu();
+        function toggleMobileMenu() {
+            const menu = document.getElementById('navMenu');
+            const icon = document.getElementById('menuIcon');
+
+            // تبديل ظهور القائمة
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+
+            // تغيير شكل الأيقونة بين (همبرغر) و (X)
+            if (menu.classList.contains('hidden')) {
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // شكل ☰
+            } else {
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // شكل X
+            }
         }
-    });
-});
-        
+
+        // إغلاق المنيو تلقائياً عند النقر على أي رابط (مهم للجوال)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1024) { // فقط في شاشات الجوال
+                    toggleMobileMenu();
+                }
+            });
+        });
     </script>
-   
-    <div id="certModal"
-        class="fixed inset-0 bg-black/95 z-[999] hidden items-center justify-center p-4 backdrop-blur-sm">
-        <button onclick="closeModal('certModal')"
-            class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center bg-[#C5A059] text-white rounded-full text-3xl font-bold hover:scale-110 transition-transform animate-bounce z-[1001] shadow-lg">×</button>
+
+    <div id="certModal" class="fixed inset-0 bg-black/95 z-[999] hidden items-center justify-center p-4 backdrop-blur-sm">
+        <button onclick="closeModal('certModal')" class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center bg-[#C5A059] text-white rounded-full text-3xl font-bold hover:scale-110 transition-transform animate-bounce z-[1001] shadow-lg">×</button>
 
         <div class="relative w-full max-w-5xl flex items-center justify-center overflow-hidden group">
-            <button onclick="moveCert(-1)"
-                class="absolute left-4 z-[1000] bg-white/10 p-4 rounded-full text-white hover:bg-[#C5A059] transition-all text-2xl shadow-xl">❮</button>
+            <button onclick="moveCert(-1)" class="absolute left-4 z-[1000] bg-white/10 p-4 rounded-full text-white hover:bg-[#C5A059] transition-all text-2xl shadow-xl">❮</button>
 
             <div class="overflow-hidden w-[80%] md:w-[60%]">
                 <div id="certSlider" class="flex transition-transform duration-500 ease-in-out">
                 </div>
             </div>
 
-            <button onclick="moveCert(1)"
-                class="absolute right-4 z-[1000] bg-white/10 p-4 rounded-full text-white hover:bg-[#C5A059] transition-all text-2xl shadow-xl">❯</button>
+            <button onclick="moveCert(1)" class="absolute right-4 z-[1000] bg-white/10 p-4 rounded-full text-white hover:bg-[#C5A059] transition-all text-2xl shadow-xl">❯</button>
         </div>
     </div>
 
     <div id="fullCertView" class="fixed inset-0 bg-black/90 z-[2000] hidden items-center justify-center p-4">
-        <button onclick="closeModal('fullCertView')"
-            class="absolute top-8 right-8 text-white text-5xl font-light hover:text-[#C5A059] transition-colors">×</button>
+        <button onclick="closeModal('fullCertView')" class="absolute top-8 right-8 text-white text-5xl font-light hover:text-[#C5A059] transition-colors">×</button>
         <img id="fullCertImg" src="" class="max-w-full max-h-full rounded-lg shadow-2xl border-2 border-white/20">
     </div>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معهد بصائر للعلوم الشرعية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --primary-brown: #5D4037;
+            --gold-accent: #C5A059;
+            --bg-light: #FCFAf5;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        
+        h1,
+        h2,
+        h3,
+        .font-amiri {
+            font-family: 'Amiri', serif;
+        }
+        
+        .dark-mode {
+            background-color: #0F172A !important;
+            color: #F1E4C3 !important;
+        }
+        
+        .dark-mode nav {
+            background-color: rgba(15, 23, 42, 0.95) !important;
+        }
+        
+        .dark-mode .course-card {
+            background: rgba(30, 41, 59, 0.6) !important;
+            border: 1px solid rgba(197, 160, 89, 0.2) !important;
+        }
+        
+        .dark-mode h1,
+        .dark-mode h2,
+        .dark-mode h3,
+        .dark-mode p {
+            color: #F1E4C3 !important;
+        }
+        
+        .islamic-pattern {
+            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
+            opacity: 0.05;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .btn-gold {
+            background-color: var(--gold-accent);
+            color: white;
+            transition: 0.3s;
+            animation: pulse-gold 2s infinite;
+        }
+        
+        @keyframes pulse-gold {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4);
+            }
+            70% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 10px rgba(197, 160, 89, 0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .course-card {
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border-right: 4px solid transparent;
+            background: white;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            border-right-color: var(--gold-accent);
+        }
+        
+        .nav-active {
+            border-bottom: 2px solid var(--gold-accent) !important;
+            color: var(--gold-accent) !important;
+        }
+        
+        .success-msg {
+            color: #2e7d32;
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #c8e6c9;
+        }
+        
+        .error-msg {
+            color: #c62828;
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #ffcdd2;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <div class="text-3xl font-bold text-[#5D4037] font-amiri tracking-wider">معهد بَصائر</div>
+                <div id="userWelcome" class="hidden text-[#5D4037] font-bold flex items-center gap-2 border-r pr-4 mr-4">
+                    <span>أهلاً بك، <span id="studentFirstName" class="text-[#C5A059]"></span></span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <ul id="navMenu" class="hidden lg:flex space-x-8 space-x-reverse text-[#5D4037] font-medium">
+                    <li><a href="#hero" class="nav-link">الرئيسية</a></li>
+                    <li><a href="#guide" class="nav-link">الدليل</a></li>
+                    <li><a href="#path" class="nav-link">المسار العلمي</a></li>
+                    <li id="scheduleNavItem" class="hidden"><a href="javascript:void(0)" onclick="toggleModal('scheduleSection', 'open')" class="text-[#C5A059]">الجدول</a></li>
+                </ul>
+                <div id="authArea">
+                    <button id="loginBtnNav" onclick="openLogin()" class="btn-gold px-6 py-2 rounded-md font-bold text-sm">بوابة المقبولين</button>
+                </div>
+                <button onclick="toggleDarkMode()" id="darkModeBtn" class="p-2 text-xl">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="relative bg-[#F5F5DC] py-28 overflow-hidden border-b-4 border-[#C5A059]">
+        <div class="islamic-pattern"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold text-[#4E342E] mb-6">معهد بصائر للعلوم الشرعية</h1>
+            <p class="text-xl text-[#6D4C41] max-w-2xl mx-auto mb-10 italic">رحلة إيمانية تجمع بين تأصيل التراث وأدوات العصر.</p>
+            <div class="flex justify-center gap-4">
+                <button id="heroLoginBtn" onclick="openLogin()" class="btn-gold px-10 py-4 rounded-lg text-lg font-bold">بوابة التحقق من القبول</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="guide" class="py-16 px-6 bg-[#FCFAf5] relative">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-4xl font-bold text-center text-[#5D4037] mb-12">الدليل التعريفي</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="course-card p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-[#5D4037] mb-4">📜 أهداف الدبلوم</h3>
+                    <p class="text-gray-600">تأصيل العلوم الشرعية وبناء الحصانة الفكرية لمواجهة الأفكار المنحرفة.</p>
+                </div>
+                <div class="course-card p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-[#5D4037] mb-4">🌐 آلية الدراسة</h3>
+                    <p class="text-gray-600">دراسة عن بُعد عبر مجتمعات واتساب متخصصة ومنصة مودل للاختبارات.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="path" class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-[#5D4037] font-amiri mb-10">خريطةُ بصائر العِلمية</h2>
+            <div class="inline-flex bg-gray-100 p-2 rounded-full mb-12">
+                <button onclick="showSemester(1)" id="btn-sem1" class="px-10 py-3 rounded-full font-bold transition-all">الفصل الأول</button>
+                <button onclick="showSemester(2)" id="btn-sem2" class="px-10 py-3 rounded-full font-bold transition-all">الفصل الثاني</button>
+            </div>
+            <div id="semester1-content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+            <div id="semester2-content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 hidden"></div>
+        </div>
+    </section>
+
+    <section id="scheduleSection" class="fixed inset-0 bg-black/80 z-[400] hidden items-center justify-center p-4">
+        <div class="bg-white p-4 rounded-2xl max-w-4xl w-full relative">
+            <button onclick="toggleModal('scheduleSection', 'close')" class="absolute -top-10 right-0 text-white text-3xl">&times;</button>
+            <img src="scedule.jpg" alt="الجدول الدراسي" class="w-full rounded-lg">
+        </div>
+    </section>
+
+    <section id="community" class="py-20 bg-[#5D4037] text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-10 text-[#C5A059]">مجتمع بصائر التفاعلي</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div id="card-library" class="bg-white/5 p-8 rounded-2xl border border-white/10 opacity-50 cursor-default">
+                    <div class="text-4xl mb-4">📚</div>
+                    <h3 class="font-bold text-xl text-[#C5A059]">المكتبة الإلكترونية</h3>
+                    <p id="lib-status" class="text-xs text-gray-400 mt-2">(تسجيل الدخول مطلوب)</p>
+                </div>
+                <div id="card-chat" class="bg-white/5 p-8 rounded-2xl border border-white/10 opacity-50 cursor-default">
+                    <div class="text-4xl mb-4">💬</div>
+                    <h3 class="font-bold text-xl text-[#C5A059]">حلقات النقاش</h3>
+                    <p id="chat-status" class="text-xs text-gray-400 mt-2">(متاح للمقبولين)</p>
+                </div>
+                <div id="card-certs" class="bg-white/5 p-8 rounded-2xl border border-white/10 opacity-50 cursor-default">
+                    <div class="text-4xl mb-4">🏆</div>
+                    <h3 class="font-bold text-xl text-[#C5A059]">لوحات الشرف</h3>
+                    <p id="cert-status" class="text-xs text-gray-400 mt-2">(متاح للمقبولين)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="loginModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[200] hidden items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl border-2 border-[#C5A059] overflow-hidden transform transition-all">
+            <div class="bg-[#5D4037] p-6 text-white text-center relative">
+                <h3 class="text-2xl font-amiri">بوابة التحقق للمقبولين</h3>
+                <button onclick="closeLogin()" class="absolute top-4 left-4 text-white/50 hover:text-white">&times;</button>
+            </div>
+            <div class="p-8">
+                <p class="text-sm text-gray-500 mb-4 text-center italic">أدخل رقم الهوية وكلمة المرور للدخول</p>
+
+                <input type="text" id="idInput" placeholder="رقم الهوية" class="w-full p-3 rounded-xl border-2 border-[#F5F5DC] focus:border-[#C5A059] outline-none text-center mb-3 text-lg font-bold">
+
+                <input type="password" id="passwordInput" placeholder="كلمة المرور" class="w-full p-3 rounded-xl border-2 border-[#F5F5DC] focus:border-[#C5A059] outline-none text-center mb-4 text-lg font-bold">
+
+                <button onclick="checkStudent()" id="checkBtn" class="w-full bg-[#C5A059] text-white font-bold py-4 rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition">تحقق الآن</button>
+                <div id="loginMsg" class="text-center mt-6 text-sm font-bold min-h-[60px]"></div>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="loginModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[200] hidden items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl border-b-8 border-[#C5A059] overflow-hidden">
+            <div class="bg-[#5D4037] p-8 text-white text-center">
+                <h3 class="text-2xl font-amiri font-bold">بوابة التحقق للمقبولين</h3>
+            </div>
+            <div class="p-8 space-y-4">
+                <input type="text" id="idInput" placeholder="رقم الهوية" class="w-full p-4 rounded-xl border-2 border-[#F5F5DC] outline-none text-center text-xl font-bold">
+                <input type="password" id="passwordInput" placeholder="كلمة المرور" class="w-full p-4 rounded-xl border-2 border-[#F5F5DC] outline-none text-center text-xl font-bold">
+                <button onclick="checkStudent()" class="w-full bg-[#5D4037] text-white font-bold py-4 rounded-xl shadow-lg hover:bg-[#3E2723] transition-all">تحقق من السجلات</button>
+                <div id="loginMsg"></div>
+                <button onclick="closeLogin()" class="w-full text-gray-400 text-sm italic">إغلاق النافذة</button>
+            </div>
+        </div>
+    </div> -->
+
+    <div id="courseModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[300] hidden items-center justify-center p-4">
+        <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl border-b-8 border-[#C5A059] overflow-hidden">
+            <div class="p-8 text-right">
+                <div class="flex justify-between items-start mb-4">
+                    <span id="modalSem" class="bg-[#F5F5DC] text-[#C5A059] px-3 py-1 rounded-full text-xs"></span>
+                    <button onclick="toggleModal('courseModal', 'close')" class="text-3xl">&times;</button>
+                </div>
+                <h3 id="modalTitle" class="text-3xl font-bold text-[#5D4037] font-amiri mb-2"></h3>
+                <p id="modalTeacher" class="text-[#C5A059] font-bold mb-6 italic border-b pb-4 border-[#F5F5DC]"></p>
+                <p id="modalDesc" class="text-gray-700 leading-relaxed mb-8 text-lg"></p>
+                <button onclick="toggleModal('courseModal', 'close')" class="w-full bg-[#5D4037] text-white py-4 rounded-xl font-bold">حسناً، فهمت</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const coursesData = {
+            'العقيدة الإسلامية (1)': {
+                teacher: 'د. بكر أبو صوصين',
+                phone: '972599793244',
+                desc: 'تأصيل التوحيد وأصول الإيمان على منهج أهل السنة والجماعة.',
+                sem: 'الفصل الدراسي الأول'
+            },
+            'علوم القرآن': {
+                teacher: 'د. عامر قاسم',
+                phone: '',
+                desc: 'دراسة نشأة علوم القرآن، تدوينه، وإعجازه.',
+                sem: 'الفصل الدراسي الأول'
+            },
+            'اللغة العربية': {
+                teacher: 'د. عمر الهمص',
+                phone: '972594080047',
+                desc: 'مبادئ النحو العربي وتطبيقات عملية من القرآن الكريم.',
+                sem: 'الفصل الدراسي الأول'
+            },
+            'أصول الفقه': {
+                teacher: 'د. حسام الجزار',
+                phone: '970567331795',
+                desc: 'دراسة قواعد الاستنباط والأدلة المتفق عليها والمختلف فيها.',
+                sem: 'الفصل الدراسي الأول'
+            },
+            'فقه المعاملات': {
+                teacher: 'د. صهيب الرومي',
+                phone: '972592160004',
+                desc: 'أحكام البيوع، المصارف الإسلامية، والعقود المالية الحديثة.',
+                sem: 'الفصل الدراسي الثاني'
+            }
+        };
+
+        function toggleModal(id, action = 'open') {
+            const modal = document.getElementById(id);
+            if (action === 'open') {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            } else {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
+        }
+
+        function openLogin() {
+            toggleModal('loginModal', 'open');
+        }
+
+        function closeLogin() {
+            toggleModal('loginModal', 'close');
+        }
+
+        // async function checkStudent() {
+        //     const idInput = document.getElementById('idInput').value.trim();
+        //     const passwordInput = document.getElementById('passwordInput').value.trim();
+        //     const msgArea = document.getElementById('loginMsg');
+
+        //     if (passwordInput !== '12345678') {
+        //         msgArea.innerHTML = "<div class='error-msg'>كلمة المرور غير صحيحة</div>";
+        //         return;
+        //     }
+
+        //     try {
+        //         const response = await fetch('students.json');
+        //         const students = await response.json();
+        //         const student = students.find(s => String(s["رقم الهوية"]) === idInput);
+
+        //         if (student) {
+        //             const firstName = student["الاسم رباعي "].split(' ')[0];
+        //             updateUIOnLogin(firstName);
+        //             msgArea.innerHTML = "<div class='success-msg'>تم تسجيل الدخول بنجاح</div>";
+        //             setTimeout(closeLogin, 1000);
+        //         } else {
+        //             msgArea.innerHTML = "<div class='error-msg'>رقم الهوية غير مسجل</div>";
+        //         }
+        //     } catch (e) {
+        //         msgArea.innerHTML = "<div class='error-msg'>خطأ في تحميل ملف students.json</div>";
+        //     }
+        // }
+        // متغير عالمي لتتبع حالة تسجيل الدخول
+        let isLoggedIn = false;
+
+        async function checkStudent() {
+            const idInput = document.getElementById('idInput').value.trim();
+            const passInput = document.getElementById('passwordInput').value.trim(); // جلب الباسوورد
+            const msgArea = document.getElementById('loginMsg');
+
+            if (!idInput || !passInput) {
+                msgArea.innerHTML = "<div class='error-msg'>يرجى إدخال كافة البيانات</div>";
+                return;
+            }
+
+            // التحقق من كلمة المرور المطلوبة
+            if (passInput !== "12345678") {
+                msgArea.innerHTML = "<div class='error-msg'>كلمة المرور غير صحيحة</div>";
+                return;
+            }
+
+            try {
+                const response = await fetch('students.json');
+                if (!response.ok) throw new Error("بيانات الطلاب غير متوفرة");
+
+                const students = await response.json();
+                const student = students.find(s => String(s["رقم الهوية"]) === idInput);
+
+                if (student) {
+                    isLoggedIn = true; // تفعيل حالة الدخول
+                    const firstName = student["الاسم رباعي "].split(' ')[0];
+                    updateUIOnLogin(firstName);
+                    msgArea.innerHTML = `<div class='success-msg text-center'>تم الدخول بنجاح.. أهلاً بك يا ${firstName}</div>`;
+                    setTimeout(() => toggleModal('loginModal', 'close'), 1000);
+                } else {
+                    msgArea.innerHTML = "<div class='error-msg'>رقم الهوية غير مسجل في الكشوفات</div>";
+                }
+            } catch (error) {
+                msgArea.innerHTML = "<div class='error-msg'>حدث خطأ في الاتصال بالبيانات</div>";
+            }
+        }
+
+        // تعديل دالة فتح تفاصيل المساق لتشترط تسجيل الدخول
+        function openCourse(name) {
+            if (!isLoggedIn) {
+                alert("عذراً، يجب تسجيل الدخول أولاً لرؤية تفاصيل المساقات وتواصل المعلمين.");
+                openLogin(); // فتح نافذة الدخول تلقائياً
+                return;
+            }
+
+            const d = coursesData[name];
+            const studentName = document.getElementById('studentFirstName').innerText || "طالب بصائر";
+            const modalTeacher = document.getElementById('modalTeacher');
+
+            document.getElementById('modalTitle').innerText = name;
+            document.getElementById('modalDesc').innerText = d.desc;
+            document.getElementById('modalSem').innerText = d.sem;
+
+            if (d.phone) {
+                const msg = encodeURIComponent(`السلام عليكم أنا ${studentName}، لدي استفسار في مساق ${name}`);
+                modalTeacher.innerHTML = `بإشراف: <a href="https://wa.me/${d.phone}?text=${msg}" target="_blank" class="text-[#25D366] font-bold hover:underline">
+        ${d.teacher} <span class="text-[10px] bg-[#25D366] text-white px-2 py-0.5 rounded-full">تواصل 💬</span></a>`;
+            } else {
+                modalTeacher.innerText = `بإشراف: ${d.teacher}`;
+            }
+            toggleModal('courseModal', 'open');
+        }
+
+        function updateUIOnLogin(name) {
+            document.getElementById('studentFirstName').innerText = name;
+            document.getElementById('userWelcome').classList.remove('hidden');
+            document.getElementById('loginBtnNav').classList.add('hidden');
+            document.getElementById('heroLoginBtn').classList.add('hidden');
+            document.getElementById('scheduleNavItem').classList.remove('hidden');
+
+            activateCard('card-library', 'lib-status', "فتح المكتبة الرقمية");
+            activateCard('card-chat', 'chat-status', "الانضمام للمجتمع");
+            activateCard('card-certs', 'cert-status', "استعراض لوحة الشرف");
+        }
+
+        function activateCard(id, statusId, text) {
+            const card = document.getElementById(id);
+            card.classList.replace('opacity-50', 'opacity-100');
+            card.classList.replace('cursor-default', 'cursor-pointer');
+            document.getElementById(statusId).innerText = text;
+        }
+
+        function initCourses() {
+            const s1 = document.getElementById('semester1-content');
+            const s2 = document.getElementById('semester2-content');
+            Object.entries(coursesData).forEach(([name, data]) => {
+                const card = `
+                <div onclick="openCourse('${name}')" class="course-card p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-[#5D4037] mb-2">${name}</h3>
+                    <p class="text-sm text-[#C5A059] mb-4">${data.teacher}</p>
+                    <div class="text-[10px] text-gray-400">انقر للتفاصيل ...</div>
+                </div>`;
+                if (data.sem.includes('الأول')) s1.innerHTML += card;
+                else s2.innerHTML += card;
+            });
+            showSemester(1);
+        }
+
+        function openCourse(name) {
+            const d = coursesData[name];
+            const studentElem = document.getElementById('studentFirstName');
+            const studentName = (studentElem && studentElem.innerText) ? studentElem.innerText : "طالب بصائر";
+
+            document.getElementById('modalTitle').innerText = name;
+            document.getElementById('modalDesc').innerText = d.desc;
+            document.getElementById('modalSem').innerText = d.sem;
+
+            const modalTeacher = document.getElementById('modalTeacher');
+            if (d.phone) {
+                const msg = encodeURIComponent(`السلام عليكم أنا ${studentName}، لدي استفسار في مساق ${name}`);
+                modalTeacher.innerHTML = `بإشراف: <a href="https://wa.me/${d.phone}?text=${msg}" target="_blank" class="text-[#25D366] font-bold">
+                ${d.teacher} 💬</a>`;
+            } else {
+                modalTeacher.innerText = `بإشراف: ${d.teacher}`;
+            }
+            toggleModal('courseModal', 'open');
+        }
+
+        function showSemester(n) {
+            document.getElementById('semester1-content').classList.toggle('hidden', n !== 1);
+            document.getElementById('semester2-content').classList.toggle('hidden', n !== 2);
+            document.getElementById('btn-sem1').className = n === 1 ? "px-10 py-3 rounded-full font-bold bg-[#5D4037] text-white" : "px-10 py-3 rounded-full font-bold";
+            document.getElementById('btn-sem2').className = n === 2 ? "px-10 py-3 rounded-full font-bold bg-[#5D4037] text-white" : "px-10 py-3 rounded-full font-bold";
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            document.getElementById('darkModeBtn').innerText = isDark ? '☀️' : '🌙';
+        }
+
+        window.onload = initCourses;
+    </script>
 </body>
 
 </html>
